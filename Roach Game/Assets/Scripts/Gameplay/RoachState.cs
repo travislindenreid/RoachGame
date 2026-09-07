@@ -226,6 +226,52 @@ public partial class Roach
     }
 
     // ------------------------------------------------------------------------
+    protected class RoachCinematicRunningState : RoachState
+    {
+        // --------------------------------------------------------------------
+        // Variables
+        // --------------------------------------------------------------------
+        private float _legAnimTime;
+        private Vector3[] _legRots;
+
+        // --------------------------------------------------------------------
+        // Methods
+        // --------------------------------------------------------------------
+        public override void EnterState(Roach roach)
+        {
+            base.EnterState(roach);
+
+            _roach.ResetAntennae();
+
+            _legRots = new Vector3[_roach._legs.Length];
+            for(int i = 0; i < _legRots.Length; i++)
+            {
+                _legRots[i] = _roach._legAnim;
+                if(Random.Range(0,2) == 0) _legRots[i] = -_legRots[i];
+            }
+        }
+
+        // --------------------------------------------------------------------
+        public override void RunState(float deltaTime)
+        {
+            _legAnimTime += deltaTime;
+            if(_legAnimTime >= _roach._legFlipTime)
+            {
+                _legAnimTime = 0;
+                
+                for(int i = 0; i < _legRots.Length; i++)
+                {
+                    _legRots[i] = new Vector3(-_legRots[i].x, _legRots[i].y, _legRots[i].z);
+                }
+            }
+            for(int i = 0; i < _roach._legs.Length; i++)
+            {
+                _roach._legs[i].Rotate(_legRots[i] * Time.deltaTime);
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------------
     protected class RoachDeadState : RoachState
     {
         // --------------------------------------------------------------------

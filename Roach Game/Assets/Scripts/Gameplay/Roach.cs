@@ -21,7 +21,7 @@ public partial class Roach : MonoBehaviour
     // ------------------------------------------------------------------------
     private enum RoachStateType
     {
-        Idle, Running, Dead, Collected, Attacking, Cinematic
+        Idle, Running, Dead, Collected, Attacking, Cinematic, CinematicRun
     }
 
     private enum MovementPlane
@@ -35,6 +35,7 @@ public partial class Roach : MonoBehaviour
     [Header("Unique Values")]
     [SerializeField] private bool _isDocile;
     [SerializeField] private bool _isImmobile;
+    [SerializeField] private bool _doCinematicRunInCircle;
     [SerializeField] private MovementPlane _movementPlane = MovementPlane.XZ;
     [Header("Movement")]
     [SerializeField] private Vector2 _idleTimeMinMax;
@@ -117,13 +118,21 @@ public partial class Roach : MonoBehaviour
 
         _renderers = GetComponentsInChildren<MeshRenderer>().ToArray();
 
-        EnterState(RoachStateType.Idle);
+        if(_doCinematicRunInCircle)
+        {
+            EnterState(RoachStateType.CinematicRun);
+        }
+        else
+        {
+            EnterState(RoachStateType.Idle);
+        }
     }
 
     // ------------------------------------------------------------------------
     private void Update ()
     {
-        if(SequenceController._Instance == null || SequenceController._Instance._ActiveStateType != GameStateType.Action)
+        if(SequenceController._Instance == null ||
+            (SequenceController._Instance._ActiveStateType != GameStateType.Action && !_doCinematicRunInCircle))
         {
             return;
         }
@@ -300,6 +309,7 @@ public partial class Roach : MonoBehaviour
             case RoachStateType.Dead: _currentState = new RoachDeadState(); break;
             case RoachStateType.Collected: _currentState = new RoachCollectedState(); break;
             case RoachStateType.Cinematic: _currentState = new RoachCinematicState(); break;
+            case RoachStateType.CinematicRun: _currentState = new RoachCinematicRunningState(); break;
             default: Debug.LogError("unhandled roach state: " + newState); break;
         }
         //Debug.LogFormat("{0} new state: {1}", gameObject.name, _currentState);
