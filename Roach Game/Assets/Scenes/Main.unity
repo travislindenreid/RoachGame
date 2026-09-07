@@ -3608,6 +3608,57 @@ Transform:
   - {fileID: 1315899049}
   m_Father: {fileID: 777138611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &458379161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458379162}
+  - component: {fileID: 458379163}
+  m_Layer: 0
+  m_Name: Cinematic_8.2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &458379162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458379161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1769200217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &458379163
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458379161}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 68f471d6c1fbc4b1c98e1db195f2ebcd, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3183343949588384590, guid: 68f471d6c1fbc4b1c98e1db195f2ebcd, type: 2}
+    value: {fileID: 1565540852}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &461903807
 GameObject:
   m_ObjectHideFlags: 0
@@ -10167,7 +10218,8 @@ MonoBehaviour:
   _triggerClue: {fileID: 11400000, guid: b5367046299a74a5aa081b0578803899, type: 2}
   _finishClue: {fileID: 0}
   _gameStateType: 3
-  _objects: []
+  _objects:
+  - {fileID: 458379161}
   _disableObjectsAtEnd: 1
   _removeRoachesInHandAtEnd: 1
   _dialogueStartNode: {fileID: 11400000, guid: 0662b61b98eb34d8ab67ba730161065e, type: 2}
@@ -13012,7 +13064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7232dec1ba15340229892af1f553fd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _openGameSequence: {fileID: 952804067}
+  _openGameSequence: {fileID: 241080772}
   _player: {fileID: 1466435970}
 --- !u!114 &1565540850
 MonoBehaviour:
@@ -13085,6 +13137,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 176388b4e69644e1aa2150ec488a5261, type: 2}
     - {fileID: 11400000, guid: 7726c9e4f1f904aab9174a2a09fb4759, type: 2}
     - {fileID: 11400000, guid: 6855320de20b543d982414f2bdedd3a1, type: 2}
+    - {fileID: 11400000, guid: 28b60ca7d53d04750a228bb36bc262ea, type: 2}
+    - {fileID: 11400000, guid: c31f539c820a94543b8604a2149e5309, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -13348,9 +13402,37 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: PropCinematics, Assembly-CSharp
+          m_MethodName: OpenSafe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 1565540853}
           m_TargetAssemblyTypeName: PropEffectsController, Assembly-CSharp
-          m_MethodName: StartSafeAnimation
+          m_MethodName: StartSafeMold
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1565540853}
+          m_TargetAssemblyTypeName: PropEffectsController, Assembly-CSharp
+          m_MethodName: StartApartmentSafeMold
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14943,6 +15025,7 @@ Transform:
   - {fileID: 1935987420}
   - {fileID: 1975336824}
   - {fileID: 1949728583}
+  - {fileID: 458379162}
   - {fileID: 1459229880}
   - {fileID: 1877859572}
   - {fileID: 898318366}
@@ -16607,7 +16690,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 696c3d50baa8f4b9c9ca79bcd4406d8b, type: 2}
+  - {fileID: 2100000, guid: c434791a730fb974b93dbfb946509ded, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
