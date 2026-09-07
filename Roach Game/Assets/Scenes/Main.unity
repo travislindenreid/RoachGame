@@ -12989,7 +12989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7232dec1ba15340229892af1f553fd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _openGameSequence: {fileID: 241080772}
+  _openGameSequence: {fileID: 1894185256}
   _player: {fileID: 1466435970}
 --- !u!114 &1565540850
 MonoBehaviour:
