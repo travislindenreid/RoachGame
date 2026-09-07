@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e73c74317ae74a158dfb9869f27af1b, type: 2}
   _speaker: {fileID: 11400000, guid: 54cdd345cf33948e4a2f1d28028fe78d, type: 2}
   _lines:
-  - i thought we had dealt with this
+  - i thought we had dealt with this months ago
   - but maybe pest control didn't do a great job
   _options:
   - _optionText: ((or never came. lmao))

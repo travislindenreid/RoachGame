@@ -14,15 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   _id: 815728
   _requiredClues: []
-  _cluesGiven: []
-  _speaker: {fileID: 11400000, guid: 5744fcc6345674224af0fbb105164c08, type: 2}
+  _cluesGiven:
+  - {fileID: 11400000, guid: 48e781bf0fee843e6afec65a47b62132, type: 2}
+  _speaker: {fileID: 11400000, guid: 54cdd345cf33948e4a2f1d28028fe78d, type: 2}
   _lines:
-  - You're going to see roaches.
-  - Even if we eliminate them in your unit, your neighbors might have them.
-  - It's the tenant's job to be clean for inspections.
-  - We'll see what we can do today.
-  - Just make sure you have everything cleaned up by Thursday.
-  _options:
-  - _optionText: ((i'm just going to SEE. ROACHES.???))
-    _nextNode: {fileID: 11400000, guid: e98c927b99b1a46e19697bcfe42427b0, type: 2}
+  - ((well that was almost useless))
+  - ((if emily is here, she'd be so much better using her customer service voice
+    on them...))
+  - ((but i guess pest control is coming regardless?))
+  _options: []
   _Chat: {fileID: 11400000, guid: 95c90212984b04cb8baad66588ac4b84, type: 2}

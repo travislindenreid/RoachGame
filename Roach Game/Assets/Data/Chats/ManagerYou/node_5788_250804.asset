@@ -20,7 +20,8 @@ MonoBehaviour:
   - I don't care if it was pest control's fault for not showing up,
   - or if you just didn't call them,
   - but they're straight up attacking me.
-  - They're... they're biting me.
+  - They're...
+  - they're... biting me.
   - You seriously can't let this fly.
   _options:
   - _optionText: ((i'm giving her my "i'm serious" face.))

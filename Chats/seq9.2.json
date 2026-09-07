@@ -1,10 +1,10 @@
 {
   "passages": [
     {
-      "text": "<line> the office...\n[[it's covered in mold and roaches...]]",
+      "text": "<line> ((the office...))\n[[((it's covered in mold and roaches...))->it's covered in mold and roaches...]]",
       "links": [
         {
-          "name": "it's covered in mold and roaches...",
+          "name": "((it's covered in mold and roaches...))",
           "link": "it's covered in mold and roaches...",
           "pid": "2"
         }

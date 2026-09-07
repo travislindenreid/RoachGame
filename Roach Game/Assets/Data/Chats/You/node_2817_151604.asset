@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09cb132b6c1e4400b8264572cba1fc57, type: 2}
   _speaker: {fileID: 11400000, guid: 54cdd345cf33948e4a2f1d28028fe78d, type: 2}
   _lines:
-  - ... was something strange ... in my vision?
+  - ... is something strange ... in my vision?
   - no, i can't be having more issues right now
   - i don't want to worry about my health or whatever
   - i need to get rid of as many of these lil fuckers as i can

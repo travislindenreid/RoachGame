@@ -17,8 +17,8 @@ MonoBehaviour:
   _cluesGiven: []
   _speaker: {fileID: 11400000, guid: 54cdd345cf33948e4a2f1d28028fe78d, type: 2}
   _lines:
-  - the office...
+  - ((the office...))
   _options:
-  - _optionText: it's covered in mold and roaches...
+  - _optionText: ((it's covered in mold and roaches...))
     _nextNode: {fileID: 11400000, guid: 8b74cf64ea3614bb79ccd9d65568bdb6, type: 2}
   _Chat: {fileID: 11400000, guid: 95c90212984b04cb8baad66588ac4b84, type: 2}

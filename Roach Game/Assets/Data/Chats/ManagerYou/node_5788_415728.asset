@@ -23,5 +23,5 @@ MonoBehaviour:
   - And make sure they actually finish the job this time.
   _options:
   - _optionText: ((yeah! straightforward.))
-    _nextNode: {fileID: 11400000, guid: ca5c266c21ae74b8699bb6614df99d93, type: 2}
+    _nextNode: {fileID: 11400000, guid: d8edac61bd23d4fd2815e3633c247368, type: 2}
   _Chat: {fileID: 11400000, guid: 95c90212984b04cb8baad66588ac4b84, type: 2}

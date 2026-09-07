@@ -68,7 +68,7 @@
         {
           "name": "((yeah! straightforward.))",
           "link": "annoyed",
-          "pid": "8"
+          "pid": "7"
         }
       ],
       "name": "((or i could match her energy. and also sound annoyed. which i am. on account of the roaches.))",
@@ -87,12 +87,12 @@
         {
           "name": "((okay! that went well))",
           "link": "((okay! that went well))",
-          "pid": "7"
+          "pid": "6"
         },
         {
           "name": "((wait... so are they not able to order pest control today, or are they definitely coming...?))",
           "link": "annoyed",
-          "pid": "8"
+          "pid": "7"
         }
       ],
       "name": "((kill 'em with kindness!))",
@@ -106,21 +106,9 @@
       ]
     },
     {
-      "text": "",
-      "name": "((yeah! straightforward.))",
-      "pid": "6",
-      "position": {
-        "x": "725",
-        "y": "625"
-      },
-      "tags": [
-        "Manager"
-      ]
-    },
-    {
       "text": "<cluegiven> EndSeq2.3\n<line> ((okay, I think she's sending pest control...?))\n<line> ((god emily is so much better at talking to them))",
       "name": "((okay! that went well))",
-      "pid": "7",
+      "pid": "6",
       "position": {
         "x": "575",
         "y": "775"
@@ -135,11 +123,11 @@
         {
           "name": "((i'm just going to SEE. ROACHES.???))",
           "link": "((i'm just going to SEE. ROACHES.???))",
-          "pid": "9"
+          "pid": "8"
         }
       ],
       "name": "annoyed",
-      "pid": "8",
+      "pid": "7",
       "position": {
         "x": "725",
         "y": "775"
@@ -151,7 +139,7 @@
     {
       "text": "<cluegiven> EndSeq2.3\n<line> ((well that was almost useless))\n<line> ((if emily is here, she'd be so much better using her customer service voice on them...))\n<line> ((but i guess pest control is coming regardless?))",
       "name": "((i'm just going to SEE. ROACHES.???))",
-      "pid": "9",
+      "pid": "8",
       "position": {
         "x": "725",
         "y": "900"

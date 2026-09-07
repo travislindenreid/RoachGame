@@ -23,8 +23,8 @@ MonoBehaviour:
   - Pest control is scheduled for Wednesdays, so they should be there in a few hours.
   _options:
   - _optionText: ((okay! that went well))
-    _nextNode: {fileID: 11400000, guid: d8edac61bd23d4fd2815e3633c247368, type: 2}
+    _nextNode: {fileID: 11400000, guid: 3bd53344355d94e52b7916fcf93901bd, type: 2}
   - _optionText: ((wait... so are they not able to order pest control today, or are
       they definitely coming...?))
-    _nextNode: {fileID: 11400000, guid: ca5c266c21ae74b8699bb6614df99d93, type: 2}
+    _nextNode: {fileID: 11400000, guid: d8edac61bd23d4fd2815e3633c247368, type: 2}
   _Chat: {fileID: 11400000, guid: 95c90212984b04cb8baad66588ac4b84, type: 2}

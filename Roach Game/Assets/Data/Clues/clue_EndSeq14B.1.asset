@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0daad46901c44068c3b2394bbee7f6, type: 3}
   m_Name: clue_EndSeq14B.1
   m_EditorClassIdentifier: Assembly-CSharp::ClueData
-  _id: 0
-  _name: 
+  _id: 235555
+  _name: EndSeq14B.1
