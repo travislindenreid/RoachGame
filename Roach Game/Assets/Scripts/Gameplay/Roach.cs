@@ -21,7 +21,7 @@ public partial class Roach : MonoBehaviour
     // ------------------------------------------------------------------------
     private enum RoachStateType
     {
-        Idle, Running, Dead, Collected, Attacking, Cinematic, CinematicRun
+        Idle, Running, Dead, Collected, Attacking, Cinematic, StayIdle
     }
 
     private enum MovementPlane
@@ -118,26 +118,38 @@ public partial class Roach : MonoBehaviour
 
         _renderers = GetComponentsInChildren<MeshRenderer>().ToArray();
 
-        if(_doCinematicRunInCircle)
-        {
-            EnterState(RoachStateType.CinematicRun);
-        }
-        else
-        {
-            EnterState(RoachStateType.Idle);
-        }
+        EventBus._Instance.SequenceStarted += HandleSequenceStarted;
+
+        EnterState(RoachStateType.StayIdle);
     }
 
     // ------------------------------------------------------------------------
     private void Update ()
     {
-        if(SequenceController._Instance == null ||
-            (SequenceController._Instance._ActiveStateType != GameStateType.Action && !_doCinematicRunInCircle))
+        if(SequenceController._Instance == null)
         {
             return;
         }
 
         _currentState.RunState(Time.deltaTime);
+    }
+
+    // ------------------------------------------------------------------------
+    private void HandleSequenceStarted(Sequence sequence)
+    {
+        switch(sequence._GameStateType)
+        {
+            case GameStateType.Action:
+                EnterState(RoachStateType.Running);
+                break;
+            case GameStateType.Invalid:
+            case GameStateType.Cinematic:
+            case GameStateType.Menu:
+            case GameStateType.Dialogue:
+                EnterState(RoachStateType.StayIdle);
+                break;
+        }
+        
     }
 
     // ------------------------------------------------------------------------
@@ -309,7 +321,7 @@ public partial class Roach : MonoBehaviour
             case RoachStateType.Dead: _currentState = new RoachDeadState(); break;
             case RoachStateType.Collected: _currentState = new RoachCollectedState(); break;
             case RoachStateType.Cinematic: _currentState = new RoachCinematicState(); break;
-            case RoachStateType.CinematicRun: _currentState = new RoachCinematicRunningState(); break;
+            case RoachStateType.StayIdle: _currentState = new RoachStayIdleState(); break;
             default: Debug.LogError("unhandled roach state: " + newState); break;
         }
         //Debug.LogFormat("{0} new state: {1}", gameObject.name, _currentState);
