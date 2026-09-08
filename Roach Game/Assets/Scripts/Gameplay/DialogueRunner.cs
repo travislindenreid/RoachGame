@@ -43,6 +43,7 @@ public class DialogueRunner : MonoBehaviour
     // button callback
     public void SelectOption(DialogueNode nextNode)
     {
+        _currentNode = nextNode;
         Debug.Log("selected node: " + nextNode);
         EventBus._Instance.InvokeVisitDialogue(nextNode);
     }

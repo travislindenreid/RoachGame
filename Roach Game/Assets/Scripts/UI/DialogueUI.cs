@@ -44,7 +44,8 @@ public class DialogueUI : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandleVisitDialogueNode(DialogueNode node)
     {
-        Debug.LogFormat("showing dialogue node: {0}", node);
+        //Debug.LogFormat("showing dialogue node: {0}", node);
+        //Debug.LogFormat("current speaker: {0}", DialogueRunner._Instance._CurrentSpeaker);
 
         _currentNode = node;
 
