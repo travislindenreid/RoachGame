@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
     // Variables
     // ------------------------------------------------------------------------
     [SerializeField] private GameObject _gameOverScreen;
+    [SerializeField] private GameObject _pauseMenu;
 
     // ------------------------------------------------------------------------
     // Methods
@@ -22,6 +23,21 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         EventBus._Instance.PlayerDied += HandlePlayerDied;
+    }
+
+    // ------------------------------------------------------------------------
+    private void OnDisable()
+    {
+        EventBus._Instance.PlayerDied -= HandlePlayerDied;
+    }
+
+    // ------------------------------------------------------------------------
+    private void Update ()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) && GameController._Instance._GameStarted)
+        {
+            _pauseMenu.SetActive(!_pauseMenu.activeSelf);
+        }
     }
 
     // ------------------------------------------------------------------------

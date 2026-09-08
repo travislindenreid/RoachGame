@@ -52,6 +52,7 @@ public class GameController : MonoBehaviour
     public Roach _TargetRoach => _targetRoach;
     public int _LivingRoaches => _activeRoaches == null ? 0 : _activeRoaches.Count(r => !r._IsDead);
     public bool _ReadyForHealthDisplay => _hitFirstRoach;
+    public bool _GameStarted => IsUnlocked(_gameStartClue);
 
     // ------------------------------------------------------------------------
     // Methods
@@ -142,10 +143,20 @@ public class GameController : MonoBehaviour
 
         foreach(ClueData clue in discoverable._RequiredClues)
         {
-            if(!_unlockedClues.Contains(clue))
+            if(!IsUnlocked(clue))
             {
                 return false;
             }
+        }
+        return true;
+    }
+
+    // ------------------------------------------------------------------------
+    public bool IsUnlocked(ClueData clue)
+    {
+        if(!_unlockedClues.Contains(clue))
+        {
+            return false;
         }
         return true;
     }
