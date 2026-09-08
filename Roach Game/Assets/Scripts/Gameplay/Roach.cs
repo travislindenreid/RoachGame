@@ -60,7 +60,7 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private ParticleSystem _bloodParticles;
     [SerializeField] private GameObject _healthCanvas;
     [SerializeField] private TMP_Text _healthText;
-    [SerializeField] private int _maxHealth = 1;
+    [SerializeField] private float _maxHealth = 1;
     [SerializeField] private Collider _collider;
     [Header("Weapons")]
     [SerializeField] private int _gunLevel = 1;
@@ -79,7 +79,7 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private PlayableDirector _activeCinematic;
 
     // shared state variables
-    private int _health;
+    private float _health;
     private RoachState _currentState;
 
     private MeshRenderer[] _renderers;
