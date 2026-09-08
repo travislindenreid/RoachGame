@@ -10601,7 +10601,7 @@ MonoBehaviour:
   _ppVolume: {fileID: 921917768}
   _fadeInDurationSeconds: 2
   _fadeOutDurationSeconds: 2
-  _playerHitMoldAmount: 0.1
+  _maxBattleMoldValue: 0.45
   _seq0MoldStartValue: 0
   _seq0MoldEndValue: 0.75
   _seq0MoldTime: 9

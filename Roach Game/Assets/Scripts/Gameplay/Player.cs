@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
     public static Player _Instance { get; private set; }
 
     public Vector3 _Position => transform.position;
-    public float _HealthPercent => (float)_health / _maxHealth;
+    public float _HealthPercent => _health / _maxHealth;
     public bool _AtMaxHealth => _health == _maxHealth;
     public Transform _CameraTransform => _cameraTransform;
     public Vector3 _CameraPosition => _cameraTransform.position;
