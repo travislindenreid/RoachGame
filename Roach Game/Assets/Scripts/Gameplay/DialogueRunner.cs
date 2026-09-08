@@ -15,6 +15,7 @@ public class DialogueRunner : MonoBehaviour
     private DialogueNode _currentNode;
 
     public static DialogueRunner _Instance { get; private set; }
+    public FriendData _CurrentSpeaker => _currentNode == null ? null : _currentNode._Speaker;
 
     // ------------------------------------------------------------------------
     // Methods
