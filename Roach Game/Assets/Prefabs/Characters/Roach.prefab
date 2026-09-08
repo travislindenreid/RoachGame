@@ -8187,8 +8187,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824890116372132804}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00009518004, y: 0.90016127, z: 0.0007285278, w: -0.43555623}
-  m_LocalPosition: {x: 26.163452, y: 0.17986816, z: 1.5000015}
+  m_LocalRotation: {x: -0.00028341945, y: 0.8075489, z: 0.00042259597, w: 0.58980054}
+  m_LocalPosition: {x: 26.163452, y: 0.17981747, z: 1.4999976}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8257,7 +8257,8 @@ MonoBehaviour:
   _level1Gun: {fileID: 8403393850747380025}
   _level2Gun: {fileID: 7190068396617703099}
   _level3Gun: {fileID: 3721201030991050413}
-  _weaponUseInterval: 1.5
+  _timeBeforeWeaponUse: 1.5
+  _timeAfterWeaponUse: 0.5
   _collectUI: {fileID: 8110903387017073136}
   _firstGunTimeline: {fileID: 6149269768011639898}
   _secondGunTimeline: {fileID: 7148046948833555555}

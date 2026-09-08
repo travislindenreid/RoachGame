@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1317899503945322671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000012481275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000016901347
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000001818298
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.055868685
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00014101107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99843776
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0008694005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -188.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824890116372132804, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Name
+      value: Roach_Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: _gunLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: _timeAfterWeaponUse
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: _timeBeforeWeaponUse
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
