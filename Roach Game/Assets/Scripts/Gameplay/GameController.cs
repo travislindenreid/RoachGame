@@ -50,7 +50,8 @@ public class GameController : MonoBehaviour
     public static GameController _Instance { get; private set; }
     
     public Roach _TargetRoach => _targetRoach;
-    public int _LivingRoaches => _activeRoaches == null ? 0 : _activeRoaches.Count(r => !r._IsDead);
+    public List<Roach> _ActiveRoaches => _activeRoaches;
+    public int _LivingRoachCount => _activeRoaches == null ? 0 : _activeRoaches.Count(r => !r._IsDead);
     public bool _ReadyForHealthDisplay => _hitFirstRoach;
     public bool _GameStarted => IsUnlocked(_gameStartClue);
 

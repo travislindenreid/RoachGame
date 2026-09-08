@@ -41,6 +41,16 @@ public class PropEffectsController : MonoBehaviour
 
     // ------------------------------------------------------------------------
     // timeline callback
+    public void ScatterRoaches ()
+    {
+        foreach(Roach roach in GameController._Instance._ActiveRoaches)
+        {
+            roach.Scatter();
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    // timeline callback
     public void StartSafeMold ()
     {
         Material safeMat = _safeRenderer.material;

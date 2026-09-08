@@ -21,7 +21,7 @@ public partial class Roach : MonoBehaviour
     // ------------------------------------------------------------------------
     private enum RoachStateType
     {
-        Idle, Running, Dead, Collected, Attacking, Cinematic, StayIdle
+        Idle, Running, Dead, Collected, Attacking, Cinematic, StayIdle, RunOnce
     }
 
     private enum MovementPlane
@@ -124,6 +124,12 @@ public partial class Roach : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    private void OnDisable()
+    {
+        EventBus._Instance.SequenceStarted -= HandleSequenceStarted;
+    }
+
+    // ------------------------------------------------------------------------
     private void Update ()
     {
         if(SequenceController._Instance == null)
@@ -150,6 +156,12 @@ public partial class Roach : MonoBehaviour
                 break;
         }
         
+    }
+
+    // ------------------------------------------------------------------------
+    public void Scatter ()
+    {
+        EnterState(RoachStateType.RunOnce);
     }
 
     // ------------------------------------------------------------------------
@@ -322,6 +334,7 @@ public partial class Roach : MonoBehaviour
             case RoachStateType.Collected: _currentState = new RoachCollectedState(); break;
             case RoachStateType.Cinematic: _currentState = new RoachCinematicState(); break;
             case RoachStateType.StayIdle: _currentState = new RoachStayIdleState(); break;
+            case RoachStateType.RunOnce: _currentState = new RoachRunOnceState(); break;
             default: Debug.LogError("unhandled roach state: " + newState); break;
         }
         //Debug.LogFormat("{0} new state: {1}", gameObject.name, _currentState);

@@ -67,7 +67,7 @@ public class HUD : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandleRoachHit (Roach roach)
     {
-        _roachesText.text = GameController._Instance._LivingRoaches.ToString();
+        _roachesText.text = GameController._Instance._LivingRoachCount.ToString();
     }
 
     // ------------------------------------------------------------------------

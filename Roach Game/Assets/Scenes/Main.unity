@@ -911,10 +911,10 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 1763638033928481605, guid: 497b579545f4e40c59da00e822ebccb6, type: 2}
     value: {fileID: 1565540852}
-  - key: {fileID: -6382954086156301480, guid: 497b579545f4e40c59da00e822ebccb6, type: 2}
-    value: {fileID: 1565540852}
   - key: {fileID: 3785329754499779595, guid: 497b579545f4e40c59da00e822ebccb6, type: 2}
     value: {fileID: 1595467594}
+  - key: {fileID: -6382954086156301480, guid: 497b579545f4e40c59da00e822ebccb6, type: 2}
+    value: {fileID: 1565540852}
   m_ExposedReferences:
     m_References:
     - 75c3053cb715a43d7b787ea44dc25eed: {fileID: 1360299917}
@@ -1564,27 +1564,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2099906
+      value: 0.20998685
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.78
+      value: -8.779999
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66436195
+      value: 0.77025265
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000077380486
+      value: -0.00013549018
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.74741095
+      value: -0.6377388
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00018798995
+      value: -0.0002022906
       objectReference: {fileID: 0}
     - target: {fileID: 5666340172471909981, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13192,6 +13192,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6855320de20b543d982414f2bdedd3a1, type: 2}
     - {fileID: 11400000, guid: 28b60ca7d53d04750a228bb36bc262ea, type: 2}
     - {fileID: 11400000, guid: c31f539c820a94543b8604a2149e5309, type: 2}
+    - {fileID: 11400000, guid: 1896faf6ee34b448d8164ab23b93ffa9, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -13486,6 +13487,20 @@ MonoBehaviour:
         - m_Target: {fileID: 1565540853}
           m_TargetAssemblyTypeName: PropEffectsController, Assembly-CSharp
           m_MethodName: StartApartmentSafeMold
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1565540853}
+          m_TargetAssemblyTypeName: PropEffectsController, Assembly-CSharp
+          m_MethodName: ScatterRoaches
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
