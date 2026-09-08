@@ -166,5 +166,6 @@ public partial class SequenceController : MonoBehaviour
         }
 
         _activeSequence.RestartSequence();
+        EventBus._Instance.InvokeSequenceStarted(_activeSequence);
     }
 }
