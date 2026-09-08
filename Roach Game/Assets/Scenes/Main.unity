@@ -965,7 +965,8 @@ MonoBehaviour:
   _triggerClue: {fileID: 11400000, guid: bc49c08426d914963b5806b44f494fcd, type: 2}
   _finishClue: {fileID: 0}
   _gameStateType: 1
-  _objects: []
+  _objects:
+  - {fileID: 558026466}
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 0}
