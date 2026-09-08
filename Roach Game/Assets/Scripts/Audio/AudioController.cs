@@ -5,6 +5,7 @@
  * Copyright 2019 - 2026 Studio Tilia
  */
 
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -23,12 +24,16 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip _step1Clip;
     [SerializeField] private AudioClip _step2Clip;
     [SerializeField] private AudioClip _roachlordRevealSong;
+    [SerializeField] private AudioClip _buttonClick;
     [SerializeField] private AudioClip _playerSpeak1;
     [SerializeField] private AudioClip _playerSpeak2;
     [SerializeField] private AudioClip _managerSpeak1;
     [SerializeField] private AudioClip _managerSpeak2;
-
-    [SerializeField] private Vector2 pitchRange = new Vector2(0.95f, 1.05f);
+    [SerializeField] private FriendData _playerFriendData;
+    [SerializeField] private FriendData _managerFriendData;
+    [SerializeField] private FriendData _roachLordFriendData;
+    [SerializeField] private Vector2 _yourPitchRange = new Vector2(1f, 1f);
+    [SerializeField] private Vector2 _managerPitchRange = new Vector2(0.9f, 1.1f);
 
     private bool _playSteps;
     private float _clipTime;
@@ -103,7 +108,7 @@ public class AudioController : MonoBehaviour
     {
         Debug.Log("play click audio");
         _uiAudioSource.time = 0;
-        _uiAudioSource.Play();
+        _uiAudioSource.PlayOneShot(_buttonClick, 1.5f);
     }
 
     // ------------------------------------------------------------------------
@@ -163,12 +168,32 @@ public class AudioController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-
     private void PlayTypewriter ()
     {
-        AudioClip chosenSound = Random.value < 0.5f ? _playerSpeak1 : _playerSpeak2;
-        AudioSource Source = _typewriterSource;
-        Source.pitch = Random.Range(pitchRange.x, pitchRange.y);
-        Source.PlayOneShot(chosenSound, 1);
+        FriendData speaker = DialogueRunner._Instance._CurrentSpeaker;
+
+        AudioClip chosenSound;
+        Vector2 pitchRange;
+        if (speaker == _managerFriendData)
+        {
+            chosenSound = Random.value < 0.5f ? _managerSpeak1 : _managerSpeak2;
+            pitchRange = _managerPitchRange;
+        }
+        else if (speaker == _roachLordFriendData)
+        {
+            //placeholder for now
+            chosenSound = Random.value < 0.5f ? _managerSpeak1 : _managerSpeak2;
+            pitchRange = _managerPitchRange;
+            
+        }
+        else
+        {
+            chosenSound = Random.value < 0.5f ? _playerSpeak1 : _playerSpeak2;
+            pitchRange = _yourPitchRange;
+        }
+
+        AudioSource source = _typewriterSource;
+        source.pitch = Random.Range(pitchRange.x, pitchRange.y);
+        source.PlayOneShot(chosenSound, 1);
     }   
 }
