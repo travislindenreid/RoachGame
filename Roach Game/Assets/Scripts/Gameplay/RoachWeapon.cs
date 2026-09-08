@@ -19,7 +19,7 @@ public class RoachWeapon : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [Header("Tuning")]
     [SerializeField] private float _textAppearTime;
-    [SerializeField] private int _damage = 1;
+    [SerializeField] private float _damage = 1;
     [SerializeField] private AudioClip _shootClip;
 
     private float _textTime;

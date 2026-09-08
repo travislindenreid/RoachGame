@@ -21,7 +21,7 @@ public class PostEffectController : MonoBehaviour
     [SerializeField] private Volume _ppVolume;
     [SerializeField] private float _fadeInDurationSeconds = 2.0f;
     [SerializeField] private float _fadeOutDurationSeconds = 2.0f;
-    [SerializeField] private float _playerHitMoldAmount = 0.05f;
+    [SerializeField] private float _maxBattleMoldValue = 0.4f;
     [SerializeField][Range(0,1)] private float _seq0MoldStartValue = 0.0f;
     [SerializeField][Range(0,1)] private float _seq0MoldEndValue = 0.4f;
     [SerializeField] private float _seq0MoldTime = 10.0f;
@@ -131,7 +131,7 @@ public class PostEffectController : MonoBehaviour
         else
         {
             _doMoldFadeIn = false;
-            SetMoldValue(_moldPostEffect.moldCoverage.value + _playerHitMoldAmount);
+            SetMoldValue((1.0f - Player._Instance._HealthPercent) * _maxBattleMoldValue);
         }
     }
 

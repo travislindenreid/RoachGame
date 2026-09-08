@@ -936,6 +936,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _roachHoldLoc: {fileID: 3755512434844205073}
+  _healthDrainPerSecond: 0.05
   _maxHealth: 5
   _currentWeapon: 0
   _cameraTransform: {fileID: 8108288289591890457}

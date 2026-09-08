@@ -46,7 +46,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _roachLayer;
     [SerializeField] private Transform _roachHoldLoc;
     [Header("Combat")]
-    [SerializeField] private int _maxHealth = 5;
+    [SerializeField] private float _healthDrainPerSecond = 0.05f;
+    [SerializeField] private float _maxHealth = 5;
     [SerializeField] private PlayerWeaponType _currentWeapon = PlayerWeaponType.Shoe;
     [Header("Cinematics")]
     [SerializeField] private Transform _cameraTransform;
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
     private float _rotationX;
     private float _rotationY;
     private bool _needsAnimRestart;
-    private int _health;
+    private float _health;
 
     private float _playerMouseSensitivity;
 
@@ -91,7 +92,7 @@ public class Player : MonoBehaviour
     public static Player _Instance { get; private set; }
 
     public Vector3 _Position => transform.position;
-    public int _Health => _health;
+    public float _HealthPercent => _health / _maxHealth;
     public bool _AtMaxHealth => _health == _maxHealth;
     public Transform _CameraTransform => _cameraTransform;
     public Vector3 _CameraPosition => _cameraTransform.position;
@@ -182,6 +183,13 @@ public class Player : MonoBehaviour
             currentCameraXRot.y = 0;
             currentCameraXRot.z = 0;
             _cameraTrans.rotation = Quaternion.Lerp(Quaternion.Euler(currentCameraXRot), cameraTargetQuat, t);
+        }
+
+        if(SequenceController._Instance._ActiveStateType == GameStateType.Action &&
+            GameController._Instance._ReadyForHealthDisplay
+        )
+        {
+            DamageAndTryKill(_healthDrainPerSecond * Time.deltaTime);
         }
 
 #if UNITY_EDITOR
@@ -286,7 +294,7 @@ public class Player : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    public bool DamageAndTryKill (int damage)
+    public bool DamageAndTryKill (float damage)
     {
         _health -= damage;
         EventBus._Instance.InvokePlayerHealthChanged();

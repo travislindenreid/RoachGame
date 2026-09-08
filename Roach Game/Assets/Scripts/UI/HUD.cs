@@ -14,7 +14,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private GameObject _centerCursor;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _healthDisplay;
-    [SerializeField] private TMP_Text _healthText;
+    [SerializeField] private RectTransform _healthBar;
     [SerializeField] private TMP_Text _roachesText;
 
     // ------------------------------------------------------------------------
@@ -73,10 +73,12 @@ public class HUD : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandlePlayerHealthChanged ()
     {
-        int health = Player._Instance._Health;
-        if(health >= 0)
-        {
-            _healthText.text = health.ToString();
-        }
+        float health = Player._Instance._HealthPercent;
+        _healthBar.anchorMax = new Vector2(
+            health,
+            _healthBar.anchorMax.y
+        );
+        _healthBar.offsetMin = Vector2.zero;
+        _healthBar.offsetMax = Vector2.zero;
     }
 }
