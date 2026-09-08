@@ -109,6 +109,9 @@ public partial class Roach
         {
             base.EnterState(roach);
 
+            // makes roaches invulnerable while running
+            _roach._collider.enabled = false;
+
             _roach.ResetAntennae();
 
             _roach.transform.Rotate(0, Random.Range(0, 350), 0);
@@ -221,6 +224,7 @@ public partial class Roach
         // --------------------------------------------------------------------
         public override void ExitState()
         {
+            _roach._collider.enabled = true;
             _roach._movementSplineAnimator.Pause();
         }
     }
