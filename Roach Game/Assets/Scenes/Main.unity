@@ -965,7 +965,8 @@ MonoBehaviour:
   _triggerClue: {fileID: 11400000, guid: bc49c08426d914963b5806b44f494fcd, type: 2}
   _finishClue: {fileID: 0}
   _gameStateType: 1
-  _objects: []
+  _objects:
+  - {fileID: 558026466}
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 0}
@@ -14452,8 +14453,8 @@ MonoBehaviour:
   _playerStartPos: {fileID: 2053280737}
   _cameraStartRot: {fileID: 1323172018}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 0}
-  _audioType: 0
+  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _audioType: 2
 --- !u!1 &1670594159
 GameObject:
   m_ObjectHideFlags: 0
