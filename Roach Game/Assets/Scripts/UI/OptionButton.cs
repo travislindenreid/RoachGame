@@ -26,6 +26,7 @@ public class OptionButton : MonoBehaviour
 
         _button.onClick.AddListener(delegate
         {
+            GetComponent<ButtonClickAudio>().PlayClickAudio();
            DialogueRunner._Instance.SelectOption(option._NextNode); 
         });
     }

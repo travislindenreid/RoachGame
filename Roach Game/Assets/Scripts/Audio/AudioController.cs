@@ -15,6 +15,7 @@ public class AudioController : MonoBehaviour
     // Variables
     // ------------------------------------------------------------------------
     [SerializeField] private AudioSource _sfxAudioSource;
+    [SerializeField] private AudioSource _uiAudioSource;
     [SerializeField] private AudioSource _musicAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
     [SerializeField] private AudioClip _roachHitClip;
@@ -87,6 +88,14 @@ public class AudioController : MonoBehaviour
         _musicAudioSource.clip = _roachlordRevealSong;
         _musicAudioSource.pitch = -1;
         _musicAudioSource.Play();
+    }
+
+    // ------------------------------------------------------------------------
+    public void PlayButtonClick ()
+    {
+        Debug.Log("play click audio");
+        _uiAudioSource.time = 0;
+        _uiAudioSource.Play();
     }
 
     // ------------------------------------------------------------------------

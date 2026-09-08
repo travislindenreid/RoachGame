@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 1856907778845420495}
   - component: {fileID: 8119603043495661577}
   - component: {fileID: 7329527101942631098}
+  - component: {fileID: 2845891347729554879}
   m_Layer: 5
   m_Name: Button_Start
   m_TagString: Untagged
@@ -660,9 +661,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 2845891347729554879}
+        m_TargetAssemblyTypeName: ButtonClickAudio, Assembly-CSharp
+        m_MethodName: PlayClickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -684,6 +685,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2845891347729554879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531962784166353970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be44a16aeb39549eca58597b16d710df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickAudio
 --- !u!1 &1835573609832475645
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2647,7 @@ GameObject:
   - component: {fileID: 6276731352298292709}
   - component: {fileID: 6877022800281675627}
   - component: {fileID: 1113935913114284521}
+  - component: {fileID: 4050792538019394684}
   m_Layer: 5
   m_Name: Button_Restart
   m_TagString: Untagged
@@ -2743,9 +2757,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SequenceController, Assembly-CSharp
-        m_MethodName: RestartActionSequence
+      - m_Target: {fileID: 4050792538019394684}
+        m_TargetAssemblyTypeName: ButtonClickAudio, Assembly-CSharp
+        m_MethodName: PlayClickAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2767,6 +2781,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4050792538019394684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8060035978757848784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be44a16aeb39549eca58597b16d710df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickAudio
 --- !u!1 &8377975392293913545
 GameObject:
   m_ObjectHideFlags: 0

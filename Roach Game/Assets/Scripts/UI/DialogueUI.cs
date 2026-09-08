@@ -77,7 +77,10 @@ public class DialogueUI : MonoBehaviour
         if(_currentNode._Options == null || _currentNode._Options.Length == 0)
         {
             Button continueButton = Instantiate(_continueButton, _optionsParent);
-            continueButton.onClick.AddListener(delegate{ExitDialogue();});
+            continueButton.onClick.AddListener(delegate{
+                continueButton.GetComponent<ButtonClickAudio>().PlayClickAudio();
+                ExitDialogue();
+            });
         }
         else
         {

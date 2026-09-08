@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 3290083025848912324}
   - component: {fileID: 1046451734762663013}
   - component: {fileID: 2132115549200296916}
+  - component: {fileID: 4836612534806392649}
   m_Layer: 5
   m_Name: Button_Exit
   m_TagString: Untagged
@@ -738,6 +739,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 4836612534806392649}
+        m_TargetAssemblyTypeName: ButtonClickAudio, Assembly-CSharp
+        m_MethodName: PlayClickAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3261057148272984383}
         m_TargetAssemblyTypeName: PauseWindow, Assembly-CSharp
         m_MethodName: TryExitButton
@@ -750,6 +763,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4836612534806392649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104229193217904980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be44a16aeb39549eca58597b16d710df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickAudio
 --- !u!1 &1319563651652168684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,6 +1971,7 @@ GameObject:
   - component: {fileID: 3316547647525906546}
   - component: {fileID: 1125310738457803133}
   - component: {fileID: 1179094478717658543}
+  - component: {fileID: 7193707504692245236}
   m_Layer: 5
   m_Name: Button_ConfirmExit
   m_TagString: Untagged
@@ -2055,6 +2081,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7193707504692245236}
+        m_TargetAssemblyTypeName: ButtonClickAudio, Assembly-CSharp
+        m_MethodName: PlayClickAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3261057148272984383}
         m_TargetAssemblyTypeName: PauseWindow, Assembly-CSharp
         m_MethodName: ConfirmExitButton
@@ -2067,6 +2105,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7193707504692245236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6671128486803273921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be44a16aeb39549eca58597b16d710df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickAudio
 --- !u!1 &7029355130011509185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2420,6 +2470,7 @@ GameObject:
   - component: {fileID: 1776292436882619751}
   - component: {fileID: 647719645441668614}
   - component: {fileID: 6438065865932944962}
+  - component: {fileID: 6899322153350754400}
   m_Layer: 5
   m_Name: Button_Return
   m_TagString: Untagged
@@ -2529,6 +2580,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 6899322153350754400}
+        m_TargetAssemblyTypeName: ButtonClickAudio, Assembly-CSharp
+        m_MethodName: PlayClickAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3261057148272984383}
         m_TargetAssemblyTypeName: PauseWindow, Assembly-CSharp
         m_MethodName: ReturnToGameButton
@@ -2541,3 +2604,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6899322153350754400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188825438819276008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be44a16aeb39549eca58597b16d710df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickAudio
