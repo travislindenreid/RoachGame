@@ -18,10 +18,17 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioSource _uiAudioSource;
     [SerializeField] private AudioSource _musicAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
+    [SerializeField] private AudioSource _typewriterSource;
     [SerializeField] private AudioClip _roachHitClip;
     [SerializeField] private AudioClip _step1Clip;
     [SerializeField] private AudioClip _step2Clip;
     [SerializeField] private AudioClip _roachlordRevealSong;
+    [SerializeField] private AudioClip _playerSpeak1;
+    [SerializeField] private AudioClip _playerSpeak2;
+    [SerializeField] private AudioClip _managerSpeak1;
+    [SerializeField] private AudioClip _managerSpeak2;
+
+    [SerializeField] private Vector2 pitchRange = new Vector2(0.95f, 1.05f);
 
     private bool _playSteps;
     private float _clipTime;
@@ -54,6 +61,7 @@ public class AudioController : MonoBehaviour
         EventBus._Instance.RoachHit += HandleRoachHit;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.PlayerMovementChanged += HandlePlayerMovementChanged;
+        EventBus._Instance.PlayTypewriter += PlayTypewriter;
     }
 
     // ------------------------------------------------------------------------
@@ -153,4 +161,14 @@ public class AudioController : MonoBehaviour
         _playSteps = true;
         _clipTime = 0;
     }
+
+    // ------------------------------------------------------------------------
+
+    private void PlayTypewriter ()
+    {
+        AudioClip chosenSound = Random.value < 0.5f ? _playerSpeak1 : _playerSpeak2;
+        AudioSource Source = _typewriterSource;
+        Source.pitch = Random.Range(pitchRange.x, pitchRange.y);
+        Source.PlayOneShot(chosenSound, 1);
+    }   
 }

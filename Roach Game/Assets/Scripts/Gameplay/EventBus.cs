@@ -21,6 +21,7 @@ public class EventBus : MonoBehaviour
     public delegate void EmptyDelegate();
     public event EmptyDelegate PlayerHealthChanged;
     public event EmptyDelegate PlayerDied;
+    public event EmptyDelegate PlayTypewriter;
     public event EmptyDelegate TyperwriterFinished;
 
     public delegate void PlayerMovementTypeDelegate(PlayerMovementType movementType);
@@ -32,6 +33,8 @@ public class EventBus : MonoBehaviour
 
     public delegate void SequenceDelegate(Sequence sequence);
     public event SequenceDelegate SequenceStarted;
+
+
 
     // ------------------------------------------------------------------------
     // Variables
@@ -105,5 +108,11 @@ public class EventBus : MonoBehaviour
     public void InvokeTyperwriterFinished()
     {
         TyperwriterFinished?.Invoke();
+    }
+
+    // ------------------------------------------------------------------------
+    public void InvokePlayTypewriter()
+    {
+        PlayTypewriter?.Invoke();
     }
 }

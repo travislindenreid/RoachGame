@@ -34,7 +34,8 @@ public class TypewriterText : MonoBehaviour
     {
         if(_animating)
         {
-            if(Input.GetMouseButtonDown(0))
+
+            if (Input.GetMouseButtonDown(0))
             {
                 StopAllCoroutines();
                 FinishAnimation();
@@ -49,11 +50,21 @@ public class TypewriterText : MonoBehaviour
 
         _text.text = message;
         _text.maxVisibleCharacters = 0;
+        _text.ForceMeshUpdate();
 
-        int maxChars = message.Length;
+        int maxChars = _text.textInfo.characterCount;
         while (_text.maxVisibleCharacters < maxChars)
         {
+            int nextIndex = _text.maxVisibleCharacters;
+            char nextChar = _text.textInfo.characterInfo[nextIndex].character;
+
             _text.maxVisibleCharacters++;
+
+            if (!char.IsWhiteSpace(nextChar))
+            {
+                EventBus._Instance.InvokePlayTypewriter();
+            }
+
             yield return new WaitForSeconds(_characterRevealSpeedSeconds);
         }
 
@@ -63,7 +74,7 @@ public class TypewriterText : MonoBehaviour
     // ------------------------------------------------------------------------
     private void FinishAnimation ()
     {
-        _text.maxVisibleCharacters = _text.text.Length;
+        _text.maxVisibleCharacters = _text.textInfo.characterCount;
         _animating = false;
         EventBus._Instance.InvokeTyperwriterFinished();
     }
