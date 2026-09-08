@@ -146,7 +146,8 @@ public partial class Roach : MonoBehaviour
         switch(sequence._GameStateType)
         {
             case GameStateType.Action:
-                EnterState(RoachStateType.Running);
+                // avoid having roach already holding gun start running when new seq loads
+                if(!(_currentState is RoachAttackingState)) EnterState(RoachStateType.Running);
                 break;
             case GameStateType.Invalid:
             case GameStateType.Cinematic:
