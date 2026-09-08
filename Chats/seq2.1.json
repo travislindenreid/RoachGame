@@ -1,17 +1,12 @@
 {
   "passages": [
     {
-      "text": "<clue> StartSeq2\n<line> i thought we had dealt with this months ago\n<line> but maybe pest control didn't do a great job\n[[((or never came. lmao))->help]]\n[[((i'll have to ask management to send them regardless))->help]]",
+      "text": "<clue> StartSeq2\n<line> i really CAN'T hit these guys while they're MOVING!\n<line> they're too fast\n<line> i can only hit them when they're STILL\n[[((speaking of roach invulnerability...))]]",
       "links": [
         {
-          "name": "((or never came. lmao))",
-          "link": "help",
-          "pid": "2"
-        },
-        {
-          "name": "((i'll have to ask management to send them regardless))",
-          "link": "help",
-          "pid": "2"
+          "name": "((speaking of roach invulnerability...))",
+          "link": "((speaking of roach invulnerability...))",
+          "pid": "3"
         }
       ],
       "name": "start",
@@ -29,7 +24,31 @@
       "name": "help",
       "pid": "2",
       "position": {
-        "x": "600",
+        "x": "675",
+        "y": "525"
+      },
+      "tags": [
+        "You"
+      ]
+    },
+    {
+      "text": "<line> i thought we had dealt with this months ago\n<line> but maybe pest control didn't do a great job\n[[((or never came. lmao))->help]]\n[[((i'll have to ask management to send them regardless))->help]]",
+      "links": [
+        {
+          "name": "((or never came. lmao))",
+          "link": "help",
+          "pid": "2"
+        },
+        {
+          "name": "((i'll have to ask management to send them regardless))",
+          "link": "help",
+          "pid": "2"
+        }
+      ],
+      "name": "((speaking of roach invulnerability...))",
+      "pid": "3",
+      "position": {
+        "x": "725",
         "y": "375"
       },
       "tags": [
