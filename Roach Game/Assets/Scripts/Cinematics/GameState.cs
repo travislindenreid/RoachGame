@@ -15,6 +15,11 @@ public partial class SequenceController : MonoBehaviour
     public class GameState
     {
         // --------------------------------------------------------------------
+        // Properties
+        // --------------------------------------------------------------------
+        public virtual GameStateType StateType => GameStateType.Invalid;
+
+        // --------------------------------------------------------------------
         // Methods
         // --------------------------------------------------------------------
         public virtual void EnterState(SequenceController controller) {}
@@ -29,6 +34,8 @@ public partial class SequenceController : MonoBehaviour
     // ------------------------------------------------------------------------
     public class GameActionState : GameState
     {
+        public override GameStateType StateType => GameStateType.Action;
+
         public override void EnterState(SequenceController controller)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -39,6 +46,8 @@ public partial class SequenceController : MonoBehaviour
     // ------------------------------------------------------------------------
     public class GameCinematicState : GameState
     {
+        public override GameStateType StateType => GameStateType.Cinematic;
+
         public override void EnterState(SequenceController controller)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -49,6 +58,8 @@ public partial class SequenceController : MonoBehaviour
     // ------------------------------------------------------------------------
     public class GameDialogueState : GameState
     {
+        public override GameStateType StateType => GameStateType.Dialogue;
+
         public override void EnterState(SequenceController controller)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -59,6 +70,8 @@ public partial class SequenceController : MonoBehaviour
     // ------------------------------------------------------------------------
     public class GameMenuState : GameState
     {
+        public override GameStateType StateType => GameStateType.Menu;
+
         public override void EnterState(SequenceController controller)
         {
             Cursor.lockState = CursorLockMode.None;

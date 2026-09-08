@@ -113,6 +113,22 @@ public partial class SequenceController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    public void PauseSequence ()
+    {
+        Player._Instance.SetInputEnabled(false);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+    }
+
+    // ------------------------------------------------------------------------
+    public void ResumeSequence ()
+    {
+        Time.timeScale = 1;
+        // resume whatever input type we had before pausing
+        EnterState(_activeState.StateType);
+    }
+
+    // ------------------------------------------------------------------------
     private void EnterState(GameStateType newState)
     {
         if(_activeState != null)

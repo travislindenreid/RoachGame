@@ -17,6 +17,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private GameObject _pauseMenu;
 
+    bool _pauseOpen = false;
+
     // ------------------------------------------------------------------------
     // Methods
     // ------------------------------------------------------------------------
@@ -36,7 +38,19 @@ public class UIController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) && GameController._Instance._GameStarted)
         {
-            _pauseMenu.SetActive(!_pauseMenu.activeSelf);
+            bool becomeActive = !_pauseOpen;
+            _pauseMenu.SetActive(becomeActive);
+            
+            if(becomeActive)
+            {
+                SequenceController._Instance.PauseSequence();
+            }
+            else
+            {
+                SequenceController._Instance.ResumeSequence();
+            }
+
+            _pauseOpen = becomeActive;
         }
     }
 

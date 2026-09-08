@@ -246,10 +246,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // purposefully never disabling gun
-            // because you should always have it once it activates
             _shoeRenderer.enabled = false;
             _shoeCollider.enabled = false;
+            _pistol.SetActive(false);
         }
 
         if(!enabled)
