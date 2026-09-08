@@ -21,7 +21,15 @@ public partial class Roach : MonoBehaviour
     // ------------------------------------------------------------------------
     private enum RoachStateType
     {
-        Idle, Running, Dead, Collected, Attacking, Cinematic, StayIdle, RunOnce
+        Idle,
+        Running,
+        Dead,
+        Collected,
+        Attacking,
+        Cinematic,
+        StayIdle,
+        RunOnce,
+        HostileRunning
     }
 
     private enum MovementPlane
@@ -82,7 +90,6 @@ public partial class Roach : MonoBehaviour
     // shared state variables
     private float _health;
     private RoachState _currentState;
-    private bool _hostile;
 
     private MeshRenderer[] _renderers;
 
@@ -324,8 +331,6 @@ public partial class Roach : MonoBehaviour
         _health = _maxHealth;
         UpdateHealthText();
 
-        _hostile = false;
-
         transform.SetParent(null);
         transform.position = originalPos;
 
@@ -347,6 +352,7 @@ public partial class Roach : MonoBehaviour
             case RoachStateType.Cinematic: _currentState = new RoachCinematicState(); break;
             case RoachStateType.StayIdle: _currentState = new RoachStayIdleState(); break;
             case RoachStateType.RunOnce: _currentState = new RoachRunOnceState(); break;
+            case RoachStateType.HostileRunning: _currentState = new RoachHostileRunningState(); break;
             default: Debug.LogError("unhandled roach state: " + newState); break;
         }
         //Debug.LogFormat("{0} new state: {1}", gameObject.name, _currentState);

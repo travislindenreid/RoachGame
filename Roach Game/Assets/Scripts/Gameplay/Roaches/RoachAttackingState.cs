@@ -26,9 +26,6 @@ public partial class Roach
             base.EnterState(roach);
             _roach.ShowGun();
             _timeBetweenSubstates = 0.0f;
-
-            // shared state variable = roach is forever hostile after attacking
-            _roach._hostile = true;
         }
 
         // --------------------------------------------------------------------
@@ -45,7 +42,7 @@ public partial class Roach
 
             if(_usedWeapon && _timeBetweenSubstates >= _roach._timeAfterWeaponUse)
             {
-                _roach.EnterState(RoachStateType.Running);
+                _roach.EnterState(RoachStateType.HostileRunning);
             }
             else if(_timeBetweenSubstates >= _roach._timeBeforeWeaponUse)
             {

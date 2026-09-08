@@ -15,7 +15,7 @@ public partial class Roach
     // ------------------------------------------------------------------------
     // Types
     // ------------------------------------------------------------------------
-    protected class RoachRunningState : RoachState
+    protected class RoachHostileRunningState : RoachState
     {
         // --------------------------------------------------------------------
         // Variables
@@ -140,7 +140,7 @@ public partial class Roach
 
             if(!_roach._movementSplineAnimator.IsPlaying)
             {
-                _roach.EnterState(RoachStateType.Idle);
+                _roach.EnterState(RoachStateType.Attacking);
             }
         }
 
