@@ -66,6 +66,8 @@ public class Player : MonoBehaviour
     private bool _needsAnimRestart;
     private int _health;
 
+    private float _playerMouseSensitivity;
+
     // aiming reticle
     private Vector3 _reticleOffset = new Vector3(0, 0.1f, 0);
     private Material _reticleMat;
@@ -111,6 +113,8 @@ public class Player : MonoBehaviour
 
         _health = _maxHealth;
         _inputEnabled = true;
+
+        _playerMouseSensitivity = _mouseSensitivity;
     }
 
     // ------------------------------------------------------------------------
@@ -186,6 +190,12 @@ public class Player : MonoBehaviour
             GameController._Instance.DebugKillAllRoaches();
         }
 #endif
+    }
+
+    // ------------------------------------------------------------------------
+    public void SetPlayerMouseSensitivity (float multiplier)
+    {
+        _playerMouseSensitivity = multiplier * _mouseSensitivity;
     }
 
     // ------------------------------------------------------------------------
@@ -304,11 +314,11 @@ public class Player : MonoBehaviour
     private void LookAndMove ()
     {
         float mouseY = Input.GetAxis("Mouse Y");
-        _rotationY += mouseY * _mouseSensitivity;
+        _rotationY += mouseY * _playerMouseSensitivity;
         _rotationY = Mathf.Clamp(_rotationY, -60.0f, 60.0f);
 
         float mouseX = Input.GetAxis("Mouse X");
-        _rotationX += mouseX * _mouseSensitivity;
+        _rotationX += mouseX * _playerMouseSensitivity;
 
         _cameraTrans.localEulerAngles = new Vector3(-_rotationY, 0, 0);
         transform.localEulerAngles = new Vector3(0, _rotationX, 0);
