@@ -15,7 +15,8 @@ public partial class Roach
         // --------------------------------------------------------------------
         // Variable
         // --------------------------------------------------------------------
-        private float _timeBetweenUse;
+        private float _timeBetweenSubstates;
+        private bool _usedWeapon;
 
         // --------------------------------------------------------------------
         // Methods
@@ -24,25 +25,33 @@ public partial class Roach
         {
             base.EnterState(roach);
             _roach.ShowGun();
-            _timeBetweenUse = 0.0f;
+            _timeBetweenSubstates = 0.0f;
+
+            // shared state variable = roach is forever hostile after attacking
+            _roach._hostile = true;
         }
 
         // --------------------------------------------------------------------
         public override void ExitState()
         {
-            _roach._gun.gameObject.SetActive(false);
+            _roach.HideGun();
         }
 
         // --------------------------------------------------------------------
         public override void RunState(float deltaTime)
         {
             _roach._gun.PointAtPlayer();
+            _timeBetweenSubstates += deltaTime;
 
-            _timeBetweenUse += deltaTime;
-            if(_timeBetweenUse >= _roach._weaponUseInterval)
+            if(_usedWeapon && _timeBetweenSubstates >= _roach._timeAfterWeaponUse)
+            {
+                _roach.EnterState(RoachStateType.Running);
+            }
+            else if(_timeBetweenSubstates >= _roach._timeBeforeWeaponUse)
             {
                 _roach._gun.Use();
-                _timeBetweenUse = 0.0f;
+                _usedWeapon = true;
+                _timeBetweenSubstates = 0.0f;
             }
         }
     }

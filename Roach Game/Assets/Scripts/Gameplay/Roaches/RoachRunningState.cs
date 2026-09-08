@@ -140,7 +140,14 @@ public partial class Roach
 
             if(!_roach._movementSplineAnimator.IsPlaying)
             {
-                _roach.EnterState(RoachStateType.Idle);
+                if(_roach._hostile)
+                {
+                    _roach.EnterState(RoachStateType.Attacking);
+                }
+                else
+                {
+                    _roach.EnterState(RoachStateType.Idle);
+                }
             }
         }
 

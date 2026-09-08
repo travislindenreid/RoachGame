@@ -67,7 +67,8 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private RoachWeapon _level1Gun;
     [SerializeField] private RoachWeapon _level2Gun;
     [SerializeField] private RoachWeapon _level3Gun;
-    [SerializeField] private float _weaponUseInterval;
+    [SerializeField] private float _timeBeforeWeaponUse = 1.5f;
+    [SerializeField] private float _timeAfterWeaponUse = 0.5f;
     [Header("Collection")]
     [SerializeField] private GameObject _collectUI;
     [Header("Cinematics")]
@@ -81,6 +82,7 @@ public partial class Roach : MonoBehaviour
     // shared state variables
     private float _health;
     private RoachState _currentState;
+    private bool _hostile;
 
     private MeshRenderer[] _renderers;
 
@@ -282,6 +284,12 @@ public partial class Roach : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    protected void HideGun ()
+    {
+        _gun.gameObject.SetActive(false);
+    }
+
+    // ------------------------------------------------------------------------
     // Timeline signal callback
     public void ShowLevel2Gun ()
     {
@@ -307,6 +315,7 @@ public partial class Roach : MonoBehaviour
     public void ResetRoach(Vector3 originalPos)
     {
         ResetAntennae();
+
         _agent.enabled = true;
         _collider.enabled = true;
         _movementSplineAnimator.enabled = true;
@@ -314,6 +323,8 @@ public partial class Roach : MonoBehaviour
 
         _health = _maxHealth;
         UpdateHealthText();
+
+        _hostile = false;
 
         transform.SetParent(null);
         transform.position = originalPos;
