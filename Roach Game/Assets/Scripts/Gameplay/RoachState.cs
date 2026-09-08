@@ -226,13 +226,14 @@ public partial class Roach
     }
 
     // ------------------------------------------------------------------------
-    protected class RoachCinematicRunningState : RoachState
+    protected class RoachStayIdleState : RoachState
     {
         // --------------------------------------------------------------------
         // Variables
         // --------------------------------------------------------------------
-        private float _legAnimTime;
-        private Vector3[] _legRots;
+        private float _antennaeAnimTime;
+        private Vector3 _leftRot;
+        private Vector3 _rightRot;
 
         // --------------------------------------------------------------------
         // Methods
@@ -241,33 +242,22 @@ public partial class Roach
         {
             base.EnterState(roach);
 
-            _roach.ResetAntennae();
-
-            _legRots = new Vector3[_roach._legs.Length];
-            for(int i = 0; i < _legRots.Length; i++)
-            {
-                _legRots[i] = _roach._legAnim;
-                if(Random.Range(0,2) == 0) _legRots[i] = -_legRots[i];
-            }
+            _leftRot = Vector3.Lerp(_roach._antennaeAnimMin, _roach._antennaeAnimMax, Random.Range(0.0f, 1.0f));
+            _rightRot = Vector3.Lerp(_roach._antennaeAnimMin, _roach._antennaeAnimMax, Random.Range(0.0f, 1.0f));
         }
 
         // --------------------------------------------------------------------
         public override void RunState(float deltaTime)
         {
-            _legAnimTime += deltaTime;
-            if(_legAnimTime >= _roach._legFlipTime)
+            _antennaeAnimTime += Time.deltaTime;
+            if(_antennaeAnimTime >= _roach._antennaeFlipTime)
             {
-                _legAnimTime = 0;
-                
-                for(int i = 0; i < _legRots.Length; i++)
-                {
-                    _legRots[i] = new Vector3(-_legRots[i].x, _legRots[i].y, _legRots[i].z);
-                }
+                _antennaeAnimTime = 0;
+                _leftRot = new Vector3(-_leftRot.x, _leftRot.y, _leftRot.z);
+                _rightRot = new Vector3(-_rightRot.x, _rightRot.y, _rightRot.z);
             }
-            for(int i = 0; i < _roach._legs.Length; i++)
-            {
-                _roach._legs[i].Rotate(_legRots[i] * Time.deltaTime);
-            }
+            _roach._leftAntennae.Rotate(_leftRot * Time.deltaTime);
+            _roach._rightAntennae.Rotate(_rightRot * Time.deltaTime);
         }
     }
 
