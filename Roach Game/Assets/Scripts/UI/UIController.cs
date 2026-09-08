@@ -55,6 +55,20 @@ public class UIController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    // button callback
+    public void StartGame ()
+    {
+        GameController._Instance.StartGame();
+    }
+
+    // ------------------------------------------------------------------------
+    // button callback
+    public void RestartActionSequence ()
+    {
+        SequenceController._Instance.RestartActionSequence();
+    }
+
+    // ------------------------------------------------------------------------
     private void HandlePlayerDied ()
     {
         _gameOverScreen.SetActive(true);

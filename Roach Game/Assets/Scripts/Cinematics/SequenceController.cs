@@ -157,7 +157,6 @@ public partial class SequenceController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    // button callback
     public void RestartActionSequence ()
     {
         if(_activeSequence == null || _activeSequence._GameStateType != GameStateType.Action)

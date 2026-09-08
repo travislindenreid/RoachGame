@@ -83,7 +83,6 @@ public class GameController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    // button callback
     public void StartGame ()
     {
         EventBus._Instance.InvokeClueUnlocked(_gameStartClue);
