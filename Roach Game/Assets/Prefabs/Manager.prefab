@@ -353,6 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5548503345916901675}
   - component: {fileID: 4237477207367991875}
+  - component: {fileID: 8851790667260611807}
   m_Layer: 2
   m_Name: Pistol
   m_TagString: Untagged
@@ -390,7 +391,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6b998c49a241346ea8e586310c4febcd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -474,6 +475,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8851790667260611807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152257471883573730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _audioSource: {fileID: 4237477207367991875}
+  _maxVolume: 0.75
 --- !u!1 &1328609327845407629
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6955993847019590404}
   - component: {fileID: 2209859693279218834}
+  - component: {fileID: 3890060592242454305}
   m_Layer: 2
   m_Name: AudioSource_PistolShot
   m_TagString: Untagged
@@ -634,6 +650,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3890060592242454305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843128980480261556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _audioSource: {fileID: 2209859693279218834}
+  _maxVolume: 1
 --- !u!1 &2421839716655557411
 GameObject:
   m_ObjectHideFlags: 0

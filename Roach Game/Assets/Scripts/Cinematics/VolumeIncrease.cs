@@ -14,7 +14,7 @@ public class VolumeIncrease: MonoBehaviour
     // ------------------------------------------------------------------------
     // Variables
     // ------------------------------------------------------------------------
-    [SerializeField] private AudioSource[] _audioSources;
+    [SerializeField] private AudioSourceHelper[] _audioSources;
     [SerializeField] private float _startVolume;
     [SerializeField] private float _endVolume;
     [SerializeField] private float _durationSeconds;
@@ -33,9 +33,9 @@ public class VolumeIncrease: MonoBehaviour
 
             float t = _timePassed / _durationSeconds;
             float volume = Mathf.Lerp(_startVolume, _endVolume, t);
-            foreach(AudioSource audioSource in _audioSources)
+            foreach(AudioSourceHelper audioSource in _audioSources)
             {
-                audioSource.volume = volume;
+                audioSource.SetVolume(volume);
             }
 
             if(_timePassed >= _durationSeconds)
@@ -52,9 +52,9 @@ public class VolumeIncrease: MonoBehaviour
         _animate = true;
         _timePassed = 0;
 
-        foreach(AudioSource audioSource in _audioSources)
+        foreach(AudioSourceHelper audioSource in _audioSources)
         {
-            audioSource.volume = _startVolume;
+            audioSource.SetVolume(_startVolume);
         }
     }
 
@@ -63,9 +63,9 @@ public class VolumeIncrease: MonoBehaviour
     {
         _animate = false;
 
-        foreach(AudioSource audioSource in _audioSources)
+        foreach(AudioSourceHelper audioSource in _audioSources)
         {
-            audioSource.volume = _endVolume;
+            audioSource.SetVolume(_endVolume);
         }
     }
 }

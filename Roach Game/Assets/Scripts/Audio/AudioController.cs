@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class AudioController : MonoBehaviour
 {
@@ -24,11 +25,13 @@ public class AudioController : MonoBehaviour
     private bool _playSteps;
     private float _clipTime;
     private bool _flipClip;
+    private float _globalVolume = 1.0f;
 
     // ------------------------------------------------------------------------
     // Properties
     // ------------------------------------------------------------------------
     public static AudioController _Instance { get; private set; }
+    public float _GlobalVolume => _globalVolume;
 
     // ------------------------------------------------------------------------
     // Methods
@@ -65,6 +68,16 @@ public class AudioController : MonoBehaviour
                 _footstepsAudioSource.clip = _flipClip ? _step2Clip : _step1Clip;
                 _footstepsAudioSource.Play();
             }
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    public void ChangeVolume (float volume)
+    {
+        _globalVolume = volume;
+        foreach(AudioSourceHelper audioSource in FindObjectsByType<AudioSourceHelper>(FindObjectsInactive.Include))
+        {
+            audioSource.SetVolume(_globalVolume);
         }
     }
 

@@ -224,6 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5052810121005107963}
   - component: {fileID: 1184590033345203994}
+  - component: {fileID: 4960546031947560847}
   m_Layer: 5
   m_Name: Window_GameOver
   m_TagString: Untagged
@@ -349,6 +350,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4960546031947560847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474366018321654540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &492015930405336717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1502,7 @@ GameObject:
   - component: {fileID: 1756040236974545747}
   - component: {fileID: 7167600732607328168}
   - component: {fileID: 7780741154242941812}
+  - component: {fileID: 8994556773178574421}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -1523,7 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSources:
-  - {fileID: 7167600732607328168}
+  - {fileID: 8994556773178574421}
   _startVolume: 0.01
   _endVolume: 0.5
   _durationSeconds: 10
@@ -1654,6 +1669,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &8994556773178574421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688577246331710072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &4866507437564339976
 GameObject:
   m_ObjectHideFlags: 0

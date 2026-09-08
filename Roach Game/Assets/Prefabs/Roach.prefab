@@ -5536,6 +5536,7 @@ GameObject:
   - component: {fileID: 1949648891485335506}
   - component: {fileID: 7190068396617703099}
   - component: {fileID: 6634479220308019932}
+  - component: {fileID: 7941578142204942900}
   m_Layer: 2
   m_Name: Shotgun
   m_TagString: Untagged
@@ -5592,7 +5593,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9a00df48a033d4a3bab571b25242568e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5676,6 +5677,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7941578142204942900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182132019369640636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 0.75
 --- !u!1 &1544480768404148532
 GameObject:
   m_ObjectHideFlags: 0
@@ -6704,6 +6718,7 @@ GameObject:
   - component: {fileID: 3671621809302547285}
   - component: {fileID: 3721201030991050413}
   - component: {fileID: 2678041341552919322}
+  - component: {fileID: 8465462758066732027}
   m_Layer: 2
   m_Name: Bazooka
   m_TagString: Untagged
@@ -6760,7 +6775,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 483437a53c0684c9f96131fdbff9cf01, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6844,6 +6859,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8465462758066732027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440794762922824770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 0.75
 --- !u!1 &3528956049966759395
 GameObject:
   m_ObjectHideFlags: 0
@@ -8159,8 +8187,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824890116372132804}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00010601089, y: 0.9307433, z: 0.0007255628, w: -0.3656726}
-  m_LocalPosition: {x: 26.163452, y: 0.17987004, z: 1.5000013}
+  m_LocalRotation: {x: -0.00009518004, y: 0.90016127, z: 0.0007285278, w: -0.43555623}
+  m_LocalPosition: {x: 26.163452, y: 0.17986816, z: 1.5000015}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8197,6 +8225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isDocile: 0
   _isImmobile: 0
+  _doCinematicRunInCircle: 0
   _movementPlane: 0
   _idleTimeMinMax: {x: 1, y: 3}
   _pathKnotDistance: 2
@@ -9270,6 +9299,7 @@ GameObject:
   - component: {fileID: 6809364587666608687}
   - component: {fileID: 8403393850747380025}
   - component: {fileID: 5370002498975943540}
+  - component: {fileID: 7745211882718097952}
   m_Layer: 2
   m_Name: Pistol
   m_TagString: Untagged
@@ -9326,7 +9356,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6b998c49a241346ea8e586310c4febcd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9410,6 +9440,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7745211882718097952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352343410562063557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 0.75
 --- !u!1 &7463351871310874145
 GameObject:
   m_ObjectHideFlags: 0

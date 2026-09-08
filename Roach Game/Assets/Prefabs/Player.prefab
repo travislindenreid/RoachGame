@@ -1882,6 +1882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541767160627931985}
   - component: {fileID: 1041147045252578948}
+  - component: {fileID: 6302230516806859400}
   m_Layer: 2
   m_Name: Pistol
   m_TagString: Untagged
@@ -1919,7 +1920,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6b998c49a241346ea8e586310c4febcd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2003,3 +2004,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6302230516806859400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103563694994872831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 0.75

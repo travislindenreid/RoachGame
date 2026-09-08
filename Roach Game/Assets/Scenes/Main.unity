@@ -728,6 +728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97255146}
   - component: {fileID: 97255147}
+  - component: {fileID: 97255148}
   m_Layer: 0
   m_Name: AudioSource_BodyHitGround
   m_TagString: Untagged
@@ -847,6 +848,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &97255148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97255145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &99455034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2364,7 @@ GameObject:
   - component: {fileID: 285236058}
   - component: {fileID: 285236059}
   - component: {fileID: 285236057}
+  - component: {fileID: 285236061}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -2400,7 +2415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSources:
-  - {fileID: 285236059}
+  - {fileID: 285236061}
   _startVolume: 0.01
   _endVolume: 0.5
   _durationSeconds: 10
@@ -2516,6 +2531,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 332407478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &285236061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285236056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &289103061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,6 +2902,7 @@ GameObject:
   - component: {fileID: 356126276}
   - component: {fileID: 356126275}
   - component: {fileID: 356126274}
+  - component: {fileID: 356126277}
   m_Layer: 0
   m_Name: Cinematic_TransitionToOffice
   m_TagString: Untagged
@@ -3115,6 +3144,19 @@ PlayableDirector:
     value: {fileID: 356126274}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &356126277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356126272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &357160901
 GameObject:
   m_ObjectHideFlags: 0
@@ -7539,6 +7581,7 @@ GameObject:
   - component: {fileID: 988834755}
   - component: {fileID: 988834757}
   - component: {fileID: 988834756}
+  - component: {fileID: 988834758}
   m_Layer: 0
   m_Name: Cinematic_11.3A
   m_TagString: Untagged
@@ -7684,6 +7727,19 @@ PlayableDirector:
     value: {fileID: 1434655942}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &988834758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988834754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &1013580525
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,6 +7816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028192746}
   - component: {fileID: 1028192745}
+  - component: {fileID: 1028192747}
   m_Layer: 0
   m_Name: AudioSource_SFX
   m_TagString: Untagged
@@ -7879,6 +7936,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1163891246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1028192747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028192744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &1028818299
 GameObject:
   m_ObjectHideFlags: 0
@@ -8011,6 +8081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030289027}
   - component: {fileID: 1030289026}
+  - component: {fileID: 1030289028}
   m_Layer: 5
   m_Name: Window_GameOver
   m_TagString: Untagged
@@ -8136,6 +8207,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1030289028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030289025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &1037871380
 GameObject:
   m_ObjectHideFlags: 0
@@ -11613,6 +11697,7 @@ GameObject:
   - component: {fileID: 1434655944}
   - component: {fileID: 1434655943}
   - component: {fileID: 1434655942}
+  - component: {fileID: 1434655945}
   m_Layer: 0
   m_Name: AudioSource_Music
   m_TagString: Untagged
@@ -11663,7 +11748,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11762,6 +11847,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1163891246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434655945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434655941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 0.5
 --- !u!1 &1444337964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11772,6 +11870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444337965}
   - component: {fileID: 1444337966}
+  - component: {fileID: 1444337967}
   m_Layer: 0
   m_Name: AudioSource_Footsteps
   m_TagString: Untagged
@@ -11807,7 +11906,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f1965f53abcab0440b5d7a5c351a7b2b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.92
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11891,6 +11990,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1444337967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444337964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 0.92
 --- !u!1 &1455876077
 GameObject:
   m_ObjectHideFlags: 0
@@ -14093,6 +14205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1595467593}
   - component: {fileID: 1595467594}
+  - component: {fileID: 1595467595}
   m_Layer: 0
   m_Name: AudioSource_LightSwitch
   m_TagString: Untagged
@@ -14212,6 +14325,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1595467595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595467592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1001 &1597144864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17161,6 +17287,7 @@ GameObject:
   - component: {fileID: 2029693424}
   - component: {fileID: 2029693423}
   - component: {fileID: 2029693422}
+  - component: {fileID: 2029693425}
   m_Layer: 0
   m_Name: SafeAnimated
   m_TagString: Untagged
@@ -17402,6 +17529,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2029693425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029693420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625385a595b3e42f3a71f3cf5ef9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSourceHelper
+  _maxVolume: 1
 --- !u!1 &2029883943
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,27 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameDataWindow : MonoBehaviour
+public class PauseWindow : MonoBehaviour
 {
+    // ------------------------------------------------------------------------
+    // Variables
+    // ------------------------------------------------------------------------
     [SerializeField] private Slider _volumeSlider;
     [SerializeField] private Slider _sensitivitySlider;
+
+    // ------------------------------------------------------------------------
+    // Methods
+    // ------------------------------------------------------------------------
+    // ui callback
+    public void HandleVolumeSliderChange ()
+    {
+        AudioController._Instance.ChangeVolume(_volumeSlider.value);
+    }
+
+    // ------------------------------------------------------------------------
+    // ui callback
+    public void HandleSensitivitySliderChange ()
+    {
+        
+    }
 }
