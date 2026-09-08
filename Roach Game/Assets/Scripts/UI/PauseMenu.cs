@@ -17,6 +17,7 @@ public class PauseWindow : MonoBehaviour
     // ------------------------------------------------------------------------
     [SerializeField] private Slider _volumeSlider;
     [SerializeField] private Slider _sensitivitySlider;
+    [SerializeField] private GameObject _confirmClosePopup;
 
     // ------------------------------------------------------------------------
     // Methods
@@ -32,5 +33,26 @@ public class PauseWindow : MonoBehaviour
     public void HandleSensitivitySliderChange ()
     {
         Player._Instance.SetPlayerMouseSensitivity(_sensitivitySlider.value);
+    }
+
+    // ------------------------------------------------------------------------
+    // button callback
+    public void TryExitButton ()
+    {
+        _confirmClosePopup.SetActive(true);
+    }
+
+    // ------------------------------------------------------------------------
+    // button callback
+    public void ConfirmExitButton ()
+    {
+        Application.Quit();
+    }
+
+    // ------------------------------------------------------------------------
+    // button callback
+    public void ReturnToGameButton ()
+    {
+        _confirmClosePopup.SetActive(false);
     }
 }
