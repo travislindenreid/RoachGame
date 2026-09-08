@@ -10,31 +10,40 @@ public partial class Roach
     // ------------------------------------------------------------------------
     // Types
     // ------------------------------------------------------------------------
-    protected class RoachState
+    protected class RoachAttackingState : RoachState
     {
         // --------------------------------------------------------------------
-        // Variables
+        // Variable
         // --------------------------------------------------------------------
-        protected Roach _roach;
-        protected float _timeInState;
+        private float _timeBetweenUse;
 
         // --------------------------------------------------------------------
         // Methods
         // --------------------------------------------------------------------
-        public virtual void EnterState(Roach roach)
+        public override void EnterState(Roach roach)
         {
-            _roach = roach;
+            base.EnterState(roach);
+            _roach.ShowGun();
+            _timeBetweenUse = 0.0f;
         }
 
         // --------------------------------------------------------------------
-        public virtual void ExitState() {}
+        public override void ExitState()
+        {
+            _roach._gun.gameObject.SetActive(false);
+        }
+
         // --------------------------------------------------------------------
-        public virtual void RunState(float deltaTime) {}
-        // --------------------------------------------------------------------
-        public virtual void OnMouseOver () {}
-        // --------------------------------------------------------------------
-        public virtual void OnMouseExit () {}
-        // --------------------------------------------------------------------
-        public virtual void OnDrawGizmos () {}
+        public override void RunState(float deltaTime)
+        {
+            _roach._gun.PointAtPlayer();
+
+            _timeBetweenUse += deltaTime;
+            if(_timeBetweenUse >= _roach._weaponUseInterval)
+            {
+                _roach._gun.Use();
+                _timeBetweenUse = 0.0f;
+            }
+        }
     }
 }
