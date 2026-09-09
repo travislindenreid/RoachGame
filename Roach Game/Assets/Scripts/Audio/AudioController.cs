@@ -67,6 +67,7 @@ public class AudioController : MonoBehaviour
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.PlayerMovementChanged += HandlePlayerMovementChanged;
         EventBus._Instance.PlayTypewriter += PlayTypewriter;
+        EventBus._Instance.PlayRoachLordVoiceClip += PlayRoachLordVoiceClip;
     }
 
     // ------------------------------------------------------------------------
@@ -196,4 +197,14 @@ public class AudioController : MonoBehaviour
         source.pitch = Random.Range(pitchRange.x, pitchRange.y);
         source.PlayOneShot(chosenSound, 1);
     }   
+
+    // ------------------------------------------------------------------------
+
+    private void PlayRoachLordVoiceClip (AudioClip clip)
+    {
+        if (clip == null) return;
+
+        _typewriterSource.pitch = 1f;
+        _typewriterSource.PlayOneShot(clip, 1);
+    }
 }
