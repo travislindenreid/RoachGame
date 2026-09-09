@@ -48,11 +48,14 @@ public partial class Roach : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private Vector2 _idleTimeMinMax;
     [SerializeField] private float _pathKnotDistance = 0.5f;
+    [SerializeField] private float _hostileMovementPathDistanceLvl1 = 2.0f;
     [SerializeField] private NavMeshAgent _agent;
     [Header("Splines")]
     [SerializeField] private SplineContainer _movementSplineContainer;
     [SerializeField] private SplineAnimate _movementSplineAnimator;
     [SerializeField] private SplineAnimate _deathSplineAnimator;
+    [SerializeField] private SplineContainer _hostileMovementSplineContainer;
+    [SerializeField] private SplineAnimate _hostileMovementSplineAnimate;
     [SerializeField] private Transform _roachSplines;
     [Header("Antennae")]
     [SerializeField] private Transform _leftAntennae;

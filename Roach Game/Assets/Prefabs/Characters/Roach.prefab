@@ -5721,6 +5721,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2769515929038699145}
+  - {fileID: 8223059714739720635}
   m_Father: {fileID: 5666340172471909981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2266932019672325890
@@ -8172,6 +8173,7 @@ GameObject:
   - component: {fileID: 3279602686272923590}
   - component: {fileID: 8888632713665553354}
   - component: {fileID: 7260593905318961297}
+  - component: {fileID: 6854408013306284128}
   m_Layer: 3
   m_Name: Roach
   m_TagString: Untagged
@@ -8187,8 +8189,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824890116372132804}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00028341945, y: 0.8075489, z: 0.00042259597, w: 0.58980054}
-  m_LocalPosition: {x: 26.163452, y: 0.17981747, z: 1.4999976}
+  m_LocalRotation: {x: -0.000049622653, y: 0.90585434, z: 0.00094442244, w: -0.4235883}
+  m_LocalPosition: {x: 26.163452, y: 0.17979118, z: 1.5000015}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8229,10 +8231,13 @@ MonoBehaviour:
   _movementPlane: 0
   _idleTimeMinMax: {x: 1, y: 3}
   _pathKnotDistance: 2
+  _hostileMovementPathDistanceLvl1: 3
   _agent: {fileID: 8888632713665553354}
   _movementSplineContainer: {fileID: 2266932019672325890}
   _movementSplineAnimator: {fileID: 7345907774376965766}
   _deathSplineAnimator: {fileID: 3279602686272923590}
+  _hostileMovementSplineContainer: {fileID: 372344533596828301}
+  _hostileMovementSplineAnimate: {fileID: 6854408013306284128}
   _roachSplines: {fileID: 106991363144284796}
   _leftAntennae: {fileID: 3926103380163049194}
   _rightAntennae: {fileID: 5869715478814395323}
@@ -8257,8 +8262,8 @@ MonoBehaviour:
   _level1Gun: {fileID: 8403393850747380025}
   _level2Gun: {fileID: 7190068396617703099}
   _level3Gun: {fileID: 3721201030991050413}
-  _timeBeforeWeaponUse: 1.5
-  _timeAfterWeaponUse: 0.5
+  _timeBeforeWeaponUse: 1
+  _timeAfterWeaponUse: 0.25
   _collectUI: {fileID: 8110903387017073136}
   _firstGunTimeline: {fileID: 6149269768011639898}
   _secondGunTimeline: {fileID: 7148046948833555555}
@@ -8414,6 +8419,29 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &6854408013306284128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824890116372132804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
+  m_Target: {fileID: 372344533596828301}
+  m_PlayOnAwake: 0
+  m_LoopMode: 0
+  m_Method: 0
+  m_Duration: 0.25
+  m_MaxSpeed: 12.000015
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1 &5848951152022274271
 GameObject:
   m_ObjectHideFlags: 0
@@ -9724,6 +9752,118 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8064555211817827065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8223059714739720635}
+  - component: {fileID: 372344533596828301}
+  m_Layer: 3
+  m_Name: HostileMovementSpline_Lvl1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8223059714739720635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064555211817827065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 106991363144284796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372344533596828301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064555211817827065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: 0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    - Position:
+        x: 0
+        y: 0
+        z: 3.0000038
+      TangentIn:
+        x: 0
+        y: 0
+        z: 0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    m_MetaData:
+    - Mode: 1
+      Tension: 0.5
+    - Mode: 1
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &8110903387017073136
 GameObject:
   m_ObjectHideFlags: 0
