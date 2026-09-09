@@ -62,7 +62,9 @@ public partial class Roach
                         movement.z = _roach._hostileMovementPathDistanceLvl1;
                         break;
                 }
-                _roach._lvl1Positions[1] = _roach.transform.position + _roach.transform.TransformDirection(movement);
+                
+                Vector3 tryPosition = _roach.transform.position + _roach.transform.TransformDirection(movement);
+                _roach._lvl1Positions[1] = GetLocationOnNavMesh(tryPosition);
             }
 
             if(_roach._moveAlt)
@@ -93,17 +95,23 @@ public partial class Roach
             Vector3 worldPosition
         ) {
             _desiredPositionGizmos.Add(worldPosition);
-            
+
+            var targetKnot = knots[splineIndex];
+            targetKnot.Position = _roach._hostileMovementSplineContainer.transform.InverseTransformPoint(worldPosition);
+            _roach._hostileMovementSplineContainer.Spline.SetKnot(splineIndex, targetKnot);  
+        }
+
+        // --------------------------------------------------------------------
+        private Vector3 GetLocationOnNavMesh (Vector3 tryPosition)
+        {
             NavMeshHit navMeshHit;
-            NavMesh.SamplePosition(worldPosition, out navMeshHit, 2.0f, NavMesh.AllAreas);
+            NavMesh.SamplePosition(tryPosition, out navMeshHit, 5.0f, NavMesh.AllAreas);
             if(navMeshHit.hit)
             {
-                var targetKnot = knots[splineIndex];
-                targetKnot.Position = _roach._hostileMovementSplineContainer.transform.InverseTransformPoint(navMeshHit.position);
-                _roach._hostileMovementSplineContainer.Spline.SetKnot(splineIndex, targetKnot);  
-
-                _foundPositionGizmos.Add(navMeshHit.position); 
+                _foundPositionGizmos.Add(navMeshHit.position);
+                return navMeshHit.position;
             }
+            return tryPosition;
         }
 
         // --------------------------------------------------------------------
