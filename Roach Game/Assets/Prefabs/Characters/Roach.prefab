@@ -5578,7 +5578,7 @@ MonoBehaviour:
   _bangText: {fileID: 5848951152022274271}
   _audioSource: {fileID: 6634479220308019932}
   _textAppearTime: 0.1
-  _damage: 2
+  _damage: 1
   _shootClip: {fileID: 8300000, guid: dce9ffd550bb743299f2e9cc9ecd1776, type: 3}
 --- !u!82 &6634479220308019932
 AudioSource:
@@ -6761,7 +6761,7 @@ MonoBehaviour:
   _bangText: {fileID: 799534931853986008}
   _audioSource: {fileID: 2678041341552919322}
   _textAppearTime: 0.1
-  _damage: 3
+  _damage: 2
   _shootClip: {fileID: 8300000, guid: afbac6bfa6ff742bba06f64ccb54ee2e, type: 3}
 --- !u!82 &2678041341552919322
 AudioSource:
@@ -9370,7 +9370,7 @@ MonoBehaviour:
   _bangText: {fileID: 618048971216834576}
   _audioSource: {fileID: 5370002498975943540}
   _textAppearTime: 0.1
-  _damage: 1
+  _damage: 0.5
   _shootClip: {fileID: 8300000, guid: f251c254f64d54f799903d24def042c7, type: 3}
 --- !u!82 &5370002498975943540
 AudioSource:
