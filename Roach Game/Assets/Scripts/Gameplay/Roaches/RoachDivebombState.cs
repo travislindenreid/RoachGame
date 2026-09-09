@@ -56,6 +56,9 @@ public partial class Roach
                 {
                     _roach._divebombSplineAnimator.Restart(true);
                     _isDiving = true;
+
+                    _roach._divebombSound.time = 0.0f;
+                    _roach._divebombSound.Play();
                 }
             }
         }

@@ -89,6 +89,7 @@ public partial class Roach : MonoBehaviour
     [Header("Cinematics")]
     [SerializeField] private PlayableDirector _firstGunTimeline;
     [SerializeField] private PlayableDirector _secondGunTimeline;
+    [SerializeField] private PlayableDirector _divebombSound;
 
     // weapon
     private RoachWeapon _gun;
