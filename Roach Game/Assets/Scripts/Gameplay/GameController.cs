@@ -121,7 +121,7 @@ public class GameController : MonoBehaviour
             int deadRoaches = _activeRoaches.Count(r => r._IsDead);
             //Debug.LogFormat("dead roaches: {0}; total roaches: {1}", deadRoaches, _activeRoaches.Count());
 
-            if(_WaitingForPlayerGunCinematic && deadRoaches >= _activeRoaches.Count()/2)
+            if(_WaitingForPlayerGunCinematic && deadRoaches == _activeRoaches.Count())
             {
                 EventBus._Instance.InvokeClueUnlocked(_playerGunClue);
             }
