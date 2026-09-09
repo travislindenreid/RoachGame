@@ -19,6 +19,7 @@ public class CameraCinematics : MonoBehaviour
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private Vector3 _roachZoomOffset = Vector3.zero;
     [SerializeField] private Vector3 _roachZoomOffset2 = Vector3.zero;
+    [SerializeField] private Vector3 _roachZoomOffset3 = Vector3.zero;
     [SerializeField] private SplineContainer _roachZoomSpline;
     [SerializeField] private SplineAnimate _roachZoomSplineAnimator;
     [SerializeField] private SplineContainer _roachZoomOutSpline;
@@ -58,6 +59,13 @@ public class CameraCinematics : MonoBehaviour
     public void AnimateRoachZoomIn2 ()
     {
         AnimateZoomInToRoach(_roachZoomOffset2);
+    }
+
+    // ------------------------------------------------------------------------
+    // timeline signal callback
+    public void AnimateRoachZoomIn3 ()
+    {
+        AnimateZoomInToRoach(_roachZoomOffset3);
     }
 
     // ------------------------------------------------------------------------

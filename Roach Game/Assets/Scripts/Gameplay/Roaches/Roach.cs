@@ -162,6 +162,13 @@ public partial class Roach : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    // timeline callback
+    public void Divebomb ()
+    {
+        EnterState(RoachStateType.Divebomb);
+    }
+
+    // ------------------------------------------------------------------------
     private void HandleSequenceStarted(Sequence sequence)
     {
         switch(sequence._GameStateType)

@@ -222,6 +222,17 @@ public class Player : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    // timeline callback
+    public void TurnAndLookAtDivebomber (Roach roach)
+    {
+        _rotateToTarget = true;
+        _endSequenceWhenDoneRotation = false;
+        _lookTarget = roach.transform;
+        _lookSpeed = 1;
+        _rotateStartTime = Time.time;
+    }
+
+    // ------------------------------------------------------------------------
     public void TurnAndLookAt (Transform t, float speed)
     {
         _rotateToTarget = true;

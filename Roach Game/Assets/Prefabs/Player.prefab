@@ -610,8 +610,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3412682330037958358}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -0.0000031461561, y: 0, z: 0.000002479152}
+  m_LocalRotation: {x: 0.2588192, y: 0.00000010949464, z: -0.0000000050107527, w: 0.96592706}
+  m_LocalPosition: {x: -0.0000061455994, y: 0, z: -0.000000051049483}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -861,6 +861,7 @@ MonoBehaviour:
   _cameraTransform: {fileID: 8108288289591890457}
   _roachZoomOffset: {x: 0, y: 3, z: -2}
   _roachZoomOffset2: {x: 0, y: 4, z: -3}
+  _roachZoomOffset3: {x: 0, y: -3, z: -2}
   _roachZoomSpline: {fileID: 5890807781099259656}
   _roachZoomSplineAnimator: {fileID: 5490644007378001235}
   _roachZoomOutSpline: {fileID: 9137330466490924226}
@@ -928,7 +929,8 @@ MonoBehaviour:
   _reticleRenderer: {fileID: 1660620694083171669}
   _defaultReticlePos: {fileID: 3219950285245140882}
   _aimReticle: {fileID: 542441944885054143}
-  _maxAimDistance: 10
+  _slipperMaxAimDistance: 10
+  _pistolMaxAimDistance: 1000
   _aimLayers:
     serializedVersion: 2
     m_Bits: 200

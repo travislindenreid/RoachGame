@@ -52,6 +52,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roach_Divebomb
       objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Signals.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: 'm_Events.m_Signals.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0965a4d7fe8dd4a98baea71f22831ce0, type: 2}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8407904027861792367}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Divebomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Roach, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260593905318961297, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: _divebomb
       value: 1
@@ -61,3 +101,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+--- !u!114 &8407904027861792367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
+  m_PrefabInstance: {fileID: 1259459648711254920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013acd1b5508b4c37bb284c5b2228a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
