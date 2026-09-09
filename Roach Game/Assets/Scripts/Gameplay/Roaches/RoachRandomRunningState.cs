@@ -15,7 +15,7 @@ public partial class Roach
     // ------------------------------------------------------------------------
     // Types
     // ------------------------------------------------------------------------
-    protected class RoachRunningState : RoachState
+    protected class RoachRandomRunningState : RoachState
     {
         // --------------------------------------------------------------------
         // Variables

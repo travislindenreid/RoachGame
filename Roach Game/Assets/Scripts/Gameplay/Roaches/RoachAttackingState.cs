@@ -42,7 +42,7 @@ public partial class Roach
 
             if(_usedWeapon && _timeBetweenSubstates >= _roach._timeAfterWeaponUse)
             {
-                _roach.EnterState(RoachStateType.HostileRunning);
+                _roach.EnterState(RoachStateType.PatternRunning);
             }
             else if(_timeBetweenSubstates >= _roach._timeBeforeWeaponUse)
             {

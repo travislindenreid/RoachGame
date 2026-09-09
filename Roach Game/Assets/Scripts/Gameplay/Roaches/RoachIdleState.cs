@@ -53,7 +53,7 @@ public partial class Roach
                 _timeInState += Time.deltaTime;
                 if(_timeInState >= _maxStateTime)
                 {
-                    _roach.EnterState(RoachStateType.Running);
+                    _roach.EnterState(RoachStateType.RandomRunning);
                 }
             }
         }
