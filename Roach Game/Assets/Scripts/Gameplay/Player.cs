@@ -174,19 +174,15 @@ public class Player : MonoBehaviour
                 }
             }
 
+            // turn camera towards manager on X axis
+            Quaternion cameraTargetQuat = Quaternion.LookRotation(_lookTarget.position - _cameraTrans.position);
+            _cameraTrans.rotation = Quaternion.Lerp(_cameraTrans.rotation, cameraTargetQuat, t);
+
             // turn player towards manager on Y axis
             Vector3 managerPosXZ = new Vector3(_lookTarget.position.x, 0, _lookTarget.position.z);
             Vector3 posXZ = new Vector3(transform.position.x, 0, transform.position.z);
             Quaternion targetRotation = Quaternion.LookRotation(managerPosXZ - posXZ);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, t);
-
-            // turn camera towards manager on X axis
-            Vector3 cameraTargetXRot = _lookTarget.position - _cameraTrans.position;
-            Quaternion cameraTargetQuat = Quaternion.LookRotation(cameraTargetXRot);
-            Vector3 currentCameraXRot = _cameraTrans.rotation.eulerAngles;
-            currentCameraXRot.y = 0;
-            currentCameraXRot.z = 0;
-            _cameraTrans.rotation = Quaternion.Lerp(Quaternion.Euler(currentCameraXRot), cameraTargetQuat, t);
         }
 
         if(SequenceController._Instance._ActiveStateType == GameStateType.Action &&
