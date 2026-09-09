@@ -5486,7 +5486,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 2072503066}
   _cameraStartRot: {fileID: 731422248}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _music: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _audioType: 2
 --- !u!1001 &763601984
 PrefabInstance:
@@ -10485,7 +10485,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 2072503066}
   _cameraStartRot: {fileID: 731422248}
   _onlySetPlayerLocOnRestart: 1
-  _music: {fileID: 8300000, guid: 4941ca7af4877654f8c0676278618a21, type: 3}
+  _music: {fileID: 8300000, guid: 7965d1a43c9d74970abdc1ae56c13981, type: 3}
   _audioType: 2
 --- !u!1001 &1743280909
 PrefabInstance:
@@ -11844,7 +11844,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 1169124488}
   _cameraStartRot: {fileID: 458518345}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _music: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _audioType: 2
 --- !u!1001 &2010663664
 PrefabInstance:
@@ -12338,7 +12338,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _music: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _audioType: 2
 --- !u!1 &2140309599
 GameObject:

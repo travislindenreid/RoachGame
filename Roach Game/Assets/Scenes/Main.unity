@@ -947,7 +947,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _music: {fileID: 8300000, guid: 67fa8fb627ed94742b7ceac4fa74efdc, type: 3}
   _audioType: 2
 --- !u!1 &124583018
 GameObject:
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _music: {fileID: 8300000, guid: 67fa8fb627ed94742b7ceac4fa74efdc, type: 3}
   _audioType: 2
 --- !u!1 &299239682
 GameObject:
@@ -3562,7 +3562,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _music: {fileID: 8300000, guid: 67fa8fb627ed94742b7ceac4fa74efdc, type: 3}
   _audioType: 2
 --- !u!1 &634075083
 GameObject:
@@ -5210,7 +5210,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _music: {fileID: 8300000, guid: 67fa8fb627ed94742b7ceac4fa74efdc, type: 3}
   _audioType: 2
 --- !u!1001 &835560464
 PrefabInstance:
@@ -5468,7 +5468,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 156766387}
   _cameraStartRot: {fileID: 1469555210}
   _onlySetPlayerLocOnRestart: 1
-  _music: {fileID: 8300000, guid: 4941ca7af4877654f8c0676278618a21, type: 3}
+  _music: {fileID: 8300000, guid: 7965d1a43c9d74970abdc1ae56c13981, type: 3}
   _audioType: 2
 --- !u!4 &901385289
 Transform:
@@ -7156,7 +7156,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _music: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _audioType: 2
 --- !u!1 &1178743205
 GameObject:
@@ -7442,7 +7442,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _music: {fileID: 8300000, guid: 67fa8fb627ed94742b7ceac4fa74efdc, type: 3}
   _audioType: 2
 --- !u!1 &1217526283
 GameObject:
@@ -8498,7 +8498,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 2029883944}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 1
-  _music: {fileID: 8300000, guid: 4941ca7af4877654f8c0676278618a21, type: 3}
+  _music: {fileID: 8300000, guid: 7965d1a43c9d74970abdc1ae56c13981, type: 3}
   _audioType: 2
 --- !u!1 &1379889875
 GameObject:
@@ -11529,7 +11529,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 2053280737}
   _cameraStartRot: {fileID: 1323172018}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 537230f8662956541a19148faad12f20, type: 3}
+  _music: {fileID: 8300000, guid: 67fa8fb627ed94742b7ceac4fa74efdc, type: 3}
   _audioType: 2
 --- !u!1 &1670594159
 GameObject:
@@ -12626,7 +12626,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _music: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _audioType: 2
 --- !u!1001 &1774497787
 PrefabInstance:
@@ -13263,7 +13263,7 @@ MonoBehaviour:
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
-  _music: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _music: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _audioType: 2
 --- !u!1 &1905760121
 GameObject:

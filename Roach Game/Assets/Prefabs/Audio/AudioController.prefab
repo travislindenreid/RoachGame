@@ -231,7 +231,7 @@ MonoBehaviour:
   _roachHitClip: {fileID: 8300000, guid: e83479e56d2933142a70e76a43d7a48a, type: 3}
   _step1Clip: {fileID: 8300000, guid: f1965f53abcab0440b5d7a5c351a7b2b, type: 3}
   _step2Clip: {fileID: 8300000, guid: e9f4ffe1b9b31e1429b20659a6b496b8, type: 3}
-  _roachlordRevealSong: {fileID: 8300000, guid: 5fb7327c0f90e3a4b90c5804a1c7ec47, type: 3}
+  _roachlordRevealSong: {fileID: 8300000, guid: 5f69cbfdea21b4a53aee1446cd28818e, type: 3}
   _buttonClick: {fileID: 8300000, guid: a0b72d1c0e37540e08527c6eb5221db8, type: 3}
   _playerSpeak1: {fileID: 8300000, guid: b93c8ca1160dc7e41be2116dbd989fd5, type: 3}
   _playerSpeak2: {fileID: 8300000, guid: 7330fb53a6b095849b0e1030b53b355d, type: 3}
