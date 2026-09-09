@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
     [SerializeField] private MeshRenderer _reticleRenderer;
     [SerializeField] private Transform _defaultReticlePos;
     [SerializeField] private Transform _aimReticle;
-    [SerializeField] private float _maxAimDistance;
+    [SerializeField] private float _slipperMaxAimDistance = 10.0f;
+    [SerializeField] private float _pistolMaxAimDistance = 1000.0f;
     [SerializeField] private LayerMask _aimLayers;
     [Header("Roach collection")]
     [SerializeField] private LayerMask _roachLayer;
@@ -467,7 +468,9 @@ public class Player : MonoBehaviour
         {
             ShowTargetReticle(true);
 
-            if(Vector3.Distance(raycastHit.point, raycastStart) <= _maxAimDistance)
+            float distance = _currentWeapon == PlayerWeaponType.Shoe ? _slipperMaxAimDistance : _pistolMaxAimDistance;
+
+            if(Vector3.Distance(raycastHit.point, raycastStart) <= distance)
             {
                 if(((1<<raycastHit.collider.gameObject.layer) & _roachLayer) != 0)
                 {
