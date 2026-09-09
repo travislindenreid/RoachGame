@@ -93,6 +93,8 @@ public partial class Roach : MonoBehaviour
     // shared state variables
     private float _health;
     private RoachState _currentState;
+    private bool _moveAlt; // for movement states that go back and forth
+    private Vector3[] _lvl1Positions;
 
     private MeshRenderer[] _renderers;
 

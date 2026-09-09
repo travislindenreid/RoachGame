@@ -24,7 +24,6 @@ public partial class Roach
         private List<Vector3> _foundPositionGizmos;
         private float _legAnimTime;
         private Vector3[] _legRots;
-        private Vector3[] _lvl1Positions;
 
         // --------------------------------------------------------------------
         // Methods
@@ -46,7 +45,36 @@ public partial class Roach
             _foundPositionGizmos = new List<Vector3>();
 
             var knots = _roach._hostileMovementSplineContainer.Spline.Knots.ToArray();
-            SetKnotPositionLvl1(knots, 1);
+
+            if(_roach._lvl1Positions == null)
+            {
+                _roach._lvl1Positions = new Vector3[2];
+                _roach._lvl1Positions[0] = _roach.transform.position;
+
+                Vector3 movement = Vector3.zero;
+                switch(_roach._movementPlane)
+                {
+                    case MovementPlane.XZ:
+                    case MovementPlane.XY:
+                        movement.x = _roach._hostileMovementPathDistanceLvl1;
+                        break;
+                    case MovementPlane.YZ:
+                        movement.z = _roach._hostileMovementPathDistanceLvl1;
+                        break;
+                }
+                _roach._lvl1Positions[1] = _roach.transform.position + _roach.transform.TransformDirection(movement);
+            }
+
+            if(_roach._moveAlt)
+            {
+                SetKnotPositionLvl1(knots, 0, _roach._lvl1Positions[1]);
+                SetKnotPositionLvl1(knots, 1, _roach._lvl1Positions[0]);
+            }
+            else
+            {
+                SetKnotPositionLvl1(knots, 0, _roach._lvl1Positions[0]);
+                SetKnotPositionLvl1(knots, 1, _roach._lvl1Positions[1]);
+            }
 
             _roach._hostileMovementSplineAnimate.Restart(true);
 
@@ -61,41 +89,13 @@ public partial class Roach
         // --------------------------------------------------------------------
         private void SetKnotPositionLvl1(
             UnityEngine.Splines.BezierKnot[] knots,
-            int splineIndex
+            int splineIndex,
+            Vector3 worldPosition
         ) {
-            float distance = _roach._hostileMovementPathDistanceLvl1;
-            Vector3 displacement = Vector3.zero;
-            Vector2 randomDir = Random.onUnitCircle;
-
-            switch(_roach._movementPlane)
-            {
-                case MovementPlane.XZ:
-                    displacement.x = randomDir.x;
-                    displacement.y = 0;
-                    displacement.z = randomDir.y;
-                    displacement *= distance;
-                    break;
-                case MovementPlane.XY:
-                    displacement.x = randomDir.x;
-                    displacement.y = randomDir.y;
-                    displacement.z = 0;
-                    displacement *= distance;
-                    break;
-                case MovementPlane.YZ:
-                    displacement.x = 0;
-                    displacement.y = randomDir.y;
-                    displacement.z = randomDir.x;
-                    displacement *= distance;
-                    break;
-            }
-
-            Vector3 prevKnotPos = _roach._hostileMovementSplineContainer.transform.TransformPoint((Vector3)knots[splineIndex - 1].Position);
-            Vector3 randomPos = prevKnotPos + displacement;
-
-            _desiredPositionGizmos.Add(randomPos);
+            _desiredPositionGizmos.Add(worldPosition);
             
             NavMeshHit navMeshHit;
-            NavMesh.SamplePosition(randomPos, out navMeshHit, 2.0f, NavMesh.AllAreas);
+            NavMesh.SamplePosition(worldPosition, out navMeshHit, 2.0f, NavMesh.AllAreas);
             if(navMeshHit.hit)
             {
                 var targetKnot = knots[splineIndex];
@@ -155,6 +155,7 @@ public partial class Roach
         // --------------------------------------------------------------------
         public override void ExitState()
         {
+            _roach._moveAlt = !_roach._moveAlt;
             _roach._collider.enabled = true;
             _roach._hostileMovementSplineAnimate.Pause();
         }
