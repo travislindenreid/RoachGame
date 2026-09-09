@@ -49,16 +49,19 @@ public class DialogueOption
 }
 
 [Serializable]
-public class WordTimingData
+public class PhraseTimingData
 {
-    [Tooltip("The word or phrase to display.")]
-    public string word;
+    [Tooltip("The phrase to display.")]
+    public string phrase;
 
-    [Tooltip("Total time in seconds to type out this word/phrase.")]
-    public float typewriterDuration = 0.2f;
+    [Tooltip("Total time in seconds to type out this phrase.")]
+    public float typewriterDuration = 0.5f;
 
-    [Tooltip("Delay in seconds after this word finishes before the next one begins.")]
-    public float delayAfterWord = 0.05f;
+    [Tooltip("Delay in seconds after this phrase finishes before the next one begins.")]
+    public float delayAfterPhrase = 0.3f;
+
+    [Tooltip("If true, inserts a new line after this phrase's delay, before the next phrase begins.")]
+    public bool newLineAfterPhrase = false;
 }
 
 [CreateAssetMenu(fileName = "MessageData", menuName = "Dialogue/Message", order = 1)]
@@ -73,7 +76,7 @@ public class DialogueNode : DiscoverableData
 
     // Leave null/empty for every other speaker
     [SerializeField] private AudioClip _roachLordVoiceClip;
-    [SerializeField] private WordTimingData[] _roachLordWordTimings;
+    [SerializeField] private PhraseTimingData[] _roachLordPhraseTimings;
 
     public ChatData _Chat;
 
@@ -87,7 +90,7 @@ public class DialogueNode : DiscoverableData
     public DialogueOption[] _Options => _options;
     public string[] _Lines => _lines;
     public AudioClip _RoachLordVoiceClip => _roachLordVoiceClip;
-    public WordTimingData[] _RoachLordWordTimings => _roachLordWordTimings;
+    public PhraseTimingData[] _RoachLordPhraseTimings => _roachLordPhraseTimings;
 
     // ------------------------------------------------------------------------
     // Methods

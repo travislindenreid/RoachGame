@@ -8,6 +8,8 @@
  */
 
 using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
 
@@ -21,41 +23,71 @@ public class TypewriterText : MonoBehaviour
     [SerializeField] private FriendData _roachLordFriendData;
 
     private bool _animating;
+    private bool _isRoachLordPhraseReveal;
+    private Coroutine _revealCoroutine;
+
+    private List<string> committedChunks;
 
     // ------------------------------------------------------------------------
     // Methods
     // ------------------------------------------------------------------------
     public void SetText(string text)
     {
-        StartCoroutine(RevealText(text));
+        if (_revealCoroutine != null)
+        {
+            StopCoroutine(_revealCoroutine);
+        }
+
+        _revealCoroutine = StartCoroutine(RevealText(text));
     }
 
     // ------------------------------------------------------------------------
     private void Update()
     {
-        if(_animating)
+        if (_animating && Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                StopAllCoroutines();
-                FinishAnimation();
-            }
+            SkipAnimation();
         }
+    }
+
+    // ------------------------------------------------------------------------
+    private void SkipAnimation()
+    {
+        if (_isRoachLordPhraseReveal)
+        {
+            EventBus._Instance.InvokeStopRoachLordVoiceClip();
+        }
+
+        if (_revealCoroutine != null)
+        {
+            StopCoroutine(_revealCoroutine);
+            _revealCoroutine = null;
+        }
+
+        _text.maxVisibleCharacters = _text.textInfo.characterCount;
+
+        _animating = false;
+        _isRoachLordPhraseReveal = false;
+        EventBus._Instance.InvokeTyperwriterFinished();
     }
 
     // ------------------------------------------------------------------------
     private IEnumerator RevealText(string message)
     {
         DialogueNode node = DialogueRunner._Instance._CurrentNode;
-        bool isRoachLord = node != null
-            && _roachLordFriendData != null
-            && node._Speaker == _roachLordFriendData
-            && node._RoachLordWordTimings != null
-            && node._RoachLordWordTimings.Length > 0;
+
+        bool isRoachLord =
+            node != null &&
+            _roachLordFriendData != null &&
+            node._Speaker == _roachLordFriendData &&
+            node._RoachLordPhraseTimings != null &&
+            node._RoachLordPhraseTimings.Length > 0;
+
+        _isRoachLordPhraseReveal = isRoachLord;
 
         if (isRoachLord)
         {
-            yield return RevealTextWithWordTimings(node, message);
+            yield return RevealTextWithPhraseTimings(node);
         }
         else
         {
@@ -66,8 +98,6 @@ public class TypewriterText : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    // Legacy per-character reveal used by every non-Roach-Lord speaker,
-    // unchanged from the original system.
     private IEnumerator RevealTextLegacy(string message)
     {
         _animating = true;
@@ -77,6 +107,7 @@ public class TypewriterText : MonoBehaviour
         _text.ForceMeshUpdate();
 
         int maxChars = _text.textInfo.characterCount;
+
         while (_text.maxVisibleCharacters < maxChars)
         {
             int nextIndex = _text.maxVisibleCharacters;
@@ -91,63 +122,146 @@ public class TypewriterText : MonoBehaviour
 
             yield return new WaitForSeconds(_characterRevealSpeedSeconds);
         }
-    }
-
-    // ------------------------------------------------------------------------
-    // Roach Lord ONLY: plays the full voice clip once, then reveals text
-    // according to each word's own duration/delay from the node data.
-    private IEnumerator RevealTextWithWordTimings(DialogueNode node, string message)
-    {
-        _animating = true;
-
-        _text.text = message;
-        _text.maxVisibleCharacters = 0;
-        _text.ForceMeshUpdate();
-
-        int maxChars = _text.textInfo.characterCount;
-
-        if (node._RoachLordVoiceClip != null)
-        {
-            EventBus._Instance.InvokePlayRoachLordVoiceClip(node._RoachLordVoiceClip);
-        }
-
-        int revealedChars = 0;
-        foreach(WordTimingData wordData in node._RoachLordWordTimings)
-        {
-            int wordLength = wordData.word.Length;
-            float delayPerChar = wordLength > 0 ? wordData.typewriterDuration / wordLength : 0f;
-
-            int wordCharsRevealed = 0;
-            float elapsed = 0f;
-            while (wordCharsRevealed < wordLength && revealedChars < maxChars)
-            {
-                elapsed += Time.deltaTime;
-                int targetChars = delayPerChar > 0
-                    ? Mathf.Min(Mathf.FloorToInt(elapsed / delayPerChar), wordLength)
-                    : wordLength;
-
-                if (targetChars > wordCharsRevealed)
-                {
-                    int delta = targetChars - wordCharsRevealed;
-                    wordCharsRevealed = targetChars;
-                    revealedChars += delta;
-                    _text.maxVisibleCharacters = revealedChars;
-                }
-
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(wordData.delayAfterWord);
-        }
 
         _text.maxVisibleCharacters = maxChars;
     }
 
     // ------------------------------------------------------------------------
-    private void FinishAnimation ()
+    private IEnumerator RevealTextWithPhraseTimings(DialogueNode node)
     {
-        _text.maxVisibleCharacters = _text.textInfo.characterCount;
+        _animating = true;
+
+        StringBuilder textBuilder = new StringBuilder();
+        List<PhraseRevealRange> phraseRanges =
+            new List<PhraseRevealRange>();
+
+        foreach (PhraseTimingData phraseData in node._RoachLordPhraseTimings)
+        {
+            int sourceStart = textBuilder.Length;
+
+            textBuilder.Append(phraseData.phrase);
+
+            if (phraseData.newLineAfterPhrase)
+            {
+                textBuilder.Append("\n\n");
+            }
+
+            phraseRanges.Add(new PhraseRevealRange
+            {
+                Data = phraseData,
+                SourceStart = sourceStart,
+                SourceEnd = textBuilder.Length
+            });
+        }
+
+        _text.text = textBuilder.ToString();
+        _text.maxVisibleCharacters = 0;
+        _text.ForceMeshUpdate();
+
+        if (node._RoachLordVoiceClip != null)
+        {
+            EventBus._Instance.InvokePlayRoachLordVoiceClip(
+                node._RoachLordVoiceClip
+            );
+        }
+
+        int revealedCharacters = 0;
+
+        foreach (PhraseRevealRange phraseRange in phraseRanges)
+        {
+            int phraseEndCharacter = GetVisibleCharacterCountBeforeSourceIndex(
+                phraseRange.SourceEnd
+            );
+
+            int phraseCharacterCount =
+                phraseEndCharacter - revealedCharacters;
+
+            if (phraseCharacterCount > 0)
+            {
+                float phraseDuration = Mathf.Max(
+                    0f,
+                    phraseRange.Data.typewriterDuration
+                );
+
+                if (phraseDuration <= 0f)
+                {
+                    revealedCharacters = phraseEndCharacter;
+                    _text.maxVisibleCharacters = revealedCharacters;
+                }
+                else
+                {
+                    float elapsed = 0f;
+                    float secondsPerCharacter =
+                        phraseDuration / phraseCharacterCount;
+
+                    while (revealedCharacters < phraseEndCharacter)
+                    {
+                        elapsed += Time.deltaTime;
+
+                        int charactersToReveal = Mathf.Min(
+                            Mathf.FloorToInt(
+                                elapsed / secondsPerCharacter
+                            ),
+                            phraseCharacterCount
+                        );
+
+                        int targetCharacters =
+                            phraseEndCharacter - phraseCharacterCount +
+                            charactersToReveal;
+
+                        if (targetCharacters > revealedCharacters)
+                        {
+                            revealedCharacters = targetCharacters;
+                            _text.maxVisibleCharacters =
+                                revealedCharacters;
+                        }
+
+                        yield return null;
+                    }
+                }
+            }
+
+            if (phraseRange.Data.delayAfterPhrase > 0f)
+            {
+                yield return new WaitForSeconds(
+                    phraseRange.Data.delayAfterPhrase
+                );
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    private void FinishAnimation()
+    {
         _animating = false;
+        _isRoachLordPhraseReveal = false;
+        _revealCoroutine = null;
+
         EventBus._Instance.InvokeTyperwriterFinished();
+    }
+
+    private int GetVisibleCharacterCountBeforeSourceIndex(int sourceIndex)
+    {
+        int count = 0;
+
+        for (int i = 0; i < _text.textInfo.characterCount; i++)
+        {
+            TMP_CharacterInfo characterInfo =
+                _text.textInfo.characterInfo[i];
+
+            if (characterInfo.index < sourceIndex)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private sealed class PhraseRevealRange
+    {
+        public PhraseTimingData Data;
+        public int SourceStart;
+        public int SourceEnd;
     }
 }
