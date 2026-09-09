@@ -5,10 +5,8 @@
  * Copyright 2019 - 2026 Studio Tilia
  */
 
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.SceneManagement;
 
 public class AudioController : MonoBehaviour
 {
