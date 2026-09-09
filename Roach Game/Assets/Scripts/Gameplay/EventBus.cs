@@ -24,6 +24,9 @@ public class EventBus : MonoBehaviour
     public event EmptyDelegate PlayTypewriter;
     public event EmptyDelegate TyperwriterFinished;
 
+    public delegate void AudioClipDelegate(AudioClip clip);
+    public event AudioClipDelegate PlayRoachLordVoiceClip;
+
     public delegate void PlayerMovementTypeDelegate(PlayerMovementType movementType);
     public event PlayerMovementTypeDelegate PlayerMovementChanged;
 
@@ -114,5 +117,11 @@ public class EventBus : MonoBehaviour
     public void InvokePlayTypewriter()
     {
         PlayTypewriter?.Invoke();
+    }
+
+    // ------------------------------------------------------------------------
+    public void InvokePlayRoachLordVoiceClip(AudioClip clip)
+    {
+        PlayRoachLordVoiceClip?.Invoke(clip);
     }
 }
