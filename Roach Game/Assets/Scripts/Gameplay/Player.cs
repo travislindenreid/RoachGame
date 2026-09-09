@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _roachHoldLoc;
     [Header("Combat")]
     [SerializeField] private float _healthDrainPerSecond = 0.05f;
+    [SerializeField] private float _pistolCooldownSeconds = 1.0f;
     [SerializeField] private float _maxHealth = 5;
     [SerializeField] private PlayerWeaponType _currentWeapon = PlayerWeaponType.Shoe;
     [Header("Cinematics")]
@@ -66,8 +67,10 @@ public class Player : MonoBehaviour
     private float _rotationY;
     private bool _needsAnimRestart;
     private float _health;
-
     private float _playerMouseSensitivity;
+
+    // pistol
+    private float _cooldownCurrentTime;
 
     // aiming reticle
     private Vector3 _reticleOffset = new Vector3(0, 0.1f, 0);
@@ -380,33 +383,43 @@ public class Player : MonoBehaviour
     // ------------------------------------------------------------------------
     private void UpdatePistol ()
     {
-        RoachHitInfo hitInfo = UpdateTargetReticle();
-
-        if(Input.GetMouseButtonDown(0))
+        _cooldownCurrentTime += Time.deltaTime;
+        if(_cooldownCurrentTime >= _pistolCooldownSeconds)
         {
-            // find the nearest walkable surface, and put a bullet hole there
-            RaycastHit raycastHit;
-            Vector3 raycastStart = Camera.main.transform.position;
-            bool aimRaycastHit = Physics.Raycast(
-                    raycastStart,
-                    Camera.main.transform.forward,
-                    out raycastHit,
-                    100.0f,
-                    _bulletHoleLayers
-            );
-            if(aimRaycastHit)
-            {
-                Instantiate(_bulletHoleObj, raycastHit.point, Quaternion.LookRotation(-raycastHit.normal));
-            }
+            RoachHitInfo hitInfo = UpdateTargetReticle();
 
-            _pistolAudio.Play();
-
-            if(hitInfo.hit && hitInfo.roachObj != null)
+            if(Input.GetMouseButtonDown(0))
             {
-                Roach roach = hitInfo.roachObj.GetComponent<Roach>();
-                Assert.IsNotNull(roach);
-                roach.Hit();
+                _cooldownCurrentTime = 0.0f;
+
+                // find the nearest walkable surface, and put a bullet hole there
+                RaycastHit raycastHit;
+                Vector3 raycastStart = Camera.main.transform.position;
+                bool aimRaycastHit = Physics.Raycast(
+                        raycastStart,
+                        Camera.main.transform.forward,
+                        out raycastHit,
+                        100.0f,
+                        _bulletHoleLayers
+                );
+                if(aimRaycastHit)
+                {
+                    Instantiate(_bulletHoleObj, raycastHit.point, Quaternion.LookRotation(-raycastHit.normal));
+                }
+
+                _pistolAudio.Play();
+
+                if(hitInfo.hit && hitInfo.roachObj != null)
+                {
+                    Roach roach = hitInfo.roachObj.GetComponent<Roach>();
+                    Assert.IsNotNull(roach);
+                    roach.Hit();
+                }
             }
+        }
+        else
+        {
+            ShowTargetReticle(false);
         }
     }
 
@@ -430,6 +443,12 @@ public class Player : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    private void ShowTargetReticle (bool show)
+    {
+        _reticleRenderer.enabled = show;
+    }
+
+    // ------------------------------------------------------------------------
     private RoachHitInfo UpdateTargetReticle ()
     {
         bool weaponCanReachTarget = false;
@@ -446,6 +465,8 @@ public class Player : MonoBehaviour
         );
         if(aimRaycastHit)
         {
+            ShowTargetReticle(true);
+
             if(Vector3.Distance(raycastHit.point, raycastStart) <= _maxAimDistance)
             {
                 if(((1<<raycastHit.collider.gameObject.layer) & _roachLayer) != 0)
@@ -471,8 +492,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            _reticleMat.color = _reticleInvalid;
-            SetTargetPosition(_defaultReticlePos.position);
+            ShowTargetReticle(false);
         }
 
         return new RoachHitInfo()
