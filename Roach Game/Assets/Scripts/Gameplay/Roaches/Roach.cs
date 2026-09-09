@@ -94,7 +94,9 @@ public partial class Roach : MonoBehaviour
     private float _health;
     private RoachState _currentState;
     private bool _moveAlt; // for movement states that go back and forth
+    private int _moveState; // for movement states with >2 substates
     private Vector3[] _lvl1Positions;
+    private Vector3[] _lvl2Positions;
 
     private MeshRenderer[] _renderers;
 
@@ -247,6 +249,7 @@ public partial class Roach : MonoBehaviour
         else if(GameController._Instance._WaitingForSecondRoachGunCinematic)
         {
             _activeCinematic = _secondGunTimeline;
+            _gunLevel = 2;
             EnterState(RoachStateType.Cinematic);
         }
         else
