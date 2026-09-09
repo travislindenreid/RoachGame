@@ -20,10 +20,11 @@ public partial class Roach
         // --------------------------------------------------------------------
         // Variables
         // --------------------------------------------------------------------
-        private List<Vector3> _randomPositionGizmos;
+        private List<Vector3> _desiredPositionGizmos;
         private List<Vector3> _foundPositionGizmos;
         private float _legAnimTime;
         private Vector3[] _legRots;
+        private Vector3[] _lvl1Positions;
 
         // --------------------------------------------------------------------
         // Methods
@@ -41,7 +42,7 @@ public partial class Roach
             _roach._roachSplines.Rotate(0, Random.Range(0, 350), 0);
             _roach._roachSplines.position = _roach.transform.position;
 
-            _randomPositionGizmos = new List<Vector3>();
+            _desiredPositionGizmos = new List<Vector3>();
             _foundPositionGizmos = new List<Vector3>();
 
             var knots = _roach._hostileMovementSplineContainer.Spline.Knots.ToArray();
@@ -91,7 +92,7 @@ public partial class Roach
             Vector3 prevKnotPos = _roach._hostileMovementSplineContainer.transform.TransformPoint((Vector3)knots[splineIndex - 1].Position);
             Vector3 randomPos = prevKnotPos + displacement;
 
-            _randomPositionGizmos.Add(randomPos);
+            _desiredPositionGizmos.Add(randomPos);
             
             NavMeshHit navMeshHit;
             NavMesh.SamplePosition(randomPos, out navMeshHit, 2.0f, NavMesh.AllAreas);
@@ -108,13 +109,13 @@ public partial class Roach
         // --------------------------------------------------------------------
         public override void OnDrawGizmos ()
         {
-            if(_randomPositionGizmos == null || _foundPositionGizmos == null)
+            if(_desiredPositionGizmos == null || _foundPositionGizmos == null)
             {
                 return;
             }
 
             Gizmos.color = Color.yellow;
-            foreach(Vector3 pos in _randomPositionGizmos)
+            foreach(Vector3 pos in _desiredPositionGizmos)
             {
                 Gizmos.DrawSphere(pos, 0.2f);
             }
