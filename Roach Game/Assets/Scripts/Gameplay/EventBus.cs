@@ -26,6 +26,7 @@ public class EventBus : MonoBehaviour
 
     public delegate void AudioClipDelegate(AudioClip clip);
     public event AudioClipDelegate PlayRoachLordVoiceClip;
+    public event EmptyDelegate StopRoachLordVoiceClip;
 
     public delegate void PlayerMovementTypeDelegate(PlayerMovementType movementType);
     public event PlayerMovementTypeDelegate PlayerMovementChanged;
@@ -123,5 +124,11 @@ public class EventBus : MonoBehaviour
     public void InvokePlayRoachLordVoiceClip(AudioClip clip)
     {
         PlayRoachLordVoiceClip?.Invoke(clip);
+    }
+
+    // ------------------------------------------------------------------------
+    public void InvokeStopRoachLordVoiceClip()
+    {
+        StopRoachLordVoiceClip?.Invoke();
     }
 }

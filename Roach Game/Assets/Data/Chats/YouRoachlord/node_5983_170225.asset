@@ -31,14 +31,17 @@ MonoBehaviour:
   - _optionText: ((he did this to us))
     _nextNode: {fileID: 11400000, guid: 021a56f343f9d4e1d8a1ead055041256, type: 2}
   _roachLordVoiceClip: {fileID: 8300000, guid: a5a4a82a57df2b549ab7bcc9c320111f, type: 3}
-  _roachLordWordTimings:
-  - word: I think you know by now
-    typewriterDuration: 1.634
-    delayAfterWord: 0
-  - word: ...
-    typewriterDuration: 0.487
-    delayAfterWord: 0
-  - word: You've failed the inspection.
-    typewriterDuration: 2.546
-    delayAfterWord: 0
+  _roachLordPhraseTimings:
+  - phrase: I think you know by now
+    typewriterDuration: 1.695
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ...
+    typewriterDuration: 0.507
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
+  - phrase: You've failed the inspection.
+    typewriterDuration: 2.201
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}

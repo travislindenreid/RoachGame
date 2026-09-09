@@ -66,6 +66,7 @@ public class AudioController : MonoBehaviour
         EventBus._Instance.PlayerMovementChanged += HandlePlayerMovementChanged;
         EventBus._Instance.PlayTypewriter += PlayTypewriter;
         EventBus._Instance.PlayRoachLordVoiceClip += PlayRoachLordVoiceClip;
+        EventBus._Instance.StopRoachLordVoiceClip += StopRoachLordVoiceClip;
     }
 
     // ------------------------------------------------------------------------
@@ -180,7 +181,7 @@ public class AudioController : MonoBehaviour
         }
         else if (speaker == _roachLordFriendData)
         {
-            //placeholder for now
+            //fallback to manager voice 
             chosenSound = Random.value < 0.5f ? _managerSpeak1 : _managerSpeak2;
             pitchRange = _managerPitchRange;
             
@@ -204,5 +205,10 @@ public class AudioController : MonoBehaviour
 
         _typewriterSource.pitch = 1f;
         _typewriterSource.PlayOneShot(clip, 1);
+    }
+
+    private void StopRoachLordVoiceClip ()
+    {
+        _typewriterSource.Stop();
     }
 }

@@ -25,4 +25,42 @@ MonoBehaviour:
   _options:
   - _optionText: ((so does he or does he not want roaches everywhere...??))
     _nextNode: {fileID: 11400000, guid: 9d733cddc50d84a40bafad05c8201a0e, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: 2fa778741ba1e644a9461fa463f6655c, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: As the roaches are to you, you are a pest to me.
+    typewriterDuration: 3.454
+    delayAfterPhrase: 0.332
+    newLineAfterPhrase: 1
+  - phrase: 'You all are. '
+    typewriterDuration: 1.089
+    delayAfterPhrase: 0.271
+    newLineAfterPhrase: 0
+  - phrase: 'The Manager. '
+    typewriterDuration: 1.128
+    delayAfterPhrase: 0.282
+    newLineAfterPhrase: 0
+  - phrase: 'Your Emily. '
+    typewriterDuration: 0.974
+    delayAfterPhrase: 0.203
+    newLineAfterPhrase: 0
+  - phrase: 'You. '
+    typewriterDuration: 0.422
+    delayAfterPhrase: 0.242
+    newLineAfterPhrase: 1
+  - phrase: 'Living on my property. '
+    typewriterDuration: 2.384
+    delayAfterPhrase: 0.367
+    newLineAfterPhrase: 1
+  - phrase: 'Getting it dirty. '
+    typewriterDuration: 1.618
+    delayAfterPhrase: 0.188
+    newLineAfterPhrase: 0
+  - phrase: 'Messing it up. '
+    typewriterDuration: 1.36
+    delayAfterPhrase: 0.184
+    newLineAfterPhrase: 1
+  - phrase: 'Oohhhh, my beautiful investments!!! '
+    typewriterDuration: 3.721
+    delayAfterPhrase: 3.721
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}
