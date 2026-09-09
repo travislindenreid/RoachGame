@@ -167,6 +167,7 @@ public class Player : MonoBehaviour
 
             if(t >= 1.0f)
             {
+                _cameraTrans.SetParent(transform);
                 _rotateToTarget = false;
                 if(_endSequenceWhenDoneRotation)
                 {
@@ -211,6 +212,7 @@ public class Player : MonoBehaviour
     public void TurnAndLookAtManager ()
     {
         _rotateToTarget = true;
+        _cameraTrans.SetParent(null);
         _endSequenceWhenDoneRotation = true;
         _lookTarget = _manager;
         _lookSpeed = _lookAtManagerSpeed;
@@ -222,6 +224,7 @@ public class Player : MonoBehaviour
     public void TurnAndLookAtDivebomber (Roach roach)
     {
         _rotateToTarget = true;
+        _cameraTrans.SetParent(null);
         _endSequenceWhenDoneRotation = false;
         _lookTarget = roach.transform;
         _lookSpeed = 1;
@@ -232,6 +235,7 @@ public class Player : MonoBehaviour
     public void TurnAndLookAt (Transform t, float speed)
     {
         _rotateToTarget = true;
+        _cameraTrans.SetParent(null);
         _endSequenceWhenDoneRotation = false;
         _lookTarget = t;
         _lookSpeed = speed;
