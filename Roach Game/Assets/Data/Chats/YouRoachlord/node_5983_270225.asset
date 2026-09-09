@@ -61,6 +61,6 @@ MonoBehaviour:
     newLineAfterPhrase: 1
   - phrase: 'Oohhhh, my beautiful investments!!! '
     typewriterDuration: 3.721
-    delayAfterPhrase: 3.721
+    delayAfterPhrase: 0
     newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}

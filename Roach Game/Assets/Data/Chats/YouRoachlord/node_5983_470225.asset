@@ -23,4 +23,30 @@ MonoBehaviour:
   _options:
   - _optionText: ((...))
     _nextNode: {fileID: 11400000, guid: e59be335d500b4e2d9077a2e779aca05, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: c92ba7a2dadefb945a39eee61202f9f5, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 
+    typewriterDuration: 0.043
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'Yes.  '
+    typewriterDuration: 0.398
+    delayAfterPhrase: 0.44
+    newLineAfterPhrase: 0
+  - phrase: 'You see now. '
+    typewriterDuration: 0.647
+    delayAfterPhrase: 0.496
+    newLineAfterPhrase: 1
+  - phrase: And you intend to stop me with what?
+    typewriterDuration: 1.819
+    delayAfterPhrase: 0.527
+    newLineAfterPhrase: 1
+  - phrase: 'Interesting you believe paperwork has any say here, '
+    typewriterDuration: 3.242
+    delayAfterPhrase: 0.359
+    newLineAfterPhrase: 0
+  - phrase: in my domain.
+    typewriterDuration: 0.958
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}
