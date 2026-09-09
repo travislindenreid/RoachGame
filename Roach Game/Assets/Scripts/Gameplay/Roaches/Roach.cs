@@ -92,6 +92,7 @@ public partial class Roach : MonoBehaviour
 
     // shared state variables
     private float _health;
+    private bool _hostile;
     private RoachState _currentState;
     private bool _moveAlt; // for movement states that go back and forth
     private int _moveState; // for movement states with >2 substates
@@ -238,6 +239,7 @@ public partial class Roach : MonoBehaviour
         if(_IsDead) return;
 
         _health--;
+        _hostile = true;
 
         UpdateHealthText();
 
@@ -260,7 +262,7 @@ public partial class Roach : MonoBehaviour
             }
             else if(_isDocile)
             {
-                EnterState(RoachStateType.RandomRunning);
+                EnterState(RoachStateType.PatternRunning);
             }
             else
             {
@@ -349,6 +351,8 @@ public partial class Roach : MonoBehaviour
 
         _health = _maxHealth;
         UpdateHealthText();
+
+        _hostile = false;
 
         transform.SetParent(null);
         transform.position = originalPos;
