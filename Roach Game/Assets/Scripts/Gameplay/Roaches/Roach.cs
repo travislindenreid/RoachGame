@@ -29,7 +29,8 @@ public partial class Roach : MonoBehaviour
         Cinematic,
         StayIdle,
         RunOnce,
-        PatternRunning
+        PatternRunning,
+        Divebomb
     }
 
     private enum MovementPlane
@@ -41,6 +42,7 @@ public partial class Roach : MonoBehaviour
     // Variables
     // ------------------------------------------------------------------------
     [Header("Unique Values")]
+    [SerializeField] private bool _divebomb;
     [SerializeField] private bool _isDocile;
     [SerializeField] private bool _isImmobile;
     [SerializeField] private bool _doCinematicRunInCircle;
@@ -56,6 +58,7 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private SplineAnimate _deathSplineAnimator;
     [SerializeField] private SplineContainer _hostileMovementSplineContainer;
     [SerializeField] private SplineAnimate _hostileMovementSplineAnimate;
+    [SerializeField] private SplineAnimate _divebombSplineAnimator;
     [SerializeField] private Transform _roachSplines;
     [Header("Antennae")]
     [SerializeField] private Transform _leftAntennae;
@@ -74,6 +77,7 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private float _maxHealth = 1;
     [SerializeField] private Collider _collider;
     [Header("Weapons")]
+    [SerializeField] private float _timeToDivebomb = 10.0f;
     [SerializeField] private int _gunLevel = 1;
     [SerializeField] private RoachWeapon _level1Gun;
     [SerializeField] private RoachWeapon _level2Gun;
@@ -164,7 +168,17 @@ public partial class Roach : MonoBehaviour
         {
             case GameStateType.Action:
                 // avoid having roach already holding gun start running when new seq loads
-                if(!(_currentState is RoachAttackingState)) EnterState(RoachStateType.RandomRunning);
+                if(!(_currentState is RoachAttackingState))
+                {
+                    if(_divebomb)
+                    {
+                        EnterState(RoachStateType.Divebomb);
+                    }
+                    else
+                    {
+                        EnterState(RoachStateType.RandomRunning);
+                    }
+                }
                 break;
             case GameStateType.Invalid:
             case GameStateType.Cinematic:
@@ -376,6 +390,7 @@ public partial class Roach : MonoBehaviour
             case RoachStateType.StayIdle: _currentState = new RoachStayIdleState(); break;
             case RoachStateType.RunOnce: _currentState = new RoachRunOnceState(); break;
             case RoachStateType.PatternRunning: _currentState = new RoachPatternRunningState(); break;
+            case RoachStateType.Divebomb: _currentState = new RoachDivebombState(); break;
             default: Debug.LogError("unhandled roach state: " + newState); break;
         }
         //Debug.LogFormat("{0} new state: {1}", gameObject.name, _currentState);

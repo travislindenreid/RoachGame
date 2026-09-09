@@ -15,35 +15,27 @@ public partial class Roach
     protected class RoachStayIdleState : RoachState
     {
         // --------------------------------------------------------------------
-        // Variables
-        // --------------------------------------------------------------------
-        private float _antennaeAnimTime;
-        private Vector3 _leftRot;
-        private Vector3 _rightRot;
-
-        // --------------------------------------------------------------------
         // Methods
         // --------------------------------------------------------------------
         public override void EnterState(Roach roach)
         {
             base.EnterState(roach);
 
-            _leftRot = Vector3.Lerp(_roach._antennaeAnimMin, _roach._antennaeAnimMax, Random.Range(0.0f, 1.0f));
-            _rightRot = Vector3.Lerp(_roach._antennaeAnimMin, _roach._antennaeAnimMax, Random.Range(0.0f, 1.0f));
+            _roach._agent.enabled = false;
+
+            SetupAntennaeAnimation();
         }
 
         // --------------------------------------------------------------------
         public override void RunState(float deltaTime)
         {
-            _antennaeAnimTime += Time.deltaTime;
-            if(_antennaeAnimTime >= _roach._antennaeFlipTime)
-            {
-                _antennaeAnimTime = 0;
-                _leftRot = new Vector3(-_leftRot.x, _leftRot.y, _leftRot.z);
-                _rightRot = new Vector3(-_rightRot.x, _rightRot.y, _rightRot.z);
-            }
-            _roach._leftAntennae.Rotate(_leftRot * Time.deltaTime);
-            _roach._rightAntennae.Rotate(_rightRot * Time.deltaTime);
+            RunAntennaeAnimation();
+        }
+
+        // --------------------------------------------------------------------
+        public override void ExitState()
+        {
+            _roach._agent.enabled = true;
         }
     }
 }

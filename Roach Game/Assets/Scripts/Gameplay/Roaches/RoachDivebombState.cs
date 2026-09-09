@@ -12,12 +12,12 @@ public partial class Roach
     // ------------------------------------------------------------------------
     // Types
     // ------------------------------------------------------------------------
-    protected class RoachIdleState : RoachState
+    protected class RoachDivebombState : RoachState
     {
         // --------------------------------------------------------------------
         // Variables
         // --------------------------------------------------------------------
-        private float _maxStateTime;
+        private bool _isDiving;
 
         // --------------------------------------------------------------------
         // Methods
@@ -26,8 +26,13 @@ public partial class Roach
         {
             base.EnterState(roach);
 
-            _timeInState = 0;
-            _maxStateTime = Random.Range(_roach._idleTimeMinMax.x, _roach._idleTimeMinMax.y);
+            _roach.transform.rotation = Quaternion.identity;
+
+            _timeInState = 0.0f;
+            _isDiving = false;
+
+            _roach._hostile = true;
+            _roach._agent.enabled = false;
 
             SetupAntennaeAnimation();
         }
@@ -37,21 +42,29 @@ public partial class Roach
         {
             RunAntennaeAnimation();
 
-            if(!_roach._isImmobile)
+            if(_isDiving)
             {
-                _timeInState += Time.deltaTime;
-                if(_timeInState >= _maxStateTime)
+                if(!_roach._divebombSplineAnimator.IsPlaying)
                 {
-                    if(_roach._hostile)
-                    {
-                        _roach.EnterState(RoachStateType.PatternRunning);
-                    }
-                    else
-                    {
-                        _roach.EnterState(RoachStateType.RandomRunning);
-                    }
+                    _roach.EnterState(RoachStateType.Attacking);
                 }
             }
+            else
+            {
+                _timeInState += Time.deltaTime;
+                if(_timeInState >= _roach._timeToDivebomb)
+                {
+                    _roach._divebombSplineAnimator.Restart(true);
+                    _isDiving = true;
+                }
+            }
+        }
+
+        // --------------------------------------------------------------------
+        public override void ExitState()
+        {
+            _roach._agent.enabled = true;
+            _roach._divebombSplineAnimator.Pause();
         }
     }
 }
