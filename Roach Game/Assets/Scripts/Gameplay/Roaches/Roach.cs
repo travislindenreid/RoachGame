@@ -255,7 +255,11 @@ public partial class Roach : MonoBehaviour
             {
                 EnterState(RoachStateType.Dead);
             }
-            else if(!_isDocile)
+            else if(_isDocile)
+            {
+                EnterState(RoachStateType.Running);
+            }
+            else
             {
                 if(_currentState is RoachAttackingState)
                 {
