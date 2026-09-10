@@ -26,4 +26,27 @@ MonoBehaviour:
   _options:
   - _optionText: ((...))
     _nextNode: {fileID: 11400000, guid: 85230d3f454d1429a8a2862a58cc67a6, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: 7fdd3c5ed02f40a49b96adf5ce0bfa94, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: You finally realized that paperwork and logic were never going to work
+      in this world.
+    typewriterDuration: 4.992
+    delayAfterPhrase: 0.583
+    newLineAfterPhrase: 1
+  - phrase: 'And you were fearless in your conquest of your building. '
+    typewriterDuration: 2.526
+    delayAfterPhrase: 0.487
+    newLineAfterPhrase: 0
+  - phrase: You took down your Manager with no hesitation!
+    typewriterDuration: 2.956
+    delayAfterPhrase: 0.766
+    newLineAfterPhrase: 1
+  - phrase: 'And you come here '
+    typewriterDuration: 1.266
+    delayAfterPhrase: 0.393
+    newLineAfterPhrase: 0
+  - phrase: <i>and continue your slaughter.
+    typewriterDuration: 3.076
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}
