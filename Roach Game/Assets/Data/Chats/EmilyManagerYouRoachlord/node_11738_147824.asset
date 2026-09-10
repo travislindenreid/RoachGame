@@ -26,4 +26,42 @@ MonoBehaviour:
     _nextNode: {fileID: 11400000, guid: aa8ab2aad53ec4d7db88ce9d2dda0f5a, type: 2}
   - _optionText: ((...))
     _nextNode: {fileID: 11400000, guid: ced7a773bea1e4911bf27d19c3f6b906, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: 7088e6b220cb1e7419807d898cdd4e6f, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 
+    typewriterDuration: 0.235
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: I was not expecting the guns.
+    typewriterDuration: 1.987
+    delayAfterPhrase: 0.608
+    newLineAfterPhrase: 1
+  - phrase: Truly, you have learned to fight fire with fire.
+    typewriterDuration: 2.255
+    delayAfterPhrase: 0.679
+    newLineAfterPhrase: 1
+  - phrase: I love this Spirit
+    typewriterDuration: 1.5
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.46
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: this go-getter attitude
+    typewriterDuration: 1.702
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.569
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'this willingness to take whatever you want, '
+    typewriterDuration: 3.942
+    delayAfterPhrase: 0.294
+    newLineAfterPhrase: 0
+  - phrase: however you want.
+    typewriterDuration: 2.26
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}
