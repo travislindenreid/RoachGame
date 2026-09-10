@@ -5,17 +5,28 @@
  * Copyright 2019 - 2026 Studio Tilia
  */
 
+using System.Collections.Generic;
 using System.Linq;
+
 using TMPro;
+
 using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
     [SerializeField] private GameObject _centerCursor;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _healthDisplay;
-    [SerializeField] private RectTransform _healthBar;
+    [SerializeField] private Transform _healthSegmentParent;
+    [SerializeField] private GameObject _healthSegment;
     [SerializeField] private TMP_Text _roachesText;
+    [SerializeField] private Color _maxHealthColor;
+    [SerializeField] private Color _noHealthColor;
+
+    private List<Image> _healthSegments;
+    private int _maxHealth;
 
     // ------------------------------------------------------------------------
     // Methods
@@ -25,6 +36,17 @@ public class HUD : MonoBehaviour
         EventBus._Instance.PlayerHealthChanged += HandlePlayerHealthChanged;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.EnemyHit += HandleEnemyHit;
+
+        _healthSegments = new List<Image>();
+
+        _maxHealth = Mathf.CeilToInt(Player._Instance._MaxHealth);
+        for(int i = 0; i < _maxHealth; i++)
+        {
+            GameObject segment = Instantiate(_healthSegment, _healthSegmentParent);
+            Image segImage = segment.GetComponent<Image>();
+            Assert.IsNotNull(segImage);
+            _healthSegments.Add(segImage);
+        }
 
         HandlePlayerHealthChanged();
     }
@@ -73,12 +95,15 @@ public class HUD : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandlePlayerHealthChanged ()
     {
-        float health = Player._Instance._HealthPercent;
-        _healthBar.anchorMax = new Vector2(
-            health,
-            _healthBar.anchorMax.y
-        );
-        _healthBar.offsetMin = Vector2.zero;
-        _healthBar.offsetMax = Vector2.zero;
+        float health = Player._Instance._Health;
+        // segment 0 = far left (lowest health)
+        // segment [maxHealth] = far right (highest health)
+        int lastActiveSegmentIndex = Mathf.CeilToInt(health);
+
+        Debug.LogFormat("player health: {0}; segments left: {1}", health, lastActiveSegmentIndex);
+        for(int i = lastActiveSegmentIndex; i < _healthSegments.Count; i++)
+        {
+            _healthSegments[i].enabled = false;
+        }   
     }
 }
