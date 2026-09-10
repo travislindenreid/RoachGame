@@ -8,13 +8,13 @@
 using System.Linq;
 using System.Text;
 using TMPro;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Playables;
 using UnityEngine.Splines;
 
-public partial class Roach : MonoBehaviour
+public partial class Roach : Attackable
 {
     // ------------------------------------------------------------------------
     // Types
@@ -74,7 +74,6 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private ParticleSystem _bloodParticles;
     [SerializeField] private GameObject _healthCanvas;
     [SerializeField] private TMP_Text _healthText;
-    [SerializeField] private float _maxHealth = 1;
     [SerializeField] private Collider _collider;
     [Header("Weapons")]
     [SerializeField] private float _timeToDivebomb = 10.0f;
@@ -96,7 +95,6 @@ public partial class Roach : MonoBehaviour
     [SerializeField] private PlayableDirector _activeCinematic;
 
     // shared state variables
-    private float _health;
     private bool _hostile;
     private RoachState _currentState;
     private bool _moveAlt; // for movement states that go back and forth
@@ -113,16 +111,11 @@ public partial class Roach : MonoBehaviour
     private Quaternion _rightAntennaeNeutralRot;
 
     // ------------------------------------------------------------------------
-    // Properties
-    // ------------------------------------------------------------------------
-    public bool _IsDead => _health <= 0;
-
-    // ------------------------------------------------------------------------
     // Methods
     // ------------------------------------------------------------------------
-    private void Start ()
+    protected override void Start ()
     {
-        _health = _maxHealth;
+        base.Start();
 
         AssignGun();
 
@@ -252,7 +245,7 @@ public partial class Roach : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    public void Hit ()
+    public override void Hit ()
     {
         if(SequenceController._Instance._ActiveStateType != GameStateType.Action)
         {
