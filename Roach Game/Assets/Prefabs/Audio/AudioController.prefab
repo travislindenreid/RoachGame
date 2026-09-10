@@ -242,6 +242,8 @@ MonoBehaviour:
   _roachLordFriendData: {fileID: 11400000, guid: 5b0efb9ebf8804f39a64eb09f5e67af0, type: 2}
   _yourPitchRange: {x: 1, y: 1}
   _managerPitchRange: {x: 1, y: 1.3}
+  _backwardsPitch: -0.7
+  _backwardsMusicTransitionDuration: 1.5
 --- !u!1 &4237679609289845950
 GameObject:
   m_ObjectHideFlags: 0
