@@ -5,6 +5,7 @@
  * Copyright 2019 - 2026 Studio Tilia
  */
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -32,11 +33,15 @@ public class AudioController : MonoBehaviour
     [SerializeField] private FriendData _roachLordFriendData;
     [SerializeField] private Vector2 _yourPitchRange = new Vector2(1f, 1f);
     [SerializeField] private Vector2 _managerPitchRange = new Vector2(0.9f, 1.1f);
+    //play music backwards target pitch
+    [SerializeField] private float _backwardsPitch = -1f;
+    [SerializeField] private float _backwardsMusicTransitionDuration = 1.5f;
 
     private bool _playSteps;
     private float _clipTime;
     private bool _flipClip;
     private float _globalVolume = 1.0f;
+    private Coroutine _pitchLerpCoroutine;
 
     // ------------------------------------------------------------------------
     // Properties
@@ -99,8 +104,8 @@ public class AudioController : MonoBehaviour
     public void PlayMusicBackwards ()
     {
         _musicAudioSource.clip = _roachlordRevealSong;
-        _musicAudioSource.pitch = -1;
-        _musicAudioSource.Play();
+        _pitchLerpCoroutine = StartCoroutine(LerpPitchToTarget(_backwardsPitch, _backwardsMusicTransitionDuration));
+        //_musicAudioSource.Play();
     }
 
     // ------------------------------------------------------------------------
@@ -213,5 +218,22 @@ public class AudioController : MonoBehaviour
     private void StopRoachLordVoiceClip ()
     {
         _typewriterSource.Stop();
+    }
+
+    private IEnumerator LerpPitchToTarget (float targetPitch, float duration)
+    {
+        float startPitch = _musicAudioSource.pitch;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = duration > 0.0f ? elapsed / duration : 1.0f;
+            _musicAudioSource.pitch = Mathf.Lerp(startPitch, targetPitch, t);
+            yield return null;
+        }
+
+        _musicAudioSource.pitch = targetPitch;
+        _pitchLerpCoroutine = null;
     }
 }
