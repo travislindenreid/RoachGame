@@ -3606,6 +3606,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 11400000, guid: 10a52b284ef9c40e0adb11a8a1fc9434, type: 2}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
@@ -4931,6 +4932,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 11400000, guid: f206c3ad435564c1dbdb85310a2b1716, type: 2}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
@@ -5483,6 +5485,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 2072503066}
   _cameraStartRot: {fileID: 731422248}
   _onlySetPlayerLocOnRestart: 0
@@ -5994,6 +5997,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 1
   _removeRoachesInHandAtEnd: 1
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
@@ -7092,6 +7096,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
@@ -9729,6 +9734,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 1
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
@@ -10482,6 +10488,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 1
   _removeRoachesInHandAtEnd: 1
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 2123124147}
   _playerStartPos: {fileID: 2072503066}
   _cameraStartRot: {fileID: 731422248}
   _onlySetPlayerLocOnRestart: 1
@@ -11841,6 +11848,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 0
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 1169124488}
   _cameraStartRot: {fileID: 458518345}
   _onlySetPlayerLocOnRestart: 0
@@ -11989,6 +11997,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 1
   _dialogueStartNode: {fileID: 11400000, guid: 640ae67f2e5b24a60b59936baac9a554, type: 2}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0
@@ -12183,7 +12192,8 @@ GameObject:
   - component: {fileID: 2123124146}
   - component: {fileID: 2123124145}
   - component: {fileID: 2123124144}
-  m_Layer: 0
+  - component: {fileID: 2123124147}
+  m_Layer: 3
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12283,6 +12293,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123124142}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2123124147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123124142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df87c5a9b95a8474bb10959f946acc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attackable
+  _maxHealth: 3
 --- !u!1 &2138617907
 GameObject:
   m_ObjectHideFlags: 0
@@ -12335,6 +12358,7 @@ MonoBehaviour:
   _disableObjectsAtEnd: 0
   _removeRoachesInHandAtEnd: 1
   _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
   _playerStartPos: {fileID: 0}
   _cameraStartRot: {fileID: 0}
   _onlySetPlayerLocOnRestart: 0

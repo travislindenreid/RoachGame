@@ -31,8 +31,10 @@ public class EventBus : MonoBehaviour
     public delegate void PlayerMovementTypeDelegate(PlayerMovementType movementType);
     public event PlayerMovementTypeDelegate PlayerMovementChanged;
 
+    public delegate void AttackableDelegate(Attackable attackable);
+    public event AttackableDelegate EnemyHit;
+
     public delegate void RoachDelegate(Roach roach);
-    public event RoachDelegate RoachHit;
     public event RoachDelegate RoachCollected;
 
     public delegate void SequenceDelegate(Sequence sequence);
@@ -85,9 +87,9 @@ public class EventBus : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    public void InvokeRoachHit (Roach roach)
+    public void InvokeAttackableHit (Attackable attackable)
     {
-        RoachHit?.Invoke(roach);
+        EnemyHit?.Invoke(attackable);
     }
 
     // ------------------------------------------------------------------------

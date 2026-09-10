@@ -61,7 +61,7 @@ public class AudioController : MonoBehaviour
     // ------------------------------------------------------------------------
     private void Start ()
     {
-        EventBus._Instance.RoachHit += HandleRoachHit;
+        EventBus._Instance.EnemyHit += HandleEnemyHit;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.PlayerMovementChanged += HandlePlayerMovementChanged;
         EventBus._Instance.PlayTypewriter += PlayTypewriter;
@@ -112,9 +112,12 @@ public class AudioController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    private void HandleRoachHit (Roach roach)
+    private void HandleEnemyHit (Attackable enemy)
     {
-        _sfxAudioSource.PlayOneShot(_roachHitClip);
+        if(enemy is Roach)
+        {
+            _sfxAudioSource.PlayOneShot(_roachHitClip);
+        }
     }
 
     // ------------------------------------------------------------------------

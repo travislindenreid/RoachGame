@@ -298,7 +298,7 @@ public partial class Roach : Attackable
 
         // fire event AFTER everything else, so roach has most accurate
         //      health and state information for rest of game
-        EventBus._Instance.InvokeRoachHit(this);
+        EventBus._Instance.InvokeAttackableHit(this);
     }
 
     // ------------------------------------------------------------------------

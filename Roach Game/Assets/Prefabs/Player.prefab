@@ -934,7 +934,7 @@ MonoBehaviour:
   _aimLayers:
     serializedVersion: 2
     m_Bits: 200
-  _roachLayer:
+  _enemyLayer:
     serializedVersion: 2
     m_Bits: 8
   _roachHoldLoc: {fileID: 3755512434844205073}

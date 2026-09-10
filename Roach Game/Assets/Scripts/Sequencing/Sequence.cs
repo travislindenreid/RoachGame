@@ -22,6 +22,7 @@ public class Sequence : MonoBehaviour
     [SerializeField] private bool _disableObjectsAtEnd;
     [SerializeField] private bool _removeRoachesInHandAtEnd = true;
     [SerializeField] private DialogueNode _dialogueStartNode;
+    [SerializeField] private Attackable _endSequenceTarget;
     [Header("Player & Camera Setup")]
     [SerializeField] private Transform _playerStartPos;
     [SerializeField] private Transform _cameraStartRot;
@@ -42,6 +43,7 @@ public class Sequence : MonoBehaviour
     public AudioClip _Music => _music;
     public SequenceAudioType _AudioType => _audioType;
     public Roach[] _Roaches => _roaches == null ? FindRoaches() : _roaches;
+    public Attackable _EndSequenceTarget => _endSequenceTarget;
 
     // ------------------------------------------------------------------------
     // Methods

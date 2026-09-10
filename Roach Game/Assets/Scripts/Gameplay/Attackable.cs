@@ -35,6 +35,7 @@ public class Attackable : MonoBehaviour
     // ------------------------------------------------------------------------
     public virtual void Hit ()
     {
-        Debug.LogError("Attackable.Hit() not implemented.");
+        _health--;
+        EventBus._Instance.InvokeAttackableHit(this);
     }
 }

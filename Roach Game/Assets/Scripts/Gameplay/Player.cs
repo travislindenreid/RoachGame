@@ -43,8 +43,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _slipperMaxAimDistance = 10.0f;
     [SerializeField] private float _pistolMaxAimDistance = 1000.0f;
     [SerializeField] private LayerMask _aimLayers;
-    [Header("Roach collection")]
-    [SerializeField] private LayerMask _roachLayer;
+    [Header("Enemies")]
+    [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private Transform _roachHoldLoc;
     [Header("Combat")]
     [SerializeField] private float _healthDrainPerSecond = 0.05f;
@@ -386,10 +386,10 @@ public class Player : MonoBehaviour
         _cc.enabled = true;
     }
 
-    private struct RoachHitInfo
+    private struct AttackableHitInfo
     {
         public bool hit;
-        public GameObject roachObj;
+        public GameObject attackableObj;
     }
 
     // ------------------------------------------------------------------------
@@ -398,7 +398,7 @@ public class Player : MonoBehaviour
         _cooldownCurrentTime += Time.deltaTime;
         if(_cooldownCurrentTime >= _pistolCooldownSeconds)
         {
-            RoachHitInfo hitInfo = UpdateTargetReticle();
+            AttackableHitInfo hitInfo = UpdateTargetReticle();
 
             if(Input.GetMouseButtonDown(0))
             {
@@ -411,7 +411,7 @@ public class Player : MonoBehaviour
                         raycastStart,
                         Camera.main.transform.forward,
                         out raycastHit,
-                        100.0f,
+                        _pistolMaxAimDistance,
                         _bulletHoleLayers
                 );
                 if(aimRaycastHit)
@@ -421,11 +421,11 @@ public class Player : MonoBehaviour
 
                 _pistolAudio.Play();
 
-                if(hitInfo.hit && hitInfo.roachObj != null)
+                if(hitInfo.hit && hitInfo.attackableObj != null)
                 {
-                    Roach roach = hitInfo.roachObj.GetComponent<Roach>();
-                    Assert.IsNotNull(roach);
-                    roach.Hit();
+                    Attackable enemy = hitInfo.attackableObj.GetComponent<Attackable>();
+                    Assert.IsNotNull(enemy);
+                    enemy.Hit();
                 }
             }
         }
@@ -461,10 +461,10 @@ public class Player : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    private RoachHitInfo UpdateTargetReticle ()
+    private AttackableHitInfo UpdateTargetReticle ()
     {
         bool weaponCanReachTarget = false;
-        GameObject hitRoach = null;
+        GameObject hitEnemy = null;
 
         RaycastHit raycastHit;
         Vector3 raycastStart = Camera.main.transform.position;
@@ -483,9 +483,9 @@ public class Player : MonoBehaviour
 
             if(Vector3.Distance(raycastHit.point, raycastStart) <= distance)
             {
-                if(((1<<raycastHit.collider.gameObject.layer) & _roachLayer) != 0)
+                if(((1<<raycastHit.collider.gameObject.layer) & _enemyLayer) != 0)
                 {
-                    hitRoach = raycastHit.collider.gameObject;
+                    hitEnemy = raycastHit.collider.gameObject;
 
                     weaponCanReachTarget = true;
                     _reticleMat.color = _reticleHit;
@@ -509,10 +509,10 @@ public class Player : MonoBehaviour
             ShowTargetReticle(false);
         }
 
-        return new RoachHitInfo()
+        return new AttackableHitInfo()
         {
             hit = weaponCanReachTarget,
-            roachObj = hitRoach
+            attackableObj = hitEnemy
         };
     }
 

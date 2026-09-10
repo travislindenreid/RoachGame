@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
     // ------------------------------------------------------------------------
     private void Start ()
     {
-        EventBus._Instance.RoachHit += HandleRoachHit;
+        EventBus._Instance.EnemyHit += HandleAttackableHit;
         EventBus._Instance.ClueUnlocked += HandleClueUnlocked;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
     }
@@ -102,21 +102,26 @@ public class GameController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    private void HandleRoachHit (Roach roach)
+    private void HandleAttackableHit (Attackable enemy)
     {
-        if(_WaitingForFirstRoachGunCinematic)
+        // don't bother counting dead roaches if we're checking for cinematic events
+        if(_WaitingForFirstRoachGunCinematic && enemy is Roach)
         {
             //Debug.Log("set target roach: " + roach);
             _hitFirstRoach = true;
-            SetTargetRoach(roach);
+            SetTargetRoach((Roach)enemy);
             EventBus._Instance.InvokeClueUnlocked(_firstRoachHitClue);
         }
-        else if(_WaitingForSecondRoachGunCinematic)
+        else if(_WaitingForSecondRoachGunCinematic && enemy is Roach)
         {
-            SetTargetRoach(roach);
+            SetTargetRoach((Roach)enemy);
             EventBus._Instance.InvokeClueUnlocked(_secondRoachGunClue);
         }
-        else // don't bother counting dead roaches if we're checking for first roach gun
+        else if(SequenceController._Instance._ActiveSequence._EndSequenceTarget == enemy && enemy._IsDead)
+        {
+            SequenceController._Instance.EndCurrentSequence();
+        }
+        else
         {
             int deadRoaches = _activeRoaches.Count(r => r._IsDead);
             //Debug.LogFormat("dead roaches: {0}; total roaches: {1}", deadRoaches, _activeRoaches.Count());

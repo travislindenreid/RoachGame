@@ -24,7 +24,7 @@ public class HUD : MonoBehaviour
     {
         EventBus._Instance.PlayerHealthChanged += HandlePlayerHealthChanged;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
-        EventBus._Instance.RoachHit += HandleRoachHit;
+        EventBus._Instance.EnemyHit += HandleEnemyHit;
 
         HandlePlayerHealthChanged();
     }
@@ -34,7 +34,7 @@ public class HUD : MonoBehaviour
     {
         EventBus._Instance.PlayerHealthChanged -= HandlePlayerHealthChanged;
         EventBus._Instance.SequenceStarted -= HandleSequenceStarted;
-        EventBus._Instance.RoachHit -= HandleRoachHit;
+        EventBus._Instance.EnemyHit -= HandleEnemyHit;
     } 
 
     // ------------------------------------------------------------------------
@@ -65,7 +65,7 @@ public class HUD : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    private void HandleRoachHit (Roach roach)
+    private void HandleEnemyHit (Attackable roach)
     {
         _roachesText.text = GameController._Instance._LivingRoachCount.ToString();
     }
