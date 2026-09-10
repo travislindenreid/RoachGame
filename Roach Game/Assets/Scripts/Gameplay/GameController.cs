@@ -33,12 +33,15 @@ public class GameController : MonoBehaviour
     [Header("Roach world sequence")]
     [SerializeField] private ClueData _roachWorldClue;
     [SerializeField] private ClueData _goBackToAptClue;
+    [Header("Other")]
+    [SerializeField] private GameObject _bulletHoleObj;
 
     private bool _hitFirstRoach;
     private Roach _targetRoach;
     private List<Roach> _activeRoaches;
     private List<ClueData> _unlockedClues;
     private ClueData _loadWorldClue;
+    private List<GameObject> _bulletHoles;
 
     // ------------------------------------------------------------------------
     // Properties
@@ -80,12 +83,26 @@ public class GameController : MonoBehaviour
         EventBus._Instance.EnemyHit += HandleAttackableHit;
         EventBus._Instance.ClueUnlocked += HandleClueUnlocked;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
+
+        _bulletHoles = new List<GameObject>();
     }
 
     // ------------------------------------------------------------------------
     public void StartGame ()
     {
         EventBus._Instance.InvokeClueUnlocked(_gameStartClue);
+    }
+
+    // ------------------------------------------------------------------------
+    public void CreateBulletHole (Vector3 location, Vector3 normal)
+    {
+        _bulletHoles.Add(
+            Instantiate(
+                _bulletHoleObj,
+                location,
+                Quaternion.LookRotation(normal)
+            )
+        );
     }
 
     // ------------------------------------------------------------------------
@@ -97,6 +114,12 @@ public class GameController : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandleSequenceStarted(Sequence sequence)
     {
+        foreach(GameObject obj in _bulletHoles)
+        {
+            Destroy(obj);
+        }
+        _bulletHoles.Clear();
+
         _activeRoaches.Clear();
         _activeRoaches.AddRange(sequence._Roaches);
     }

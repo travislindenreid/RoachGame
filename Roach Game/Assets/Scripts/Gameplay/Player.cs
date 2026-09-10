@@ -6,6 +6,7 @@
  */
 
 using System.Linq;
+
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Splines;
@@ -59,7 +60,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _pistol;
     [SerializeField] private AudioSource _pistolAudio;
     [SerializeField] private LayerMask _bulletHoleLayers;
-    [SerializeField] private GameObject _bulletHoleObj;
 
     // movement and aiming
     private bool _inputEnabled;
@@ -418,7 +418,7 @@ public class Player : MonoBehaviour
                 );
                 if(aimRaycastHit)
                 {
-                    Instantiate(_bulletHoleObj, raycastHit.point, Quaternion.LookRotation(-raycastHit.normal));
+                    GameController._Instance.CreateBulletHole(raycastHit.point, -raycastHit.normal);
                 }
 
                 _pistolAudio.Play();

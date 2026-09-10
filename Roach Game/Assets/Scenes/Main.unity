@@ -10299,6 +10299,7 @@ MonoBehaviour:
   _playerGunClue: {fileID: 11400000, guid: de6a8d40fa30a4764b31c1b5a8012e23, type: 2}
   _roachWorldClue: {fileID: 11400000, guid: ca07c7aa8354e4c40ab124a1a13400d7, type: 2}
   _goBackToAptClue: {fileID: 11400000, guid: c618e14b290c6456a8c2014ee222ab3e, type: 2}
+  _bulletHoleObj: {fileID: 961008689417180602, guid: 6f1ec2177297242a1a91f8e5f5645a78, type: 3}
 --- !u!4 &1565540851
 Transform:
   m_ObjectHideFlags: 0
@@ -12505,6 +12506,10 @@ PrefabInstance:
     - target: {fileID: 8362520328554485693, guid: ea62b575372db415d960955832964cda, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -545.62494
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712230858230645472, guid: ea62b575372db415d960955832964cda, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.47283936
       objectReference: {fileID: 0}
     - target: {fileID: 9186287265099990566, guid: ea62b575372db415d960955832964cda, type: 3}
       propertyPath: m_AnchorMax.y
