@@ -27,4 +27,95 @@ MonoBehaviour:
     you've never tasted profit?
   - There's one more matter to address.
   _options: []
+  _roachLordVoiceClip: {fileID: 8300000, guid: c746de992761de24b8daff5b73f88100, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'Because. '
+    typewriterDuration: 0.501
+    delayAfterPhrase: 0.454
+    newLineAfterPhrase: 0
+  - phrase: 'I do want you to fail. '
+    typewriterDuration: 1.201
+    delayAfterPhrase: 0.408
+    newLineAfterPhrase: 0
+  - phrase: 'You leave. '
+    typewriterDuration: 0.447
+    delayAfterPhrase: 0.339
+    newLineAfterPhrase: 0
+  - phrase: 'I relist. '
+    typewriterDuration: 0.608
+    delayAfterPhrase: 0.331
+    newLineAfterPhrase: 0
+  - phrase: 'I raise the rent. '
+    typewriterDuration: 0.755
+    delayAfterPhrase: 0.339
+    newLineAfterPhrase: 0
+  - phrase: 'I get a new tenant. '
+    typewriterDuration: 1.163
+    delayAfterPhrase: 0.331
+    newLineAfterPhrase: 0
+  - phrase: 'They dissapoint. '
+    typewriterDuration: 0.793
+    delayAfterPhrase: 0.354
+    newLineAfterPhrase: 0
+  - phrase: 'They leave. '
+    typewriterDuration: 0.439
+    delayAfterPhrase: 0.339
+    newLineAfterPhrase: 0
+  - phrase: I raise the rent
+    typewriterDuration: 1.063
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ...
+    typewriterDuration: 0.624
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
+  - phrase: 'Why would I invest in a parasite like you? '
+    typewriterDuration: 2.226
+    delayAfterPhrase: 0.462
+    newLineAfterPhrase: 0
+  - phrase: You act as if I invented the roach, or left <i>your</i> trash bag at
+      the front door
+    typewriterDuration: 4.436
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.4
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: never swept behind the fridge
+    typewriterDuration: 1.91
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.377
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'invited them in. '
+    typewriterDuration: 0.986
+    delayAfterPhrase: 0.547
+    newLineAfterPhrase: 1
+  - phrase: You disgusting
+    typewriterDuration: 1.494
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.863
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '<i>renters</i>. '
+    typewriterDuration: 0.863
+    delayAfterPhrase: 0.755
+    newLineAfterPhrase: 0
+  - phrase: 'You will never know beauty. '
+    typewriterDuration: 2.233
+    delayAfterPhrase: 0.439
+    newLineAfterPhrase: 0
+  - phrase: 'How can you, if you''ve never tasted profit? '
+    typewriterDuration: 4.344
+    delayAfterPhrase: 0.847
+    newLineAfterPhrase: 1
+  - phrase: There's one more matter to address.
+    typewriterDuration: 3.389
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}
