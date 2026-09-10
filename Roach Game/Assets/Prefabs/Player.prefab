@@ -938,7 +938,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _roachHoldLoc: {fileID: 3755512434844205073}
-  _healthDrainPerSecond: 0.05
+  _healthDrainPerSecond: 0.1
   _pistolCooldownSeconds: 0.25
   _maxHealth: 6
   _currentWeapon: 0

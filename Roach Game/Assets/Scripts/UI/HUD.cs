@@ -6,16 +6,23 @@
  */
 
 using System.Linq;
+
 using TMPro;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
     [SerializeField] private GameObject _centerCursor;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _healthDisplay;
-    [SerializeField] private RectTransform _healthBar;
+    [SerializeField] private LayoutGroup _healthSegmentParent;
+    [SerializeField] private HealthSegmentUI _healthSegmentPrefab;
     [SerializeField] private TMP_Text _roachesText;
+
+    private HealthSegmentUI[] _healthSegments;
+    private int _maxHealth;
 
     // ------------------------------------------------------------------------
     // Methods
@@ -25,6 +32,15 @@ public class HUD : MonoBehaviour
         EventBus._Instance.PlayerHealthChanged += HandlePlayerHealthChanged;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.EnemyHit += HandleEnemyHit;
+
+        _maxHealth = Mathf.CeilToInt(Player._Instance._MaxHealth);
+        _healthSegments = new HealthSegmentUI[_maxHealth];
+
+        for(int i = 0; i < _maxHealth; i++)
+        {
+            _healthSegments[i] = Instantiate(_healthSegmentPrefab, _healthSegmentParent.transform);
+            _healthSegments[i].Setup();
+        }
 
         HandlePlayerHealthChanged();
     }
@@ -45,6 +61,7 @@ public class HUD : MonoBehaviour
             case GameStateType.Action:
                 OpenHud(sequence);
                 _centerCursor.SetActive(true);
+                ResetHealthSegments();
                 break;
             case GameStateType.Cinematic:
             case GameStateType.Dialogue:
@@ -52,6 +69,18 @@ public class HUD : MonoBehaviour
                 if(_hud != null) _hud.SetActive(false);
                 if(_centerCursor != null) _centerCursor.SetActive(false);
                 break;
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    private void ResetHealthSegments ()
+    {
+        if(_healthSegments != null)
+        {
+            for(int i = 0; i < _healthSegments.Length; i++)
+            {
+                _healthSegments[i].Setup();
+            }
         }
     }
 
@@ -73,12 +102,25 @@ public class HUD : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandlePlayerHealthChanged ()
     {
-        float health = Player._Instance._HealthPercent;
-        _healthBar.anchorMax = new Vector2(
-            health,
-            _healthBar.anchorMax.y
-        );
-        _healthBar.offsetMin = Vector2.zero;
-        _healthBar.offsetMax = Vector2.zero;
+        if(_healthSegments == null) return;
+
+        float health = Player._Instance._Health;
+        // segment 1 = far left (lowest health)
+        // segment [maxHealth] = far right (highest health)
+        int lastActiveSegmentIndex = Mathf.CeilToInt(health);
+
+        int quant = Mathf.FloorToInt(health);
+        float t = health - quant;
+        Debug.LogFormat("health: {0}; quant: {1}; t: {2}", health, quant, t);
+
+        if(lastActiveSegmentIndex > 0)
+        {
+            _healthSegments[lastActiveSegmentIndex - 1].SetColor(t);
+        }
+
+        for(int i = lastActiveSegmentIndex; i < _healthSegments.Length; i++)
+        {
+            _healthSegments[i].Hide();
+        }   
     }
 }
