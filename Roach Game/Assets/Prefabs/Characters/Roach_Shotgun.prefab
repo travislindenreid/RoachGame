@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: _maxHealth
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7337665383833818599, guid: e430c236efcc54aacab7a4e3c9d4c6ee, type: 3}
       propertyPath: _timeAfterWeaponUse
