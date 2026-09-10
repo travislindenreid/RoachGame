@@ -24,4 +24,14 @@ MonoBehaviour:
     _nextNode: {fileID: 11400000, guid: 5672e2df60feb4b0eacbc6e1e7918bb0, type: 2}
   - _optionText: ((unless he sweetens the deal...))
     _nextNode: {fileID: 11400000, guid: 5672e2df60feb4b0eacbc6e1e7918bb0, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: f5cfd1d43e4089e42b9e00ab04622486, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'Your Spirit could be of much use to the Company. '
+    typewriterDuration: 2.756
+    delayAfterPhrase: 0.634
+    newLineAfterPhrase: 1
+  - phrase: You could replace her.
+    typewriterDuration: 1.427
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}
