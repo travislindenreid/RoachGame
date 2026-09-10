@@ -67,6 +67,7 @@ public class HUD : MonoBehaviour
             case GameStateType.Action:
                 OpenHud(sequence);
                 _centerCursor.SetActive(true);
+                ResetHealthSegments();
                 break;
             case GameStateType.Cinematic:
             case GameStateType.Dialogue:
@@ -74,6 +75,19 @@ public class HUD : MonoBehaviour
                 if(_hud != null) _hud.SetActive(false);
                 if(_centerCursor != null) _centerCursor.SetActive(false);
                 break;
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    private void ResetHealthSegments ()
+    {
+        if(_healthSegments != null)
+        {
+            foreach(Image image in _healthSegments)
+            {
+                image.enabled = true;
+                image.color = _maxHealthColor;
+            }
         }
     }
 
