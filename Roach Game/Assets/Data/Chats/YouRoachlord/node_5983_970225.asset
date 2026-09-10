@@ -24,4 +24,26 @@ MonoBehaviour:
   _options:
   - _optionText: (...)
     _nextNode: {fileID: 11400000, guid: e59be335d500b4e2d9077a2e779aca05, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: fb2ba8daf1c65f24d9297ad05cb7fdd4, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: The Manager and I had a deal.
+    typewriterDuration: 1.54
+    delayAfterPhrase: 0.274
+    newLineAfterPhrase: 1
+  - phrase: 'I find her presence here now rather disappointing. '
+    typewriterDuration: 4.494
+    delayAfterPhrase: 0.254
+    newLineAfterPhrase: 0
+  - phrase: 'This will show up on her Review. '
+    typewriterDuration: 1.335
+    delayAfterPhrase: 0.416
+    newLineAfterPhrase: 0
+  - phrase: 'It is not in the Company spirit. '
+    typewriterDuration: 1.878
+    delayAfterPhrase: 0.65
+    newLineAfterPhrase: 1
+  - phrase: And you.
+    typewriterDuration: 0.518
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}
