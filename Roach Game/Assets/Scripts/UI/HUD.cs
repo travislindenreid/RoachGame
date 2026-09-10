@@ -96,11 +96,23 @@ public class HUD : MonoBehaviour
     private void HandlePlayerHealthChanged ()
     {
         float health = Player._Instance._Health;
-        // segment 0 = far left (lowest health)
+        // segment 1 = far left (lowest health)
         // segment [maxHealth] = far right (highest health)
         int lastActiveSegmentIndex = Mathf.CeilToInt(health);
 
-        Debug.LogFormat("player health: {0}; segments left: {1}", health, lastActiveSegmentIndex);
+        int quant = Mathf.FloorToInt(health);
+        float t = health - (float)quant;
+        Debug.LogFormat("health: {0}; quant: {1}; t: {2}", health, quant, t);
+
+        if(lastActiveSegmentIndex > 0)
+        {
+            _healthSegments[lastActiveSegmentIndex - 1].color = Color.Lerp(
+                _noHealthColor,
+                _maxHealthColor,
+                t
+            );
+        }
+
         for(int i = lastActiveSegmentIndex; i < _healthSegments.Count; i++)
         {
             _healthSegments[i].enabled = false;
