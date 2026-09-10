@@ -25,4 +25,38 @@ MonoBehaviour:
   _options:
   - _optionText: ((...))
     _nextNode: {fileID: 11400000, guid: e59be335d500b4e2d9077a2e779aca05, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: caaf7db397ebc024786baf677d5a867e, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: You bring her here, and still blame her.
+    typewriterDuration: 2.193
+    delayAfterPhrase: 0.571
+    newLineAfterPhrase: 1
+  - phrase: So disappointing
+    typewriterDuration: 1.538
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.455
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'she will be put on a Performance Improvement Plan. '
+    typewriterDuration: 2.937
+    delayAfterPhrase: 0.491
+    newLineAfterPhrase: 1
+  - phrase: 'I''m sure you understand, '
+    typewriterDuration: 1.405
+    delayAfterPhrase: 0.16
+    newLineAfterPhrase: 0
+  - phrase: 'since you are convinced of her incompetence. '
+    typewriterDuration: 2.505
+    delayAfterPhrase: 0.491
+    newLineAfterPhrase: 0
+  - phrase: I am inclined to agree.
+    typewriterDuration: 1.553
+    delayAfterPhrase: 0.866
+    newLineAfterPhrase: 1
+  - phrase: But you.
+    typewriterDuration: 0.759
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}

@@ -25,4 +25,30 @@ MonoBehaviour:
   _options:
   - _optionText: ((...))
     _nextNode: {fileID: 11400000, guid: e59be335d500b4e2d9077a2e779aca05, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: d75724b52bb147f49949a76fe56ec8fc, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: Ah, you think your manager was behind this.
+    typewriterDuration: 2.261
+    delayAfterPhrase: 0.441
+    newLineAfterPhrase: 1
+  - phrase: 'You think you can clean her up like you did your roaches. '
+    typewriterDuration: 3.224
+    delayAfterPhrase: 0.659
+    newLineAfterPhrase: 1
+  - phrase: 'But like your roaches, '
+    typewriterDuration: 1.317
+    delayAfterPhrase: 0.235
+    newLineAfterPhrase: 0
+  - phrase: 'a thousand more Managers are hatching for every one you squash. '
+    typewriterDuration: 4.788
+    delayAfterPhrase: 0.599
+    newLineAfterPhrase: 1
+  - phrase: 'You think this situation is unique to your Manager '
+    typewriterDuration: 4.664
+    delayAfterPhrase: 0.264
+    newLineAfterPhrase: 0
+  - phrase: and your building.
+    typewriterDuration: 1.188
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}
