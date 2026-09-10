@@ -117,23 +117,29 @@ public class GameController : MonoBehaviour
             SetTargetRoach((Roach)enemy);
             EventBus._Instance.InvokeClueUnlocked(_secondRoachGunClue);
         }
-        else if(SequenceController._Instance._ActiveSequence._EndSequenceTarget == enemy && enemy._IsDead)
-        {
-            SequenceController._Instance.EndCurrentSequence();
-        }
         else
         {
-            int deadRoaches = _activeRoaches.Count(r => r._IsDead);
-            //Debug.LogFormat("dead roaches: {0}; total roaches: {1}", deadRoaches, _activeRoaches.Count());
-
-            if(_WaitingForPlayerGunCinematic && deadRoaches == _activeRoaches.Count())
+            if(SequenceController._Instance._ActiveSequence._EndSequenceTarget != null)
             {
-                EventBus._Instance.InvokeClueUnlocked(_playerGunClue);
+                if(SequenceController._Instance._ActiveSequence._EndSequenceTarget == enemy && enemy._IsDead)
+                {
+                    SequenceController._Instance.EndCurrentSequence();
+                }
             }
-            else if(deadRoaches == _activeRoaches.Count())
+            else
             {
-                SequenceController._Instance.EndCurrentSequence();
-            } 
+                int deadRoaches = _activeRoaches.Count(r => r._IsDead);
+                //Debug.LogFormat("dead roaches: {0}; total roaches: {1}", deadRoaches, _activeRoaches.Count());
+
+                if(_WaitingForPlayerGunCinematic && deadRoaches == _activeRoaches.Count())
+                {
+                    EventBus._Instance.InvokeClueUnlocked(_playerGunClue);
+                }
+                else if(deadRoaches == _activeRoaches.Count())
+                {
+                    SequenceController._Instance.EndCurrentSequence();
+                } 
+            }
         }
     }
 
