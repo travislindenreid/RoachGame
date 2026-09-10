@@ -150,11 +150,9 @@ MonoBehaviour:
   _centerCursor: {fileID: 3757325065250165101}
   _hud: {fileID: 1500735775123834923}
   _healthDisplay: {fileID: 7025214153096680682}
-  _healthSegmentParent: {fileID: 8712230858230645472}
-  _healthSegment: {fileID: 9067346301966612113, guid: 71710b65bb67d48ffb9a7819369ba756, type: 3}
+  _healthSegmentParent: {fileID: 4378629391160045529}
+  _healthSegmentPrefab: {fileID: 7731781630426139636, guid: 71710b65bb67d48ffb9a7819369ba756, type: 3}
   _roachesText: {fileID: 1989940049177369931}
-  _maxHealthColor: {r: 0, g: 1, b: 0.7294118, a: 1}
-  _noHealthColor: {r: 1, g: 0.40784314, b: 0, a: 0}
 --- !u!114 &4211480070425440598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1959,13 +1957,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5740863442163972140, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
   m_PrefabInstance: {fileID: 7823734903957335210}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4378629391160045529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5789229204744586099, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
+  m_PrefabInstance: {fileID: 7823734903957335210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
 --- !u!1 &7025214153096680682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1003720510018451520, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
-  m_PrefabInstance: {fileID: 7823734903957335210}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &8712230858230645472 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1475899467914505802, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
   m_PrefabInstance: {fileID: 7823734903957335210}
   m_PrefabAsset: {fileID: 0}

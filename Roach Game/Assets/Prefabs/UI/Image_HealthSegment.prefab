@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3495615993543027208}
   - component: {fileID: 3897379693982096743}
+  - component: {fileID: 7731781630426139636}
   - component: {fileID: 5331469051537338275}
+  - component: {fileID: 74875604796680278}
+  - component: {fileID: 6526609879533073934}
   m_Layer: 5
   m_Name: Image_HealthSegment
   m_TagString: Untagged
@@ -45,6 +48,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067346301966612113}
   m_CullTransparentMesh: 1
+--- !u!114 &7731781630426139636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067346301966612113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58c6d09b9bbb4dfd91f3885868ee08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSegmentUI
+  _image: {fileID: 5331469051537338275}
+  _shake: {fileID: 74875604796680278}
+  _layoutElement: {fileID: 6526609879533073934}
+  _maxHealthColor: {r: 0, g: 1, b: 0.7294118, a: 1}
+  _noHealthColor: {r: 1, g: 0.40784314, b: 0, a: 0}
 --- !u!114 &5331469051537338275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,3 +95,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &74875604796680278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067346301966612113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c10e415a2414e6d9238cb65bf844ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shake
+  _displacement: {x: 0, y: 100, z: 0}
+  _flipTime: 0.1
+--- !u!114 &6526609879533073934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067346301966612113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1

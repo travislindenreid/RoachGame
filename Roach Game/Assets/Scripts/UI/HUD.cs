@@ -5,13 +5,11 @@
  * Copyright 2019 - 2026 Studio Tilia
  */
 
-using System.Collections.Generic;
 using System.Linq;
 
 using TMPro;
 
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
@@ -19,13 +17,11 @@ public class HUD : MonoBehaviour
     [SerializeField] private GameObject _centerCursor;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _healthDisplay;
-    [SerializeField] private Transform _healthSegmentParent;
-    [SerializeField] private GameObject _healthSegment;
+    [SerializeField] private LayoutGroup _healthSegmentParent;
+    [SerializeField] private HealthSegmentUI _healthSegmentPrefab;
     [SerializeField] private TMP_Text _roachesText;
-    [SerializeField] private Color _maxHealthColor;
-    [SerializeField] private Color _noHealthColor;
 
-    private List<Image> _healthSegments;
+    private HealthSegmentUI[] _healthSegments;
     private int _maxHealth;
 
     // ------------------------------------------------------------------------
@@ -37,15 +33,13 @@ public class HUD : MonoBehaviour
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.EnemyHit += HandleEnemyHit;
 
-        _healthSegments = new List<Image>();
-
         _maxHealth = Mathf.CeilToInt(Player._Instance._MaxHealth);
+        _healthSegments = new HealthSegmentUI[_maxHealth];
+
         for(int i = 0; i < _maxHealth; i++)
         {
-            GameObject segment = Instantiate(_healthSegment, _healthSegmentParent);
-            Image segImage = segment.GetComponent<Image>();
-            Assert.IsNotNull(segImage);
-            _healthSegments.Add(segImage);
+            _healthSegments[i] = Instantiate(_healthSegmentPrefab, _healthSegmentParent.transform);
+            _healthSegments[i].Setup();
         }
 
         HandlePlayerHealthChanged();
@@ -83,10 +77,9 @@ public class HUD : MonoBehaviour
     {
         if(_healthSegments != null)
         {
-            foreach(Image image in _healthSegments)
+            for(int i = 0; i < _healthSegments.Length; i++)
             {
-                image.enabled = true;
-                image.color = _maxHealthColor;
+                _healthSegments[i].Setup();
             }
         }
     }
@@ -109,27 +102,25 @@ public class HUD : MonoBehaviour
     // ------------------------------------------------------------------------
     private void HandlePlayerHealthChanged ()
     {
+        if(_healthSegments == null) return;
+
         float health = Player._Instance._Health;
         // segment 1 = far left (lowest health)
         // segment [maxHealth] = far right (highest health)
         int lastActiveSegmentIndex = Mathf.CeilToInt(health);
 
         int quant = Mathf.FloorToInt(health);
-        float t = health - (float)quant;
+        float t = health - quant;
         Debug.LogFormat("health: {0}; quant: {1}; t: {2}", health, quant, t);
 
         if(lastActiveSegmentIndex > 0)
         {
-            _healthSegments[lastActiveSegmentIndex - 1].color = Color.Lerp(
-                _noHealthColor,
-                _maxHealthColor,
-                t
-            );
+            _healthSegments[lastActiveSegmentIndex - 1].SetColor(t);
         }
 
-        for(int i = lastActiveSegmentIndex; i < _healthSegments.Count; i++)
+        for(int i = lastActiveSegmentIndex; i < _healthSegments.Length; i++)
         {
-            _healthSegments[i].enabled = false;
+            _healthSegments[i].Hide();
         }   
     }
 }
