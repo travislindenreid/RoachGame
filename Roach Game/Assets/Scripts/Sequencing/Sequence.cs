@@ -132,6 +132,11 @@ public class Sequence : MonoBehaviour
             _roaches[i].ResetRoach(_roachOriginalPositions[i]);
         }
 
+        if(_endSequenceTarget != null)
+        {
+            _endSequenceTarget.ResetAttackable();
+        }
+
         SetupPlayer(true);
     }
 

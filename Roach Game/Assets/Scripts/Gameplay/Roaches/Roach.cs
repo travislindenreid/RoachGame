@@ -6,8 +6,6 @@
  */
 
 using System.Linq;
-using System.Text;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -72,8 +70,6 @@ public partial class Roach : Attackable
     [SerializeField] private float _legFlipTime;
     [Header("Health")]
     [SerializeField] private ParticleSystem _bloodParticles;
-    [SerializeField] private GameObject _healthCanvas;
-    [SerializeField] private TMP_Text _healthText;
     [SerializeField] private Collider _collider;
     [Header("Weapons")]
     [SerializeField] private float _timeToDivebomb = 10.0f;
@@ -119,8 +115,6 @@ public partial class Roach : Attackable
 
         AssignGun();
 
-        _healthCanvas.SetActive(false);
-
         _roachSplines.SetParent(null);
 
         _leftAntennaeNeutralPos = _leftAntennae.localPosition;
@@ -133,15 +127,7 @@ public partial class Roach : Attackable
 
         _renderers = GetComponentsInChildren<MeshRenderer>().ToArray();
 
-        EventBus._Instance.SequenceStarted += HandleSequenceStarted;
-
         EnterState(RoachStateType.StayIdle);
-    }
-
-    // ------------------------------------------------------------------------
-    private void OnDisable()
-    {
-        EventBus._Instance.SequenceStarted -= HandleSequenceStarted;
     }
 
     // ------------------------------------------------------------------------
@@ -163,8 +149,10 @@ public partial class Roach : Attackable
     }
 
     // ------------------------------------------------------------------------
-    private void HandleSequenceStarted(Sequence sequence)
+    protected override void HandleSequenceStarted(Sequence sequence)
     {
+        base.HandleSequenceStarted(sequence);
+
         switch(sequence._GameStateType)
         {
             case GameStateType.Action:
@@ -302,23 +290,6 @@ public partial class Roach : Attackable
     }
 
     // ------------------------------------------------------------------------
-    private void UpdateHealthText ()
-    {
-        bool show = _health > 0 && _health != _maxHealth;
-        _healthCanvas.SetActive(show);
-
-        if(show)
-        {
-            StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < _health; i++)
-            {
-                sb.Append(".");
-            }
-            _healthText.text = sb.ToString();
-        }
-    }
-
-    // ------------------------------------------------------------------------
     // also a Timeline signal callback- do not rename
     public void ShowGun ()
     {
@@ -357,15 +328,14 @@ public partial class Roach : Attackable
     // ------------------------------------------------------------------------
     public void ResetRoach(Vector3 originalPos)
     {
+        base.ResetAttackable();
+
         ResetAntennae();
 
         _agent.enabled = true;
         _collider.enabled = true;
         _movementSplineAnimator.enabled = true;
         _deathSplineAnimator.enabled = true;
-
-        _health = _maxHealth;
-        UpdateHealthText();
 
         _hostile = false;
 
