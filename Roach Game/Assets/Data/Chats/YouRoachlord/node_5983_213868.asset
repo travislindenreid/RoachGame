@@ -25,4 +25,51 @@ MonoBehaviour:
   _options:
   - _optionText: ((I got one better...))
     _nextNode: {fileID: 11400000, guid: 23adbff8e456a4e51ba7202c521a9305, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: c300342c1155c7d43bf7df0486c4558d, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'She wandered in here while on her work trip. '
+    typewriterDuration: 2.28
+    delayAfterPhrase: 0.396
+    newLineAfterPhrase: 1
+  - phrase: 'She appears to be having an allergic reaction of some sort. '
+    typewriterDuration: 3.235
+    delayAfterPhrase: 0.763
+    newLineAfterPhrase: 1
+  - phrase: 'Tired '
+    typewriterDuration: 0.509
+    delayAfterPhrase: 0.404
+    newLineAfterPhrase: 0
+  - phrase: and lifeless
+    typewriterDuration: 0.995
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '...  '
+    typewriterDuration: 0.657
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'I was going to feed her to my children. '
+    typewriterDuration: 3.065
+    delayAfterPhrase: 0.809
+    newLineAfterPhrase: 1
+  - phrase: But you're quite spirited
+    typewriterDuration: 1.601
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.55
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'I''m sure you''re about to tell me you''re going to save her with the
+      power of paperwork, '
+    typewriterDuration: 4.003
+    delayAfterPhrase: 0.429
+    newLineAfterPhrase: 0
+  - phrase: 'or perhaps '
+    typewriterDuration: 0.695
+    delayAfterPhrase: 0.267
+    newLineAfterPhrase: 0
+  - phrase: a slipper.
+    typewriterDuration: 0.865
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2e19ac9f3a19f4fc28d2029be8eceda6, type: 2}
