@@ -75,7 +75,7 @@ public class PostEffectController : MonoBehaviour
 
         SetFadeInNormalizedValue(1.0f);
 
-        EventBus._Instance.PlayerHealthChanged += HandlePlayerHealthChanged;
+        EventBus._Instance.PlayerDamaged += HandlePlayerHealthChanged;
     }
 
     // ------------------------------------------------------------------------
@@ -122,7 +122,7 @@ public class PostEffectController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    private void HandlePlayerHealthChanged ()
+    private void HandlePlayerHealthChanged (bool hasAttacker, Vector3 attackerPosition)
     {
         if(Player._Instance._AtMaxHealth)
         {

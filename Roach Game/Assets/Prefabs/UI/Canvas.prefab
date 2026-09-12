@@ -296,6 +296,8 @@ MonoBehaviour:
   _healthSegmentParent: {fileID: 4378629391160045529}
   _healthSegmentPrefab: {fileID: 7731781630426139636, guid: 71710b65bb67d48ffb9a7819369ba756, type: 3}
   _roachesText: {fileID: 1989940049177369931}
+  _leftHurtIndicator: {fileID: 5416007506103669851}
+  _rightHurtIndicator: {fileID: 8876673821914801453}
 --- !u!114 &4211480070425440598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,6 +1992,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1229547461459310431}
     m_Modifications:
+    - target: {fileID: 508696514867864279, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1475899467914505802, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.47283936
@@ -2074,6 +2080,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7155248868544608350, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8665156911463244929, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -2119,8 +2129,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+--- !u!114 &5416007506103669851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2862876837805766897, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
+  m_PrefabInstance: {fileID: 7823734903957335210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &7025214153096680682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1003720510018451520, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
   m_PrefabInstance: {fileID: 7823734903957335210}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8876673821914801453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1703269671812073863, guid: e3983e181c0fb485db6781283707b6d1, type: 3}
+  m_PrefabInstance: {fileID: 7823734903957335210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image

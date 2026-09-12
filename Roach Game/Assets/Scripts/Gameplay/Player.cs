@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
             GameController._Instance._ReadyForHealthDisplay
         )
         {
-            DamageAndTryKill(_healthDrainPerSecond * Time.deltaTime);
+            DamageAndTryKill(_healthDrainPerSecond * Time.deltaTime, false, Vector3.zero);
         }
 
 #if UNITY_EDITOR
@@ -311,10 +311,10 @@ public class Player : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    public bool DamageAndTryKill (float damage)
+    public bool DamageAndTryKill (float damage, bool fromAttacker, Vector3 attackerPos)
     {
         _health -= damage;
-        EventBus._Instance.InvokePlayerHealthChanged();
+        EventBus._Instance.InvokePlayerDamaged(fromAttacker, attackerPos);
 
         if(_health <= 0)
         {
@@ -332,7 +332,6 @@ public class Player : MonoBehaviour
         SetInputEnabled(true);
         Cursor.lockState = CursorLockMode.Locked;
         _health = _maxHealth;
-        EventBus._Instance.InvokePlayerHealthChanged();
     }
 
     // ------------------------------------------------------------------------

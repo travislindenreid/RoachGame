@@ -71,7 +71,7 @@ public class RoachWeapon : MonoBehaviour
 
         _audioSource.PlayOneShot(_shootClip);
         
-        if(Player._Instance.DamageAndTryKill(_damage))
+        if(Player._Instance.DamageAndTryKill(_damage, true, _owner.transform.position))
         {
             _owner.KilledPlayer();
         }

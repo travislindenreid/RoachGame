@@ -20,6 +20,8 @@ public class HUD : MonoBehaviour
     [SerializeField] private LayoutGroup _healthSegmentParent;
     [SerializeField] private HealthSegmentUI _healthSegmentPrefab;
     [SerializeField] private TMP_Text _roachesText;
+    [SerializeField] private Image _leftHurtIndicator;
+    [SerializeField] private Image _rightHurtIndicator;
 
     private HealthSegmentUI[] _healthSegments;
     private int _maxHealth;
@@ -29,7 +31,7 @@ public class HUD : MonoBehaviour
     // ------------------------------------------------------------------------
     private void Start ()
     {
-        EventBus._Instance.PlayerHealthChanged += HandlePlayerHealthChanged;
+        EventBus._Instance.PlayerDamaged += HandlePlayerDamaged;
         EventBus._Instance.SequenceStarted += HandleSequenceStarted;
         EventBus._Instance.EnemyHit += HandleEnemyHit;
 
@@ -42,13 +44,13 @@ public class HUD : MonoBehaviour
             _healthSegments[i].Setup();
         }
 
-        HandlePlayerHealthChanged();
+        HandlePlayerDamaged(false, Vector3.zero);
     }
 
     // ------------------------------------------------------------------------
     private void OnDisable()
     {
-        EventBus._Instance.PlayerHealthChanged -= HandlePlayerHealthChanged;
+        EventBus._Instance.PlayerDamaged -= HandlePlayerDamaged;
         EventBus._Instance.SequenceStarted -= HandleSequenceStarted;
         EventBus._Instance.EnemyHit -= HandleEnemyHit;
     } 
@@ -70,6 +72,8 @@ public class HUD : MonoBehaviour
                 if(_centerCursor != null) _centerCursor.SetActive(false);
                 break;
         }
+
+        HandlePlayerDamaged(false, Vector3.zero);
     }
 
     // ------------------------------------------------------------------------
@@ -100,9 +104,20 @@ public class HUD : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    private void HandlePlayerHealthChanged ()
+    private void HandlePlayerDamaged (bool hasAttacker, Vector3 attackerPosition)
     {
         if(_healthSegments == null) return;
+
+        if(hasAttacker)
+        {
+            // convert attacker position to player's local space
+            // look at x position of attacker
+            Transform playerTrans = Player._Instance._CameraTransform;
+            Vector3 attackerPosLocal = playerTrans.InverseTransformPoint(attackerPosition);
+            bool isLeft = attackerPosLocal.x <= 0;
+            _leftHurtIndicator.enabled = isLeft;
+            _rightHurtIndicator.enabled = !isLeft;
+        }
 
         float health = Player._Instance._Health;
         // segment 1 = far left (lowest health)
@@ -111,7 +126,7 @@ public class HUD : MonoBehaviour
 
         int quant = Mathf.FloorToInt(health);
         float t = health - quant;
-        Debug.LogFormat("health: {0}; quant: {1}; t: {2}", health, quant, t);
+        //Debug.LogFormat("health: {0}; quant: {1}; t: {2}", health, quant, t);
 
         if(lastActiveSegmentIndex > 0)
         {

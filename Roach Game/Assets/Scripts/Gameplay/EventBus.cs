@@ -18,8 +18,10 @@ public class EventBus : MonoBehaviour
     public delegate void ClueDelegate(ClueData clue);
     public event ClueDelegate ClueUnlocked;
 
+    public delegate void PlayerDamageInfoDelegate(bool hasAttacker, Vector3 attackerPosition);
+    public event PlayerDamageInfoDelegate PlayerDamaged;
+
     public delegate void EmptyDelegate();
-    public event EmptyDelegate PlayerHealthChanged;
     public event EmptyDelegate PlayerDied;
     public event EmptyDelegate PlayTypewriter;
     public event EmptyDelegate TyperwriterFinished;
@@ -99,9 +101,9 @@ public class EventBus : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
-    public void InvokePlayerHealthChanged ()
+    public void InvokePlayerDamaged (bool hasAttacker, Vector3 attackerPosition)
     {
-        PlayerHealthChanged?.Invoke();
+        PlayerDamaged?.Invoke(hasAttacker, attackerPosition);
     }
 
     // ------------------------------------------------------------------------
