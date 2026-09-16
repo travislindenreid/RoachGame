@@ -25,4 +25,50 @@ MonoBehaviour:
   - A promise is a promise. You will never see Roaches again.
   - I will see you at your next performance review, Worker.
   _options: []
+  _roachLordVoiceClip: {fileID: 8300000, guid: 6f28887c6f86da74c996925983e43cb4, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'HA '
+    typewriterDuration: 0.251
+    delayAfterPhrase: 0.377
+    newLineAfterPhrase: 0
+  - phrase: HA.
+    typewriterDuration: 0.207
+    delayAfterPhrase: 0.475
+    newLineAfterPhrase: 1
+  - phrase: 'HAHAHAHAHAHAHAHAA. '
+    typewriterDuration: 1.914
+    delayAfterPhrase: 0.787
+    newLineAfterPhrase: 1
+  - phrase: How beautiful
+    typewriterDuration: 1.174
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.673
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
+  - phrase: Your Spirit yet invigorates me
+    typewriterDuration: 2.915
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ...
+    typewriterDuration: 0.768
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
+  - phrase: 'A promise is a promise. '
+    typewriterDuration: 2.269
+    delayAfterPhrase: 0.562
+    newLineAfterPhrase: 0
+  - phrase: You will never see Roaches again.
+    typewriterDuration: 3.422
+    delayAfterPhrase: 0.887
+    newLineAfterPhrase: 1
+  - phrase: 'I will see you at your next performance review, '
+    typewriterDuration: 6.109
+    delayAfterPhrase: 0.588
+    newLineAfterPhrase: 0
+  - phrase: Worker.
+    typewriterDuration: 1.292
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}

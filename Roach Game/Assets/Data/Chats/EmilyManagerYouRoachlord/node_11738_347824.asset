@@ -25,4 +25,39 @@ MonoBehaviour:
   _options:
   - _optionText: ((...))
     _nextNode: {fileID: 11400000, guid: 85230d3f454d1429a8a2862a58cc67a6, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: 0c624e463a5ef584fbb74a4d1b71482d, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'You refused to harm your Manager '
+    typewriterDuration: 2.215
+    delayAfterPhrase: 0.217
+    newLineAfterPhrase: 0
+  - phrase: 'no matter how wrong she did you. '
+    typewriterDuration: 1.931
+    delayAfterPhrase: 0.55
+    newLineAfterPhrase: 1
+  - phrase: 'I can only assume it was because you realized her usefulness to you
+      here, '
+    typewriterDuration: 4.264
+    delayAfterPhrase: 0.356
+    newLineAfterPhrase: 0
+  - phrase: correct?
+    typewriterDuration: 0.609
+    delayAfterPhrase: 0.659
+    newLineAfterPhrase: 1
+  - phrase: 'Every Company has its uses for incompetence. '
+    typewriterDuration: 3.091
+    delayAfterPhrase: 0.469
+    newLineAfterPhrase: 0
+  - phrase: Middle Management requires it!
+    typewriterDuration: 2.635
+    delayAfterPhrase: 0.74
+    newLineAfterPhrase: 1
+  - phrase: 'But her use is ending. '
+    typewriterDuration: 1.827
+    delayAfterPhrase: 0.74
+    newLineAfterPhrase: 0
+  - phrase: I see a new opportunity for growth.
+    typewriterDuration: 4.083
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}

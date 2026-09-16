@@ -26,4 +26,50 @@ MonoBehaviour:
   _options:
   - _optionText: ((... i don't think he understands human spirit...))
     _nextNode: {fileID: 11400000, guid: 3558d448df28641f0aea5a5c6ff087c8, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: 4df81350120ed53489a6fb3485fb2088, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: Oh no
+    typewriterDuration: 0.494
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.467
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'there will always be a new Manager. '
+    typewriterDuration: 2.285
+    delayAfterPhrase: 0.578
+    newLineAfterPhrase: 1
+  - phrase: I will always be able to find a more desperate Worker.
+    typewriterDuration: 4.382
+    delayAfterPhrase: 0.662
+    newLineAfterPhrase: 1
+  - phrase: You always have something
+    typewriterDuration: 2.647
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ...
+    typewriterDuration: 0.568
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
+  - phrase: 'If not a girlfriend, or a child. '
+    typewriterDuration: 3.775
+    delayAfterPhrase: 0.563
+    newLineAfterPhrase: 0
+  - phrase: A sick old parent, a debt, a felony.
+    typewriterDuration: 5.049
+    delayAfterPhrase: 0.655
+    newLineAfterPhrase: 1
+  - phrase: 'A sin, '
+    typewriterDuration: 0.974
+    delayAfterPhrase: 0.281
+    newLineAfterPhrase: 0
+  - phrase: a shame.
+    typewriterDuration: 0.974
+    delayAfterPhrase: 0.844
+    newLineAfterPhrase: 1
+  - phrase: Something to fuel a Spirit.
+    typewriterDuration: 5.12
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}

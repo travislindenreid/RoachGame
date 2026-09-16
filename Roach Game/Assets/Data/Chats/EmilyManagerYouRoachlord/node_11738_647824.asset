@@ -27,4 +27,66 @@ MonoBehaviour:
   - _optionText: ((he's right- my gun doesn't work on him. i'll have to consider
       his deal))
     _nextNode: {fileID: 11400000, guid: bd71b81738e30485cb22a0c02dbd9124, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: c079e246e82b8654d87295a23d251fe4, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: Of course not.
+    typewriterDuration: 0.921
+    delayAfterPhrase: 0.567
+    newLineAfterPhrase: 1
+  - phrase: 'Unfortunately '
+    typewriterDuration: 1.401
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ...
+    typewriterDuration: 0.48
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ' There is no end to this.'
+    typewriterDuration: 1.902
+    delayAfterPhrase: 0.678
+    newLineAfterPhrase: 1
+  - phrase: 'There is no lawsuit, '
+    typewriterDuration: 1.045
+    delayAfterPhrase: 0.184
+    newLineAfterPhrase: 0
+  - phrase: 'weapon, '
+    typewriterDuration: 0.497
+    delayAfterPhrase: 0.172
+    newLineAfterPhrase: 0
+  - phrase: 'or power- '
+    typewriterDuration: 0.419
+    delayAfterPhrase: 0.268
+    newLineAfterPhrase: 0
+  - phrase: 'from you alone- '
+    typewriterDuration: 0.864
+    delayAfterPhrase: 0.217
+    newLineAfterPhrase: 0
+  - phrase: 'that could end me. '
+    typewriterDuration: 0.662
+    delayAfterPhrase: 0.572
+    newLineAfterPhrase: 0
+  - phrase: 'I am a roach: '
+    typewriterDuration: 0.68
+    delayAfterPhrase: 0.546
+    newLineAfterPhrase: 0
+  - phrase: 'kill one, a replacement will spawn. '
+    typewriterDuration: 2.559
+    delayAfterPhrase: 0.558
+    newLineAfterPhrase: 0
+  - phrase: 'That is the nature of the Company. '
+    typewriterDuration: 1.909
+    delayAfterPhrase: 0.867
+    newLineAfterPhrase: 1
+  - phrase: 'Do not bargain- '
+    typewriterDuration: 1.492
+    delayAfterPhrase: 0.463
+    newLineAfterPhrase: 0
+  - phrase: 'you will only waste your breath. '
+    typewriterDuration: 2.317
+    delayAfterPhrase: 0.859
+    newLineAfterPhrase: 1
+  - phrase: I give you two options.
+    typewriterDuration: 2.673
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}

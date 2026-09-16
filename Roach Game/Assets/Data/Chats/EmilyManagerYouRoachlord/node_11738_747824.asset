@@ -33,4 +33,54 @@ MonoBehaviour:
     _nextNode: {fileID: 11400000, guid: 7fd85f0b0a7294d53a98547a633107fe, type: 2}
   - _optionText: ((i'm saving emily from the roaches... i'm joining the company))
     _nextNode: {fileID: 11400000, guid: f331dcfb376d14496af35a580a38bc11, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: b3062f071a3bd8b4fa99625ae1b71f2f, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'One: '
+    typewriterDuration: 0.466
+    delayAfterPhrase: 0.538
+    newLineAfterPhrase: 0
+  - phrase: 'Become the new Manager. '
+    typewriterDuration: 1.68
+    delayAfterPhrase: 0.556
+    newLineAfterPhrase: 1
+  - phrase: 'You alone will be free of Roaches, '
+    typewriterDuration: 2.149
+    delayAfterPhrase: 0.241
+    newLineAfterPhrase: 0
+  - phrase: 'for you will join the Company. '
+    typewriterDuration: 2.105
+    delayAfterPhrase: 0.521
+    newLineAfterPhrase: 0
+  - phrase: 'They will not bother you. '
+    typewriterDuration: 1.777
+    delayAfterPhrase: 0.792
+    newLineAfterPhrase: 1
+  - phrase: 'Be whatever kind of Manager you wish to be. '
+    typewriterDuration: 4.232
+    delayAfterPhrase: 0.494
+    newLineAfterPhrase: 0
+  - phrase: 'You need only follow one doctrine: '
+    typewriterDuration: 3.855
+    delayAfterPhrase: 0.551
+    newLineAfterPhrase: 0
+  - phrase: 'increase our Profits. '
+    typewriterDuration: 3.181
+    delayAfterPhrase: 0.573
+    newLineAfterPhrase: 0
+  - phrase: 'I believe you will do us well. '
+    typewriterDuration: 3.496
+    delayAfterPhrase: 1.098
+    newLineAfterPhrase: 1
+  - phrase: 'Two: '
+    typewriterDuration: 0.438
+    delayAfterPhrase: 0.661
+    newLineAfterPhrase: 0
+  - phrase: 'Go home with Emily. '
+    typewriterDuration: 2.954
+    delayAfterPhrase: 0.674
+    newLineAfterPhrase: 1
+  - phrase: <i>Endure the Roaches for the rest of your putrid life.
+    typewriterDuration: 9.767
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}

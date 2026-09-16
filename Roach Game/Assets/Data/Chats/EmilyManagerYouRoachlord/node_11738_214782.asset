@@ -20,4 +20,18 @@ MonoBehaviour:
   _lines:
   - I'll be waiting.
   _options: []
+  _roachLordVoiceClip: {fileID: 8300000, guid: ba8af638e5244384c9b43a5e6834eb8a, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 
+    typewriterDuration: 0.04
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: 'I''ll '
+    typewriterDuration: 0.269
+    delayAfterPhrase: 0.086
+    newLineAfterPhrase: 0
+  - phrase: be waiting.
+    typewriterDuration: 1.319
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}

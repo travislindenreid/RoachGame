@@ -26,4 +26,62 @@ MonoBehaviour:
   _options:
   - _optionText: ((he is right about zoom calls...))
     _nextNode: {fileID: 11400000, guid: a485888a9bdd64fd6a27fb5868e21bb1, type: 2}
+  _roachLordVoiceClip: {fileID: 8300000, guid: 72b0b0efcd8384145ab2a7fe594c9bc9, type: 3}
+  _roachLordPhraseTimings:
+  - phrase: 'Sad. '
+    typewriterDuration: 0.43
+    delayAfterPhrase: 0.572
+    newLineAfterPhrase: 0
+  - phrase: 'You would have been a great asset. '
+    typewriterDuration: 1.863
+    delayAfterPhrase: 0.662
+    newLineAfterPhrase: 1
+  - phrase: 'Or perhaps not, '
+    typewriterDuration: 1.305
+    delayAfterPhrase: 0.228
+    newLineAfterPhrase: 0
+  - phrase: 'since you are determined to live a life of laziness and filth. '
+    typewriterDuration: 4.463
+    delayAfterPhrase: 0.756
+    newLineAfterPhrase: 1
+  - phrase: We will meet again.
+    typewriterDuration: 1.638
+    delayAfterPhrase: 0.658
+    newLineAfterPhrase: 1
+  - phrase: At every interview
+    typewriterDuration: 2.172
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.598
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: performance review
+    typewriterDuration: 2.389
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: '... '
+    typewriterDuration: 0.591
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: between every line of every email
+    typewriterDuration: 3.951
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
+  - phrase: ...
+    typewriterDuration: 0.642
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 1
+  - phrase: And <i>especially</i> in Zoom webinars.
+    typewriterDuration: 4.681
+    delayAfterPhrase: 0.862
+    newLineAfterPhrase: 1
+  - phrase: 'One day your Spirit will break. '
+    typewriterDuration: 5.071
+    delayAfterPhrase: 0.648
+    newLineAfterPhrase: 0
+  - phrase: You will see.
+    typewriterDuration: 1.51
+    delayAfterPhrase: 0
+    newLineAfterPhrase: 0
   _Chat: {fileID: 11400000, guid: 2025bd727a99c4bcb9813a6193ee7f9a, type: 2}
