@@ -390,7 +390,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: temp_openVaultDoor
+    m_DisplayName: VaultDoor
   m_Markers:
     m_Objects: []
   m_TrackProperties:
@@ -409,8 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
   m_Name: AudioPlayableAsset
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.AudioPlayableAsset
-  m_Clip: {fileID: 8300000, guid: 932ccef334cc741f5bdfc41a9100d856, type: 3}
+  m_Clip: {fileID: 8300000, guid: 34dbc761fe9912c4183996d2ddeb5102, type: 3}
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 1
+    volume: 0.543
