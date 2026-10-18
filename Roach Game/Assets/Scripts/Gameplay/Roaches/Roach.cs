@@ -255,6 +255,7 @@ public partial class Roach : Attackable
         {
             _activeCinematic = _secondGunTimeline;
             _gunLevel = 2;
+            _gun = _level2Gun;
             EnterState(RoachStateType.Cinematic);
         }
         else
