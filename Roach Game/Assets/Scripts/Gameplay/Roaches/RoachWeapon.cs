@@ -69,8 +69,10 @@ public class RoachWeapon : MonoBehaviour
         _textTime = 0.0f;
         _bangText.SetActive(true);
 
-        _audioSource.PlayOneShot(_shootClip);
-        
+        // play on the persistent SFX source so the shot isn't cut off
+        // when this weapon gets deactivated
+        AudioController._Instance.PlaySfx(_shootClip);
+
         if(Player._Instance.DamageAndTryKill(_damage, true, _owner.transform.position))
         {
             _owner.KilledPlayer();

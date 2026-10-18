@@ -220,6 +220,13 @@ public class AudioController : MonoBehaviour
         _typewriterSource.Stop();
     }
 
+    // ------------------------------------------------------------------------
+    public void PlaySfx (AudioClip clip)
+    {
+        if(clip == null) return;
+        _sfxAudioSource.PlayOneShot(clip);
+    }
+
     private IEnumerator LerpPitchToTarget (float targetPitch, float duration)
     {
         float startPitch = _musicAudioSource.pitch;
