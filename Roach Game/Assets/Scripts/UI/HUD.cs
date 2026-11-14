@@ -24,6 +24,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private FadeUI _leftFadeUI;
     [SerializeField] private Image _rightHurtIndicator;
     [SerializeField] private FadeUI _rightFadeUI;
+    [SerializeField] private float _onScreenBorder = 0.1f;
 
     private HealthSegmentUI[] _healthSegments;
     private int _maxHealth;
@@ -112,21 +113,37 @@ public class HUD : MonoBehaviour
 
         if(hasAttacker)
         {
-            // convert attacker position to player's local space
-            // look at x position of attacker
-            Transform playerTrans = Player._Instance._CameraTransform;
-            Vector3 attackerPosLocal = playerTrans.InverseTransformPoint(attackerPosition);
-            bool isLeft = attackerPosLocal.x <= 0;
-            _leftHurtIndicator.enabled = isLeft;
-            _rightHurtIndicator.enabled = !isLeft;
+            Transform cameraTransform = Player._Instance._CameraTransform;
 
-            if(isLeft)
+            Vector3 screenPos = Camera.main.WorldToViewportPoint(attackerPosition);
+            Vector3 playerToAttacker = (attackerPosition - cameraTransform.position).normalized;
+            float dot = Vector3.Dot(playerToAttacker, cameraTransform.forward);
+            if(screenPos.x >= _onScreenBorder && screenPos.y >= _onScreenBorder && dot >= 0.0f)
             {
+                // attacker is on-screen
+                _leftHurtIndicator.enabled = true;
+                _rightHurtIndicator.enabled = true;
                 _leftFadeUI.StartFade();
+                _rightFadeUI.StartFade();
             }
             else
             {
-                _rightFadeUI.StartFade();
+                // attacker is off-screen
+                // convert attacker position to player's local space
+                // then compare x position of attacker
+                Vector3 attackerPosLocal = cameraTransform.InverseTransformPoint(attackerPosition);
+                bool isLeft = attackerPosLocal.x <= 0;
+                _leftHurtIndicator.enabled = isLeft;
+                _rightHurtIndicator.enabled = !isLeft;
+
+                if(isLeft)
+                {
+                    _leftFadeUI.StartFade();
+                }
+                else
+                {
+                    _rightFadeUI.StartFade();
+                }
             }
         }
 
