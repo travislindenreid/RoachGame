@@ -21,7 +21,9 @@ public class HUD : MonoBehaviour
     [SerializeField] private HealthSegmentUI _healthSegmentPrefab;
     [SerializeField] private TMP_Text _roachesText;
     [SerializeField] private Image _leftHurtIndicator;
+    [SerializeField] private FadeUI _leftFadeUI;
     [SerializeField] private Image _rightHurtIndicator;
+    [SerializeField] private FadeUI _rightFadeUI;
 
     private HealthSegmentUI[] _healthSegments;
     private int _maxHealth;
@@ -117,6 +119,15 @@ public class HUD : MonoBehaviour
             bool isLeft = attackerPosLocal.x <= 0;
             _leftHurtIndicator.enabled = isLeft;
             _rightHurtIndicator.enabled = !isLeft;
+
+            if(isLeft)
+            {
+                _leftFadeUI.StartFade();
+            }
+            else
+            {
+                _rightFadeUI.StartFade();
+            }
         }
 
         float health = Player._Instance._Health;
@@ -133,9 +144,12 @@ public class HUD : MonoBehaviour
             _healthSegments[lastActiveSegmentIndex - 1].SetColor(t);
         }
 
-        for(int i = lastActiveSegmentIndex; i < _healthSegments.Length; i++)
+        if(lastActiveSegmentIndex >= 0)
         {
-            _healthSegments[i].Hide();
-        }   
+            for(int i = lastActiveSegmentIndex; i < _healthSegments.Length; i++)
+            {
+                _healthSegments[i].Hide();
+            }      
+        }
     }
 }

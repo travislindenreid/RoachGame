@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 508696514867864279}
   - component: {fileID: 1463557945241845308}
   - component: {fileID: 1703269671812073863}
+  - component: {fileID: 6074426445042445156}
   m_Layer: 5
   m_Name: Image_HurtIndicator_Right
   m_TagString: Untagged
@@ -75,6 +76,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6074426445042445156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602631509960357959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305bb5acd9178fb469455bc393629e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeUI
+  _image: {fileID: 1703269671812073863}
+  _totalFadeTime: 2
 --- !u!1 &1003720510018451520
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +518,7 @@ GameObject:
   - component: {fileID: 7155248868544608350}
   - component: {fileID: 1799881585811923017}
   - component: {fileID: 2862876837805766897}
+  - component: {fileID: 6570075164782947743}
   m_Layer: 5
   m_Name: Image_HurtIndicator_Left
   m_TagString: Untagged
@@ -567,6 +583,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6570075164782947743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239985219827140995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305bb5acd9178fb469455bc393629e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeUI
+  _image: {fileID: 2862876837805766897}
+  _totalFadeTime: 2
 --- !u!1 &5491728137362650896
 GameObject:
   m_ObjectHideFlags: 0
