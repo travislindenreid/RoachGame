@@ -24,6 +24,8 @@ public class RoachWeapon : MonoBehaviour
 
     private float _textTime;
     private bool _skipReloadAudio;
+    private Vector3 _playerPos => Player._Instance._CameraPosition;
+    private Ray _roachToPlayer => new Ray(_pivot.position, _playerPos - _pivot.position);
 
     // ------------------------------------------------------------------------
     // Methods
@@ -60,22 +62,42 @@ public class RoachWeapon : MonoBehaviour
     // ------------------------------------------------------------------------
     public void PointAtPlayer ()
     {
-        _pivot.LookAt(Player._Instance._CameraPosition);
+        _pivot.LookAt(_playerPos);
     }
 
     // ------------------------------------------------------------------------
     public void Use ()
     {
-        _textTime = 0.0f;
-        _bangText.SetActive(true);
-
-        // play on the persistent SFX source so the shot isn't cut off
-        // when this weapon gets deactivated
-        AudioController._Instance.PlaySfx(_shootClip);
-
-        if(Player._Instance.DamageAndTryKill(_damage, true, _owner.transform.position))
+        RaycastHit hitInfo;
+        if(Physics.Raycast(_roachToPlayer, out hitInfo))
         {
-            _owner.KilledPlayer();
+            Debug.Log("hit " + hitInfo.collider.gameObject);
+            if(hitInfo.collider.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("hit player");
+                _textTime = 0.0f;
+                _bangText.SetActive(true);
+
+                // play on the persistent SFX source so the shot isn't cut off
+                // when this weapon gets deactivated
+                AudioController._Instance.PlaySfx(_shootClip);
+
+                if(Player._Instance.DamageAndTryKill(_damage, true, _owner.transform.position))
+                {
+                    _owner.KilledPlayer();
+                }
+            }
         }
+        else
+        {
+            Debug.Log("hit nothing");
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(_roachToPlayer);
     }
 }
