@@ -22,18 +22,6 @@ public class UIController : MonoBehaviour
     // ------------------------------------------------------------------------
     // Methods
     // ------------------------------------------------------------------------
-    private void Start()
-    {
-        EventBus._Instance.PlayerDied += HandlePlayerDied;
-    }
-
-    // ------------------------------------------------------------------------
-    private void OnDisable()
-    {
-        EventBus._Instance.PlayerDied -= HandlePlayerDied;
-    }
-
-    // ------------------------------------------------------------------------
     private void Update ()
     {
         if(Input.GetKeyDown(KeyCode.Escape) && GameController._Instance._GameStarted)
@@ -66,11 +54,5 @@ public class UIController : MonoBehaviour
     public void RestartActionSequence ()
     {
         SequenceController._Instance.RestartActionSequence();
-    }
-
-    // ------------------------------------------------------------------------
-    private void HandlePlayerDied ()
-    {
-        _gameOverScreen.SetActive(true);
     }
 }

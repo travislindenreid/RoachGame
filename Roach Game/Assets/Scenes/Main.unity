@@ -7828,6 +7828,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 952804068}
+  - {fileID: 1411297219}
   - {fileID: 1153537667}
   - {fileID: 1557905712}
   - {fileID: 1184930307}
@@ -8642,6 +8643,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2099857946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411297218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411297219}
+  - component: {fileID: 1411297220}
+  m_Layer: 0
+  m_Name: Seq_GameOver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411297219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411297218}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 67.72756, y: -27.728083, z: -81.986496}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1328488250}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411297220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411297218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25364fca4e324e0995e340fea7c1e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerClue: {fileID: 11400000, guid: 72ee31f8b330d431882520fe24c09403, type: 2}
+  _finishClue: {fileID: 0}
+  _gameStateType: 4
+  _objects:
+  - {fileID: 1446821155}
+  _disableObjectsAtEnd: 1
+  _removeRoachesInHandAtEnd: 1
+  _dialogueStartNode: {fileID: 0}
+  _endSequenceTarget: {fileID: 0}
+  _playerStartPos: {fileID: 0}
+  _cameraStartRot: {fileID: 0}
+  _onlySetPlayerLocOnRestart: 0
+  _music: {fileID: 0}
+  _audioType: 0
 --- !u!1 &1418482941
 GameObject:
   m_ObjectHideFlags: 0
@@ -8706,6 +8765,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+--- !u!1 &1446821155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 474366018321654540, guid: ea62b575372db415d960955832964cda, type: 3}
+  m_PrefabInstance: {fileID: 1741499437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1455876077
 GameObject:
   m_ObjectHideFlags: 0
@@ -10067,6 +10131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _openGameSequence: {fileID: 1387467748}
+  _playerDiedSequence: {fileID: 1411297220}
   _player: {fileID: 1466435970}
 --- !u!114 &1565540850
 MonoBehaviour:

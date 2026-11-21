@@ -25,12 +25,14 @@ public partial class SequenceController : MonoBehaviour
     // Variables
     // ------------------------------------------------------------------------
     [SerializeField] private Sequence _openGameSequence;
+    [SerializeField] private Sequence _playerDiedSequence;
     [SerializeField] private Player _player;
 
     private GameState _activeState;
 
     private Dictionary<ClueData, Sequence> _sequencesByClueUnlock;
     private Sequence _activeSequence;
+    private Sequence _lastSequence;
 
     // ------------------------------------------------------------------------
     // Properties
@@ -46,6 +48,7 @@ public partial class SequenceController : MonoBehaviour
             else if(_activeState is GameActionState) return GameStateType.Action;
             else if(_activeState is GameCinematicState) return GameStateType.Cinematic;
             else if(_activeState is GameDialogueState) return GameStateType.Dialogue;
+            else if(_activeState is GameMenuState) return GameStateType.Menu;
             return GameStateType.Invalid;
         }
     }
@@ -70,8 +73,16 @@ public partial class SequenceController : MonoBehaviour
         RefreshSequenceMap();
 
         EventBus._Instance.ClueUnlocked += HandleClueUnlocked;
+        EventBus._Instance.PlayerDied += HandlePlayerDied;
 
         ActivateSequence(_openGameSequence);
+    }
+
+    // ------------------------------------------------------------------------
+    private void OnDisable()
+    {
+        EventBus._Instance.ClueUnlocked -= HandleClueUnlocked;
+        EventBus._Instance.PlayerDied -= HandlePlayerDied;
     }
 
     // ------------------------------------------------------------------------
@@ -104,12 +115,20 @@ public partial class SequenceController : MonoBehaviour
     }
 
     // ------------------------------------------------------------------------
+    private void HandlePlayerDied ()
+    {
+        ActivateSequence(_playerDiedSequence);
+    }
+
+    // ------------------------------------------------------------------------
     private void ActivateSequence (Sequence sequence)
     {
-        EnterState(sequence._GameStateType);
+        Sequence temp = _activeSequence;
+        _lastSequence = temp;
         _activeSequence = sequence;
+        EnterState(sequence._GameStateType);
+        //Debug.LogFormat("old seq: {0}; NEW sequence: {1}", _lastSequence, _activeSequence);
         _activeSequence.StartSequence();
-        Debug.LogFormat("unlocked sequence: {0}", _activeSequence);
     }
 
     // ------------------------------------------------------------------------
@@ -159,11 +178,13 @@ public partial class SequenceController : MonoBehaviour
     // ------------------------------------------------------------------------
     public void RestartActionSequence ()
     {
-        if(_activeSequence == null || _activeSequence._GameStateType != GameStateType.Action)
+        if(_lastSequence == null || _lastSequence._GameStateType != GameStateType.Action)
         {
             Debug.LogError("No active sequence, or active sequence is not action.");
             return;
         }
+
+        ActivateSequence(_lastSequence);
 
         _activeSequence.RestartSequence();
         EventBus._Instance.InvokeSequenceStarted(_activeSequence);
