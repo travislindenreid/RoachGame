@@ -24,7 +24,8 @@ public class UIController : MonoBehaviour
     // ------------------------------------------------------------------------
     private void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && GameController._Instance._GameStarted)
+        if(Input.GetKeyDown(KeyCode.Escape) &&
+            SequenceController._Instance._ActiveStateType != GameStateType.Menu)
         {
             bool becomeActive = !_pauseOpen;
             _pauseMenu.SetActive(becomeActive);
